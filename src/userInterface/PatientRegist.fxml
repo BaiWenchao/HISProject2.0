@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.PatientRegist">
+   <children>
+      <RadioButton fx:id="getRecordNum" layoutX="24.0" layoutY="117.0" mnemonicParsing="false" onAction="#getRecordNum" text="获取病历号" />
+      <Label layoutX="54.0" layoutY="307.0" text="挂号科室" />
+      <Label layoutX="54.0" layoutY="233.0" text="看诊日期" />
+      <Label layoutX="54.0" layoutY="383.0" text="号别" />
+      <Label layoutX="54.0" layoutY="474.0" text="看诊医生" />
+      <RadioButton fx:id="needRecordBook" layoutX="24.0" layoutY="172.0" mnemonicParsing="false" text="需要病历本" />
+      <TextField fx:id="recordNum" layoutX="185.0" layoutY="112.0" />
+      <ChoiceBox fx:id="department" layoutX="185.0" layoutY="302.0" onMousePressed="#initDepartment" prefWidth="150.0" />
+      <ChoiceBox fx:id="doctor" layoutX="185.0" layoutY="469.0" onMousePressed="#initDoctor" prefWidth="150.0" />
+      <ChoiceBox fx:id="isExpert" layoutX="185.0" layoutY="378.0" onMousePressed="#initIsExpert" prefWidth="150.0" />
+      <DatePicker fx:id="date" layoutX="185.0" layoutY="228.0" />
+      <Label layoutX="191.0" layoutY="40.0" text="病案号：" AnchorPane.topAnchor="40.0" />
+      <Label layoutX="593.0" layoutY="40.0" text="患者姓名：" />
+      <Label layoutX="56.0" layoutY="566.0" text="支付方式" />
+      <ChoiceBox fx:id="wayToPay" layoutX="185.0" layoutY="561.0" onMousePressed="#initWayToPay" prefWidth="150.0" />
+      <Button fx:id="payOnline" layoutX="532.0" layoutY="561.0" mnemonicParsing="false" onAction="#turnToPayRegist" text="在线支付" />
+      <Label layoutX="23.0" layoutY="40.0" text="患者信息确认：" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="1372.0" AnchorPane.topAnchor="40.0" />
+      <Label fx:id="hosRecordNum" layoutX="282.0" layoutY="40.0" />
+      <Label fx:id="name" layoutX="691.0" layoutY="40.0" />
+   </children>
+</AnchorPane>

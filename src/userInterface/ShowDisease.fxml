@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.ShowDisease">
+   <children>
+      <VBox alignment="TOP_RIGHT" layoutX="297.0" layoutY="68.0" prefHeight="611.0" prefWidth="812.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TableView fx:id="table" prefHeight="308.0" prefWidth="800.0">
+              <columns>
+                <TableColumn fx:id="check" prefWidth="66.0" text="选择" />
+                <TableColumn fx:id="ideCode" prefWidth="385.0" text="IDE编码" />
+                  <TableColumn fx:id="name" prefWidth="360.0" text="名称" />
+              </columns>
+            </TableView>
+            <Pagination fx:id="myPagination" prefHeight="324.0" prefWidth="800.0" />
+            <Button fx:id="confirm" mnemonicParsing="false" onAction="#addDisease" text="确定" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

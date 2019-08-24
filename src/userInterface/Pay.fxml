@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.Pay">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="166.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../dataAccess/QRcode.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="83.0" layoutY="45.0" text="应收金额：" />
+      <Button fx:id="pay" layoutX="200.0" layoutY="293.0" mnemonicParsing="false" text="扫码支付" />
+      <Label fx:id="howMuch" layoutX="191.0" layoutY="45.0" />
+   </children>
+</AnchorPane>
