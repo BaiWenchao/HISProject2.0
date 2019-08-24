@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.PatientSignUp">
+   <children>
+      <Label layoutX="552.0" layoutY="64.0" text="请完善您的个人身份信息（带星号的内容选填）：" textFill="#3299cc" AnchorPane.leftAnchor="552.0" AnchorPane.topAnchor="64.0">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="290.0" layoutY="340.0" text="姓名：" />
+      <Label layoutX="290.0" layoutY="468.0" text="出生日期：" />
+      <Label layoutX="855.0" layoutY="340.0" text="性别：" />
+      <Label layoutX="855.0" layoutY="468.0" text="*家庭住址：" />
+      <Label layoutX="286.0" layoutY="614.0" text="*联系方式：" />
+      <Label layoutX="859.0" layoutY="614.0" text="*身份证号：" />
+      <Button fx:id="regist" layoutX="715.0" layoutY="703.0" mnemonicParsing="false" onAction="#regist" prefHeight="40.0" prefWidth="70.0" text="注册" AnchorPane.leftAnchor="715.0" />
+      <TextField fx:id="name" layoutX="398.0" layoutY="335.0" />
+      <TextField fx:id="homeAddress" layoutX="956.0" layoutY="463.0" />
+      <TextField fx:id="phoneNum" layoutX="398.0" layoutY="609.0" />
+      <TextField fx:id="IDNum" layoutX="956.0" layoutY="609.0" />
+      <DatePicker fx:id="birthday" layoutX="398.0" layoutY="463.0" />
+      <ChoiceBox fx:id="gender" layoutX="956.0" layoutY="335.0" onMousePressed="#initGender" prefWidth="150.0" />
+      <TextField fx:id="hosRecordNum" layoutX="398.0" layoutY="195.0" />
+      <Label layoutX="635.0" layoutY="200.0" text="(请保存好自己的病案号)" />
+      <RadioButton fx:id="getHosRecordNum" layoutX="262.0" layoutY="200.0" mnemonicParsing="false" onAction="#getHosRecordNum" text="获取病案号" />
+   </children>
+</AnchorPane>

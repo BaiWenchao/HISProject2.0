@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.MedicineDetail">
+   <children>
+      <Label layoutX="363.0" layoutY="30.0" text="药品编辑：" />
+      <Label layoutX="181.0" layoutY="87.0" text="药品名称：" />
+      <Label layoutX="181.0" layoutY="146.0" text="药品剂型及规格：" />
+      <Label layoutX="181.0" layoutY="203.0" text="药品用法：" />
+      <Label layoutX="181.0" layoutY="265.0" text="药品用量：" />
+      <Label layoutX="181.0" layoutY="322.0" text="药品使用频次：" />
+      <Label layoutX="181.0" layoutY="384.0" text="药品单价:" />
+      <Label layoutX="181.0" layoutY="441.0" text="开药数量：" />
+      <TextField fx:id="medName" layoutX="350.0" layoutY="82.0" prefHeight="30.0" prefWidth="355.0" />
+      <TextField fx:id="medSpec" layoutX="350.0" layoutY="141.0" prefHeight="30.0" prefWidth="355.0" />
+      <TextField fx:id="medUse" layoutX="350.0" layoutY="198.0" prefHeight="30.0" prefWidth="355.0" />
+      <TextField fx:id="medAmount" layoutX="350.0" layoutY="260.0" prefHeight="30.0" prefWidth="355.0" />
+      <TextField fx:id="medTime" layoutX="350.0" layoutY="317.0" prefHeight="30.0" prefWidth="355.0" />
+      <TextField fx:id="medPrice" layoutX="350.0" layoutY="379.0" prefHeight="30.0" prefWidth="355.0" />
+      <TextField fx:id="medNum" layoutX="350.0" layoutY="436.0" prefHeight="30.0" prefWidth="355.0" />
+      <Button fx:id="confirm" layoutX="366.0" layoutY="523.0" mnemonicParsing="false" onAction="#submit" text="确认提交" />
+   </children>
+</AnchorPane>

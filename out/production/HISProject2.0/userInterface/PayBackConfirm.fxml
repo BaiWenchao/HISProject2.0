@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.PayBackConfirm">
+   <children>
+      <Label layoutX="348.0" layoutY="35.0" text="退费信息确认：" />
+      <Label layoutX="56.0" layoutY="74.0" text="退费项目：" />
+      <Label layoutX="56.0" layoutY="409.0" text="退费总金额：" />
+      <TableView fx:id="prjTable" layoutX="139.0" layoutY="102.0" prefHeight="242.0" prefWidth="566.0">
+        <columns>
+          <TableColumn fx:id="prjName" prefWidth="75.0" text="项目名称" />
+          <TableColumn fx:id="prjNum" prefWidth="75.0" text="项目数量" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Label fx:id="totalPrice" layoutX="193.0" layoutY="409.0" text="Label" />
+      <Button fx:id="confirm" layoutX="636.0" layoutY="404.0" mnemonicParsing="false" text="确认退款" />
+   </children>
+</AnchorPane>

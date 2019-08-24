@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.AddPrescription">
+   <children>
+      <Label layoutX="68.0" layoutY="180.0" text="请输入处方名称：" />
+      <TextField fx:id="prescriptionName" layoutX="231.0" layoutY="175.0" />
+      <Button fx:id="confirm" layoutX="504.0" layoutY="175.0" mnemonicParsing="false" text="确定" />
+   </children>
+</AnchorPane>

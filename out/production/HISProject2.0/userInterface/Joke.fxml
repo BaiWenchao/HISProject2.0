@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.Joke">
+   <children>
+      <Label layoutX="44.0" layoutY="48.0" text="给您几点建议：" />
+      <Label layoutX="44.0" layoutY="93.0" text="1.多试几次（反正没有次数限制）" />
+      <Label layoutX="44.0" layoutY="137.0" text="2.前去脑科检查一下智力状况（回去多吃点核桃补补脑）" />
+      <Label layoutX="44.0" layoutY="180.0" text="3.东北大学软英1802班有一位不愿透露姓名的同学知道密码（价格面谈）" />
+      <Label layoutX="44.0" layoutY="239.0" text="衷心祝您早日找回密码！" />
+   </children>
+</AnchorPane>

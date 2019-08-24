@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.DoctorRoot">
+   <children>
+      <Label layoutX="14.0" layoutY="20.0" text="妙手回春只是我的常规操作，处事低调是我不变的修养" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="1071.0" layoutY="65.0" text="医师姓名：" />
+      <Label fx:id="doctorName" layoutX="1179.0" layoutY="65.0" />
+      <Label layoutX="7.0" layoutY="65.0" text="未诊患者：" />
+      <TableView fx:id="futureTable" layoutY="94.0" prefHeight="370.0" prefWidth="300.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
+        <columns>
+          <TableColumn fx:id="futureNum" prefWidth="75.0" text="病案号" />
+          <TableColumn fx:id="futureName" prefWidth="75.0" text="姓名" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Label layoutX="7.0" layoutY="485.0" text="已诊患者：" />
+      <TableView fx:id="pastTable" layoutY="516.0" prefHeight="370.0" prefWidth="300.0" AnchorPane.leftAnchor="0.0">
+        <columns>
+          <TableColumn fx:id="pastNum" prefWidth="75.0" text="病案号" />
+          <TableColumn fx:id="pastName" prefWidth="75.0" text="姓名" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <TabPane layoutX="300.0" layoutY="95.0" prefHeight="850.0" prefWidth="999.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+        <tabs>
+          <Tab fx:id="diagnosis" text="诊断" />
+          <Tab fx:id="medicine" text="开方" />
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
