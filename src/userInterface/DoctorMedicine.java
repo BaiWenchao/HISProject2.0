@@ -143,9 +143,13 @@ public class DoctorMedicine {
         prescriptionNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         prescriptionTable.getSelectionModel().selectedItemProperty().addListener(
                 ((observable, oldValue, newValue) -> {
-                    prescriptionNameLabel.setText(newValue.getName());
-                    medicines.clear();
-                    medicines.addAll(newValue.getMedicineList());
+                    try{
+                        prescriptionNameLabel.setText(newValue.getName());
+                        medicines.clear();
+                        medicines.addAll(newValue.getMedicineList());
+                    }catch(NullPointerException e){
+
+                    }
                 })
         );
 
