@@ -66,30 +66,37 @@ public class PatientBackRegist {
     private void showData(){
         for(Patient p : hospital.getPatientList()){
             if(p.getHosRecordNum().equals(patientHosRecordNum)){
-                recordNum.setText(p.getPatientDataList().get(p.getPatientDataList().size()-1).getRegist().getRecordNum());
-                date.setText(p.getPatientDataList().get(p.getPatientDataList().size()-1).getRegist().getDate());
-                department.setText(p.getPatientDataList().get(p.getPatientDataList().size()-1).getRegist().getDepartment());
-                isExpert.setText(p.getPatientDataList().get(p.getPatientDataList().size()-1).getRegist().getIsExpert());
-                doctor.setText(p.getPatientDataList().get(p.getPatientDataList().size()-1).getRegist().getDoctor());
-                if(p.getPatientDataList().get(p.getPatientDataList().size()-1).getRegist().isNeedRecordBook()){
-                    needBook.setText("有");
-                }else{
-                    needBook.setText("无");
-                }
+                if(!p.getPatientDataList().get(p.getPatientDataList().size()-1).isHasBackRegist()){
+                    recordNum.setText(p.getPatientDataList().get(p.getPatientDataList().size()-1).getRegist().getRecordNum());
+                    date.setText(p.getPatientDataList().get(p.getPatientDataList().size()-1).getRegist().getDate());
+                    department.setText(p.getPatientDataList().get(p.getPatientDataList().size()-1).getRegist().getDepartment());
+                    isExpert.setText(p.getPatientDataList().get(p.getPatientDataList().size()-1).getRegist().getIsExpert());
+                    doctor.setText(p.getPatientDataList().get(p.getPatientDataList().size()-1).getRegist().getDoctor());
+                    if(p.getPatientDataList().get(p.getPatientDataList().size()-1).getRegist().isNeedRecordBook()){
+                        needBook.setText("有");
+                    }else{
+                        needBook.setText("无");
+                    }
 
-                //计算金额
-                boolean book = p.getPatientDataList().get(p.getPatientDataList().size()-1).getRegist().isNeedRecordBook();
-                String haobie = p.getPatientDataList().get(p.getPatientDataList().size()-1).getRegist().getIsExpert();
-                totalFee.setText(calculate.registCalculate(book,haobie));
+                    //计算金额
+                    boolean book = p.getPatientDataList().get(p.getPatientDataList().size()-1).getRegist().isNeedRecordBook();
+                    String haobie = p.getPatientDataList().get(p.getPatientDataList().size()-1).getRegist().getIsExpert();
+                    totalFee.setText(calculate.registCalculate(book,haobie));
+                }else{
+                    util.errorInformationAlert("您已退过号了！");
+                }
             }
         }
     }
 
     @FXML
     private void submit(){
-        //从医师的未诊患者列表中移除
+        //从医师的未诊患者列表中移除,并在该患者信息中改为已退号
         for(Patient p : hospital.getPatientList()){
             if(p.getHosRecordNum().equals(patientHosRecordNum)){
+                //改为已退号
+                p.getPatientDataList().get(p.getPatientDataList().size()-1).setHasBackRegist(true);
+
                 String docName = p.getPatientDataList().get(p.getPatientDataList().size()-1).getRegist().getDoctor();
                 for(Doctor d : hospital.getDoctorList()){
                     if(d.getName().equals(docName)){

@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de6c7e07-0ffc-4870-9110-b4b64f45e9ae" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dataAccess/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataAccess/ReadFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dataAccess/WriteFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataAccess/WriteFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Hospital.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Hospital.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Medicine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Medicine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Pharmacy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Pharmacy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterface/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterface/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataAccess/Drug.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataAccess/Drug.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/PatientData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/PatientData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterface/DoctorMedicine.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterface/DoctorMedicine.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterface/PatientBackRegist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterface/PatientBackRegist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterface/PatientBackRegist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterface/PatientBackRegist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterface/PatientPay.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterface/PatientPay.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userInterface/PatientPay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterface/PatientPay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterface/PatientPayBack.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterface/PatientPayBack.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterface/PayBackConfirm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterface/PayBackConfirm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterface/PharmacyDistribute.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterface/PharmacyDistribute.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,7 +30,24 @@
         <entry file="file://$PROJECT_DIR$/out/production/HISProject2.0/dataAccess/PatientList.data">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="84" selection-start-column="72" selection-end-column="84" />
+              <caret column="481" selection-start-column="469" selection-end-column="481" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/out/production/HISProject2.0/dataAccess/DoctorList.data">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/userInterface/PatientPay.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1140">
+              <caret line="147" column="49" lean-forward="true" selection-start-line="147" selection-start-column="49" selection-end-line="147" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -35,44 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/out/production/HISProject2.0/dataAccess/Drug.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/userInterface/PatientPay.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2546">
-              <caret line="134" column="94" selection-start-line="134" selection-start-column="94" selection-end-line="134" selection-end-column="94" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dataAccess/WriteFile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="82">
-              <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entity/Pharmacy.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state>
+              <caret column="21" selection-start-column="21" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -86,16 +70,20 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/out/production/HISProject2.0/dataAccess/PrescriptionList.data" />
-        <option value="$PROJECT_DIR$/out/production/HISProject2.0/dataAccess/PatientList.data" />
-        <option value="$PROJECT_DIR$/out/production/HISProject2.0/dataAccess/DoctorList.data" />
         <option value="$PROJECT_DIR$/src/userInterface/DoctorMedicine.java" />
         <option value="$PROJECT_DIR$/src/entity/Hospital.java" />
         <option value="$PROJECT_DIR$/src/entity/Medicine.java" />
         <option value="$PROJECT_DIR$/src/userInterface/Main.java" />
         <option value="$PROJECT_DIR$/src/dataAccess/ReadFile.java" />
-        <option value="$PROJECT_DIR$/out/production/HISProject2.0/dataAccess/Drug.txt" />
         <option value="$PROJECT_DIR$/src/dataAccess/WriteFile.java" />
         <option value="$PROJECT_DIR$/src/entity/Pharmacy.java" />
+        <option value="$PROJECT_DIR$/src/dataAccess/Drug.txt" />
+        <option value="$PROJECT_DIR$/src/entity/PatientData.java" />
+        <option value="$PROJECT_DIR$/out/production/HISProject2.0/dataAccess/PatientList.data" />
+        <option value="$PROJECT_DIR$/out/production/HISProject2.0/dataAccess/DoctorList.data" />
+        <option value="$PROJECT_DIR$/src/userInterface/PatientBackRegist.java" />
+        <option value="$PROJECT_DIR$/out/production/HISProject2.0/dataAccess/Drug.txt" />
+        <option value="$PROJECT_DIR$/src/logic/Util.java" />
         <option value="$PROJECT_DIR$/src/userInterface/PatientPay.java" />
       </list>
     </option>
@@ -113,6 +101,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -167,13 +156,18 @@
               <item name="HISProject2.0" type="b2602c69:ProjectViewProjectNode" />
               <item name="HISProject2.0" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="logic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HISProject2.0" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HISProject2.0" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="userInterface" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -234,16 +228,17 @@
       <workItem from="1566701135232" duration="1203000" />
       <workItem from="1566792021348" duration="41000" />
       <workItem from="1566886726322" duration="6378000" />
+      <workItem from="1566893321869" duration="2960000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8789000" />
+    <option name="totallyTimeSpent" value="11749000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25938338" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24128686" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -325,13 +320,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/HISProject2.0/dataAccess/DoctorList.data">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="452" selection-start-column="452" selection-end-column="452" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/entity/Hospital.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -379,9 +367,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/dataAccess/WriteFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="74" selection-start-line="74" selection-end-line="74" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/entity/Pharmacy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
+        <state relative-caret-position="342">
           <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -389,34 +387,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataAccess/WriteFile.java">
+    <entry file="file://$PROJECT_DIR$/src/dataAccess/Drug.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+        <state relative-caret-position="228">
+          <caret line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity/Patient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity/PatientData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1107#1108#0" expanded="true" />
+            <element signature="e#1136#1137#0" expanded="true" />
+            <element signature="e#1181#1182#0" expanded="true" />
+            <element signature="e#1217#1218#0" expanded="true" />
+            <element signature="e#1300#1301#0" expanded="true" />
+            <element signature="e#1336#1337#0" expanded="true" />
+            <element signature="e#1395#1396#0" expanded="true" />
+            <element signature="e#1445#1446#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/userInterface/PatientBackRegist.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="85" column="58" selection-start-line="85" selection-start-column="58" selection-end-line="85" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/HISProject2.0/dataAccess/DoctorList.data">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/HISProject2.0/dataAccess/PatientList.data">
+    <entry file="file://$PROJECT_DIR$/src/userInterface/AddPrescription.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="84" selection-start-column="72" selection-end-column="84" />
+        <state relative-caret-position="38">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/userInterface/DoctorDiagnosis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-133">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/out/production/HISProject2.0/dataAccess/Drug.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        <state>
+          <caret column="21" selection-start-column="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/HISProject2.0/dataAccess/PatientList.data">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="481" selection-start-column="469" selection-end-column="481" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/userInterface/PatientPay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2546">
-          <caret line="134" column="94" selection-start-line="134" selection-start-column="94" selection-end-line="134" selection-end-column="94" />
+        <state relative-caret-position="1140">
+          <caret line="147" column="49" lean-forward="true" selection-start-line="147" selection-start-column="49" selection-end-line="147" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

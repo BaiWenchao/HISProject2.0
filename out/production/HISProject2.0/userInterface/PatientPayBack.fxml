@@ -6,14 +6,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.PatientPayBack">
    <children>
       <Label layoutX="29.0" layoutY="38.0" text="患者信息确认：" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="40.0" />
       <Label layoutX="215.0" layoutY="40.0" text="病案号：" />
-      <Label fx:id="hosRecordNum" layoutX="293.0" layoutY="40.0" text="Label" />
+      <Label fx:id="hosRecordNum" layoutX="293.0" layoutY="40.0" />
       <Label layoutX="522.0" layoutY="40.0" text="姓名：" />
-      <Label fx:id="name" layoutX="592.0" layoutY="40.0" text="Label" />
+      <Label fx:id="name" layoutX="592.0" layoutY="40.0" />
       <Label layoutX="23.0" layoutY="114.0" text="请选择退费项目：" />
       <TableView fx:id="payBackTable" layoutX="158.0" layoutY="156.0" prefHeight="532.0" prefWidth="756.0">
         <columns>

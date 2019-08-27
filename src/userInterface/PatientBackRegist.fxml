@@ -6,14 +6,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.PatientBackRegist">
    <children>
       <Label layoutX="49.0" layoutY="43.0" text="患者信息确认：" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="40.0" />
       <Label layoutX="279.0" layoutY="40.0" text="病案号：" />
-      <Label fx:id="hosRecordNum" layoutX="339.0" layoutY="40.0" text="Label" />
+      <Label fx:id="hosRecordNum" layoutX="339.0" layoutY="40.0" />
       <Label layoutX="557.0" layoutY="40.0" text="姓名：" />
-      <Label fx:id="name" layoutX="609.0" layoutY="40.0" text="Label" />
+      <Label fx:id="name" layoutX="609.0" layoutY="40.0" />
       <Label layoutX="23.0" layoutY="104.0" text="患者挂号信息一览：" />
       <Button fx:id="confirm" layoutX="549.0" layoutY="631.0" mnemonicParsing="false" onAction="#submit" text="确认退号" />
       <Label layoutX="158.0" layoutY="636.0" text="总计金额：" />
@@ -36,15 +35,15 @@
             <Label text="号别：" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <Label text="看诊医生：" GridPane.rowIndex="2" />
             <Label text="有无病历本" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Label fx:id="recordNum" text="Label" GridPane.columnIndex="1" />
-            <Label fx:id="department" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="doctor" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label fx:id="date" text="Label" GridPane.columnIndex="3" />
-            <Label fx:id="isExpert" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Label fx:id="needBook" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Label fx:id="recordNum" GridPane.columnIndex="1" />
+            <Label fx:id="department" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="doctor" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="date" GridPane.columnIndex="3" />
+            <Label fx:id="isExpert" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label fx:id="needBook" GridPane.columnIndex="3" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <Label fx:id="totalFee" layoutX="270.0" layoutY="636.0" text="Label" />
+      <Label fx:id="totalFee" layoutX="270.0" layoutY="636.0" />
       <Button fx:id="fresh" layoutX="786.0" layoutY="35.0" mnemonicParsing="false" onAction="#showData" text="刷新" />
    </children>
 </AnchorPane>

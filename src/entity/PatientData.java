@@ -8,6 +8,8 @@ public class PatientData {
     private Diagnosis diagnosis = new Diagnosis();
     private List<Prescription> prescriptionList = new ArrayList<>();
     private boolean getMedicine = false;
+    private boolean hasPay = false;
+    private boolean hasBackRegist = false;
 
     public PatientData() {
     }
@@ -42,6 +44,22 @@ public class PatientData {
 
     public void setGetMedicine(boolean getMedicine) {
         this.getMedicine = getMedicine;
+    }
+
+    public boolean isHasPay() {
+        return hasPay;
+    }
+
+    public void setHasPay(boolean hasPay) {
+        this.hasPay = hasPay;
+    }
+
+    public boolean isHasBackRegist() {
+        return hasBackRegist;
+    }
+
+    public void setHasBackRegist(boolean hasBackRegist) {
+        this.hasBackRegist = hasBackRegist;
     }
 }
 

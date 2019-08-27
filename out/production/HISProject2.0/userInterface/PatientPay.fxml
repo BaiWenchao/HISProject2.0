@@ -6,14 +6,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.PatientPay">
    <children>
       <Label layoutX="42.0" layoutY="40.0" text="患者信息确认：" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="40.0" />
       <Label layoutX="242.0" layoutY="40.0" text="病案号：" />
-      <Label fx:id="hosRecordNum" layoutX="314.0" layoutY="40.0" text="Label" />
+      <Label fx:id="hosRecordNum" layoutX="314.0" layoutY="40.0" />
       <Label layoutX="520.0" layoutY="40.0" text="姓名：" />
-      <Label fx:id="name" layoutX="573.0" layoutY="40.0" text="Label" />
+      <Label fx:id="name" layoutX="573.0" layoutY="40.0" />
       <Label layoutX="23.0" layoutY="105.0" text="患者消费信息：" />
       <TableView fx:id="projectTable" layoutX="164.0" layoutY="115.0" prefHeight="274.0" prefWidth="577.0">
         <columns>
@@ -26,7 +25,7 @@
          </columnResizePolicy>
       </TableView>
       <Label layoutX="128.0" layoutY="450.0" text="合计：" />
-      <Label fx:id="totalFee" layoutX="193.0" layoutY="450.0" text="Label" />
+      <Label fx:id="totalFee" layoutX="193.0" layoutY="450.0" />
       <Button fx:id="submit" layoutX="785.0" layoutY="445.0" mnemonicParsing="false" onAction="#pay" text="支付" />
       <Label layoutX="385.0" layoutY="450.0" text="支付方式：" />
       <ChoiceBox fx:id="wayToPay" layoutX="484.0" layoutY="445.0" onMousePressed="#initWayToPay" prefWidth="150.0" />

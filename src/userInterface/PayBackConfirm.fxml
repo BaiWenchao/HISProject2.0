@@ -6,7 +6,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.PayBackConfirm">
    <children>
       <Label layoutX="348.0" layoutY="35.0" text="退费信息确认：" />
@@ -21,7 +20,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Label fx:id="totalPrice" layoutX="193.0" layoutY="409.0" text="Label" />
+      <Label fx:id="totalPrice" layoutX="193.0" layoutY="409.0" />
       <Button fx:id="confirm" layoutX="636.0" layoutY="404.0" mnemonicParsing="false" text="确认退款" />
    </children>
 </AnchorPane>

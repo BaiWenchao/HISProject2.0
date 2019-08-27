@@ -29,6 +29,9 @@ public class PatientPay {
     //创建Util单例
     Util util = Util.getInstance();
 
+    //创建药品列表
+    public ObservableList<Medicine> medicineObservableList = FXCollections.observableArrayList();
+
     @FXML
     private Button submit;
 
@@ -69,14 +72,17 @@ public class PatientPay {
 
     @FXML
     private void showData(){
-        ObservableList<Medicine> medicineObservableList = FXCollections.observableArrayList();
 
         for(Patient p : hospital.getPatientList()){
             if(p.getHosRecordNum().equals(patientHosRecordNum)){
-                for(Prescription item : p.getPatientDataList().get(p.getPatientDataList().size()-1).getPrescriptionList()){
-                    for(Medicine m : item.getMedicineList()){
-                        medicineObservableList.add(m);
+                if(!p.getPatientDataList().get(p.getPatientDataList().size()-1).isHasPay()){
+                    for(Prescription item : p.getPatientDataList().get(p.getPatientDataList().size()-1).getPrescriptionList()){
+                        for(Medicine m : item.getMedicineList()){
+                            medicineObservableList.add(m);
+                        }
                     }
+                }else{
+                    util.errorInformationAlert("您已缴过费了！");
                 }
             }
         }
@@ -108,6 +114,13 @@ public class PatientPay {
 
     @FXML
     private void pay() throws IOException {
+        //把该患者hasPay设为true
+        for(Patient p : hospital.getPatientList()){
+            if(p.getHosRecordNum().equals(patientHosRecordNum)){
+                p.getPatientDataList().get(p.getPatientDataList().size()-1).setHasPay(true);
+            }
+        }
+
         //打开支付界面
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("Pay.fxml"));
@@ -117,30 +130,29 @@ public class PatientPay {
         show.turnToStage(pay,500,400);
 
         payController.pay.setOnAction((ActionEvent e) -> {
+
             //在药房中更新药品储量
             Set<Map.Entry<Medicine, String>> entries = pharmacy.getMedicineStringMap().entrySet();
             int tempNum = 0;
             int num = 0;
             int inputNum;
             int lastIndex;
-            for(Patient p : hospital.getPatientList()){
-                if(p.getHosRecordNum().equals(patientHosRecordNum)){
-                    for(Prescription item : p.getPatientDataList().get(p.getPatientDataList().size()-1).getPrescriptionList()){
-                        for(Medicine m : item.getMedicineList()){
-                           for(Map.Entry<Medicine, String> entry : entries){
-                               if(entry.getKey().getMed_name().equals(m.getMed_name())){
-                                   //重新设置该药品的储量
-                                   tempNum = Integer.parseInt(entry.getValue());
-                                   lastIndex = m.getMed_num().length() - 1;
-                                   num = Integer.parseInt(m.getMed_num().substring(0,lastIndex));
-                                   inputNum = tempNum - num;
-                                   entry.setValue(String.valueOf(inputNum));
-                               }
-                           }
-                        }
+
+            for(Medicine m : medicineObservableList){
+                for(Map.Entry<Medicine, String> entry : entries){
+                    if(entry.getKey().getMed_name().equals(m.getMed_name())){
+                        //重新设置该药品的储量
+                        tempNum = Integer.parseInt(entry.getValue());
+                        lastIndex = m.getMed_num().length() - 1;
+                        num = Integer.parseInt(m.getMed_num().substring(0,lastIndex));
+                        inputNum = tempNum - num;
+                        entry.setValue(String.valueOf(inputNum));
                     }
                 }
             }
+
+            //将药品列表清空
+            medicineObservableList.clear();
 
             //将该患者从医生已诊患者列表中拿出
             for(Patient p : hospital.getPatientList()){
