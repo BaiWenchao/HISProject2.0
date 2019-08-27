@@ -73,4 +73,12 @@ public class Hospital {
     public void setPrescriptionTemplateList(List<Prescription> prescriptionTemplateList) {
         this.prescriptionTemplateList = prescriptionTemplateList;
     }
+
+    public Pharmacy getPharmacy() {
+        return pharmacy;
+    }
+
+    public void setPharmacy(Pharmacy pharmacy) {
+        this.pharmacy = pharmacy;
+    }
 }

@@ -3,12 +3,16 @@ package dataAccess;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import entity.Hospital;
+import entity.Medicine;
 import entity.Patient;
+import entity.Pharmacy;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Map;
+import java.util.Set;
 
 import static userInterface.DoctorMedicine.prescriptionObservableList;
 
@@ -25,6 +29,8 @@ public class WriteFile {
 
     //创建医院单例
     Hospital hospital = Hospital.getInstance();
+    //创建药房单例
+    Pharmacy pharmacy = Pharmacy.getInstance();
 
     //将医院的病人列表写入文件
     public void writePatientList(){
@@ -40,6 +46,7 @@ public class WriteFile {
         }
     }
 
+    //将医生信息写入文件
     public void writeDoctorList(){
         //将列表转化为字符串
         String str = JSON.toJSONString(hospital.getDoctorList());
@@ -50,6 +57,32 @@ public class WriteFile {
             bfw.write(str);
         }catch (IOException e){
             e.printStackTrace();
+        }
+    }
+
+    //将药品信息写入文件
+    public void writeMedicine(){
+        File f = new File(getClass().getResource("Drug.txt").getPath());
+        //清空上回内容
+        try(FileWriter writer = new FileWriter(f)){
+            writer.write("");
+            writer.flush();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+        String str;
+
+        Set<Map.Entry<Medicine,String>> entries = pharmacy.getMedicineStringMap().entrySet();
+        for(Map.Entry<Medicine,String> entry : entries){
+            str = entry.getKey().toString() + entry.getValue();
+            try(FileWriter fw = new FileWriter(f,true);
+                BufferedWriter bfw = new BufferedWriter(fw)){
+                bfw.write(str);
+                bfw.newLine();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
         }
     }
 

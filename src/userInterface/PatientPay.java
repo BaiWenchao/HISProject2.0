@@ -12,6 +12,8 @@ import logic.Show;
 import logic.Util;
 
 import java.io.IOException;
+import java.util.Map;
+import java.util.Set;
 
 import static userInterface.PatientLogin.patientHosRecordNum;
 import static userInterface.PatientLogin.patientName;
@@ -20,6 +22,8 @@ public class PatientPay {
 
     //创建医院单例
     Hospital hospital = Hospital.getInstance();
+    //创建药房单例
+    Pharmacy pharmacy = Pharmacy.getInstance();
     //创建Show单例
     Show show = Show.getInstance();
     //创建Util单例
@@ -113,6 +117,31 @@ public class PatientPay {
         show.turnToStage(pay,500,400);
 
         payController.pay.setOnAction((ActionEvent e) -> {
+            //在药房中更新药品储量
+            Set<Map.Entry<Medicine, String>> entries = pharmacy.getMedicineStringMap().entrySet();
+            int tempNum = 0;
+            int num = 0;
+            int inputNum;
+            int lastIndex;
+            for(Patient p : hospital.getPatientList()){
+                if(p.getHosRecordNum().equals(patientHosRecordNum)){
+                    for(Prescription item : p.getPatientDataList().get(p.getPatientDataList().size()-1).getPrescriptionList()){
+                        for(Medicine m : item.getMedicineList()){
+                           for(Map.Entry<Medicine, String> entry : entries){
+                               if(entry.getKey().getMed_name().equals(m.getMed_name())){
+                                   //重新设置该药品的储量
+                                   tempNum = Integer.parseInt(entry.getValue());
+                                   lastIndex = m.getMed_num().length() - 1;
+                                   num = Integer.parseInt(m.getMed_num().substring(0,lastIndex));
+                                   inputNum = tempNum - num;
+                                   entry.setValue(String.valueOf(inputNum));
+                               }
+                           }
+                        }
+                    }
+                }
+            }
+
             //将该患者从医生已诊患者列表中拿出
             for(Patient p : hospital.getPatientList()){
                 if(p.getHosRecordNum().equals(hosRecordNum.getText())){

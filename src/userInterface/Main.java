@@ -46,6 +46,8 @@ public class Main extends Application {
         read.readDissaseFile();
         //读取药品信息
         read.readDrugFile();
+        //将药品信息读入药房
+        read.readMedicineInPharmacy();
         //读取处方模板
         try{
             hospital.getPrescriptionTemplateList().clear();
@@ -77,6 +79,7 @@ public class Main extends Application {
         write.writePatientList();
         //将医生信息写入文件
         write.writeDoctorList();
-
+        //写入药品信息
+        write.writeMedicine();
     }
 }

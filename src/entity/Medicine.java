@@ -120,4 +120,9 @@ public class Medicine {
     public MyCheckBox getMyCheckBox() {
         return myCheckBox;
     }
+
+    @Override
+    public String toString() {
+        return this.getMed_name() + "," + this.getMed_spec() + "," + this.getMed_price() + ',';
+    }
 }

@@ -103,6 +103,27 @@ public class ReadFile {
         }
     }
 
+    //将药品信息读入药房
+    public void readMedicineInPharmacy(){
+        BufferedReader reader;
+        {
+            try {
+                reader = new BufferedReader(new FileReader(getClass().getResource("Drug.txt").getPath()));
+                String line = reader.readLine();
+                while(line != null){
+                    String[] str = line.split(",");
+                    hospital.getPharmacy().getMedicineStringMap().put(new Medicine(str[0], str[1], str[2]), str[3]);
+                    line = reader.readLine();
+                }
+                reader.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     //读取处方模板
     public List<Prescription> readPrescriptionTempLate(){
         File f = new File(getClass().getResource("PrescriptionList.data").getPath());
