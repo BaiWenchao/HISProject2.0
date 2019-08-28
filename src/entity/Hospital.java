@@ -1,6 +1,5 @@
 package entity;
 
-import javax.print.Doc;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class Hospital {
 
     private List<Patient> patientList = new ArrayList<>();
     private List<Doctor> doctorList = new ArrayList<>();
-    private List<String> departmentList = new ArrayList<>();
+    private List<Department> departmentList = new ArrayList<>();
     private List<Disease> diseaseList = new ArrayList<>();
     private List<Medicine> medicineList = new ArrayList<>();
     public List<Prescription> prescriptionTemplateList = new ArrayList<>();
@@ -42,11 +41,11 @@ public class Hospital {
         this.doctorList = doctorList;
     }
 
-    public List<String> getDepartmentList() {
+    public List<Department> getDepartmentList() {
         return departmentList;
     }
 
-    public void setDepartmentList(List<String> departmentList) {
+    public void setDepartmentList(List<Department> departmentList) {
         this.departmentList = departmentList;
     }
 

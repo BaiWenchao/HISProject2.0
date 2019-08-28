@@ -1,5 +1,6 @@
 package userInterface;
 
+import entity.Department;
 import entity.Doctor;
 import entity.Hospital;
 import javafx.collections.FXCollections;
@@ -79,7 +80,11 @@ public class PatientRegist {
     //初始化choiceBox
     @FXML
     private void initDepartment(){
-        ObservableList<String> choices = FXCollections.observableArrayList(hospital.getDepartmentList());
+        List<String> departmentNameList = new ArrayList<>();
+        for(Department d : hospital.getDepartmentList()){
+            departmentNameList.add(d.getName());
+        }
+        ObservableList<String> choices = FXCollections.observableArrayList(departmentNameList);
         department.setItems(choices);
     }
 

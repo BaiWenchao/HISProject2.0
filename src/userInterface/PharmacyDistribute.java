@@ -53,7 +53,8 @@ public class PharmacyDistribute {
                             medicineObservableList.add(m);
                         }
                     }
-
+                }else{
+                    util.errorInformationAlert("药品已发送过了！");
                 }
             }
         }

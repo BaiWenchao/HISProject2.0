@@ -110,6 +110,9 @@ public class DoctorDiagnosis {
                     }
                 }
 
+                //将该患者该次病历中设置为已诊断
+                p.getPatientDataList().get(p.getPatientDataList().size()-1).setHasDiagnosis(true);
+
                 break;
             }
         }

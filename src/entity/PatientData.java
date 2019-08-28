@@ -10,6 +10,7 @@ public class PatientData {
     private boolean getMedicine = false;
     private boolean hasPay = false;
     private boolean hasBackRegist = false;
+    private boolean hasDiagnosis = false;
 
     public PatientData() {
     }
@@ -60,6 +61,14 @@ public class PatientData {
 
     public void setHasBackRegist(boolean hasBackRegist) {
         this.hasBackRegist = hasBackRegist;
+    }
+
+    public boolean isHasDiagnosis() {
+        return hasDiagnosis;
+    }
+
+    public void setHasDiagnosis(boolean hasDiagnosis) {
+        this.hasDiagnosis = hasDiagnosis;
     }
 }
 

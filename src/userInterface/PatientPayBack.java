@@ -80,11 +80,16 @@ public class PatientPayBack {
     @FXML
     private void showData(){
         for(Patient p : hospital.getPatientList()){
+            medicineObservableList.clear();
             if(p.getHosRecordNum().equals(patientHosRecordNum)){
-                for(Prescription item : p.getPatientDataList().get(p.getPatientDataList().size()-1).getPrescriptionList()){
-                    for(Medicine m : item.getMedicineList()){
-                        medicineObservableList.add(m);
+                if(!p.getPatientDataList().get(p.getPatientDataList().size()-1).isGetMedicine()){
+                    for(Prescription item : p.getPatientDataList().get(p.getPatientDataList().size()-1).getPrescriptionList()){
+                        for(Medicine m : item.getMedicineList()){
+                            medicineObservableList.add(m);
+                        }
                     }
+                }else{
+                    util.errorInformationAlert("药房已发药，不可退费！");
                 }
             }
         }

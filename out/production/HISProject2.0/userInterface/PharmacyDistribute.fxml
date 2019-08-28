@@ -28,6 +28,6 @@
       </TableView>
       <Button fx:id="submit" layoutX="1083.0" layoutY="654.0" mnemonicParsing="false" onAction="#submit" text="发药" />
       <Label layoutX="263.0" layoutY="209.0" text="信息确认：" />
-      <Label fx:id="confirm" layoutX="377.0" layoutY="209.0" text="Label" />
+      <Label fx:id="confirm" layoutX="377.0" layoutY="209.0" />
    </children>
 </AnchorPane>

@@ -3,6 +3,8 @@ package userInterface;
 import com.alibaba.fastjson.JSON;
 import dataAccess.ReadFile;
 import dataAccess.WriteFile;
+import entity.Department;
+import entity.Doctor;
 import entity.Hospital;
 import entity.Patient;
 import javafx.application.Application;
@@ -67,6 +69,15 @@ public class Main extends Application {
             if(read.readDoctorList() != null){
                 hospital.getDoctorList().clear();
                 hospital.getDoctorList().addAll(read.readDoctorList());
+                //往对应部门加医生
+                for(Department d : hospital.getDepartmentList()){
+                    d.getDoctorList().clear();
+                    for(Doctor item : read.readDoctorList()){
+                        if(item.getDepartment().equals(d.getName())){
+                            d.getDoctorList().add(item);
+                        }
+                    }
+                }
             }
         }catch (NullPointerException e){
 

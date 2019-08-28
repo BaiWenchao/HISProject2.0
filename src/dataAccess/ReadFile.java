@@ -30,7 +30,7 @@ public class ReadFile {
             BufferedReader reader = new BufferedReader(new FileReader(getClass().getResource("Department.txt").getPath()));
             String line = reader.readLine();
             while(line != null){
-                hospital.getDepartmentList().add(line);
+                hospital.getDepartmentList().add(new Department(line));
                 line = reader.readLine();
             }
             reader.close();
@@ -50,7 +50,15 @@ public class ReadFile {
                 String line = reader.readLine();
                 while(line != null){
                     String[] str = line.split(",");
-                    hospital.getDoctorList().add(new Doctor(str[0],str[1],str[2]));
+                    Doctor doctor = new Doctor(str[0], str[1], str[2]);
+                    hospital.getDoctorList().add(doctor);
+                    //在对应部门中加入该医生
+                    for(Department d : hospital.getDepartmentList()){
+                        if(d.getName().equals(str[1])){
+                            d.getDoctorList().add(doctor);
+                        }
+                    }
+
                     line = reader.readLine();
                 }
                 reader.close();
