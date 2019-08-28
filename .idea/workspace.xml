@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de6c7e07-0ffc-4870-9110-b4b64f45e9ae" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/userInterface/DoctorRoot.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterface/DoctorRoot.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterface/PatientRoot.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterface/PatientRoot.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userInterface/PharmacyDistribute.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterface/PharmacyDistribute.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -17,17 +15,7 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/userInterface/DoctorRoot.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -214,12 +202,12 @@
       <workItem from="1566897312300" duration="62000" />
       <workItem from="1566955298901" duration="148000" />
       <workItem from="1566955534395" duration="4020000" />
-      <workItem from="1566967524549" duration="920000" />
+      <workItem from="1566967524549" duration="1186000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16968000" />
+    <option name="totallyTimeSpent" value="17234000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -233,7 +221,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
