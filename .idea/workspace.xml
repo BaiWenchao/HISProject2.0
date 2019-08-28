@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="de6c7e07-0ffc-4870-9110-b4b64f45e9ae" name="Default Changelist" comment="" />
+    <list default="true" id="de6c7e07-0ffc-4870-9110-b4b64f45e9ae" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/userInterface/DoctorRoot.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterface/DoctorRoot.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterface/PatientRoot.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterface/PatientRoot.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterface/PharmacyDistribute.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterface/PharmacyDistribute.fxml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,13 +19,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/userInterface/DoctorDiagnosis.java">
+        <entry file="file://$PROJECT_DIR$/src/userInterface/DoctorRoot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="64" column="26" lean-forward="true" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="57">
+              <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -32,6 +33,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -62,6 +64,7 @@
         <option value="$PROJECT_DIR$/src/entity/PatientData.java" />
         <option value="$PROJECT_DIR$/src/userInterface/PatientBackRegist.java" />
         <option value="$PROJECT_DIR$/src/userInterface/DoctorDiagnosis.java" />
+        <option value="$PROJECT_DIR$/src/userInterface/DoctorRoot.css" />
       </list>
     </option>
   </component>
@@ -143,8 +146,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -152,6 +155,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../LeetCodeTest" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -210,16 +214,17 @@
       <workItem from="1566897312300" duration="62000" />
       <workItem from="1566955298901" duration="148000" />
       <workItem from="1566955534395" duration="4020000" />
+      <workItem from="1566967524549" duration="920000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16048000" />
+    <option name="totallyTimeSpent" value="16968000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2546917" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2580429" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -517,10 +522,24 @@
     <entry file="file://$PROJECT_DIR$/src/userInterface/DoctorDiagnosis.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
-          <caret line="64" column="26" lean-forward="true" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
+          <caret line="64" column="26" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/userInterface/DoctorRoot.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/userInterface/DoctorRoot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
         </state>
       </provider>
     </entry>

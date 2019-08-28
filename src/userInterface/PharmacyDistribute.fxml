@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.PharmacyDistribute">
    <children>
-      <Label layoutX="51.0" layoutY="32.0" text="银针刺开云千里，妙药驱散雾万重" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Label layoutX="51.0" layoutY="32.0" prefHeight="45.0" prefWidth="1500.0" style="-fx-background-color: #33ccff;" text="银针刺开云千里，妙药驱散雾万重" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <font>
             <Font size="20.0" />
          </font>
