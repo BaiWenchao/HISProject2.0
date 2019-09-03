@@ -56,4 +56,7 @@ public class Show {
         primaryStage.setScene(new Scene(a, 1500, 900));
         primaryStage.show();
     }
+
+
+
 }

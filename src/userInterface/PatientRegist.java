@@ -77,6 +77,7 @@ public class PatientRegist {
 
     private AnchorPane pay;
 
+
     //初始化choiceBox
     @FXML
     private void initDepartment(){

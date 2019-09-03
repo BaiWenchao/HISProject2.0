@@ -83,11 +83,16 @@ public class PatientPayBack {
             medicineObservableList.clear();
             if(p.getHosRecordNum().equals(patientHosRecordNum)){
                 if(!p.getPatientDataList().get(p.getPatientDataList().size()-1).isGetMedicine()){
-                    for(Prescription item : p.getPatientDataList().get(p.getPatientDataList().size()-1).getPrescriptionList()){
-                        for(Medicine m : item.getMedicineList()){
-                            medicineObservableList.add(m);
+                    if(!p.getPatientDataList().get(p.getPatientDataList().size()-1).isHasBackMedicine()){
+                        for(Prescription item : p.getPatientDataList().get(p.getPatientDataList().size()-1).getPrescriptionList()){
+                            for(Medicine m : item.getMedicineList()){
+                                medicineObservableList.add(m);
+                            }
                         }
+                    }else{
+                        util.errorInformationAlert("您已退过费了！");
                     }
+
                 }else{
                     util.errorInformationAlert("药房已发药，不可退费！");
                 }
@@ -126,5 +131,11 @@ public class PatientPayBack {
             fee = 0;
             medicineObservableList.clear();
         });
+
+        for(Patient p : hospital.getPatientList()){
+            if(p.getHosRecordNum().equals(patientHosRecordNum)){
+                p.getPatientDataList().get(p.getPatientDataList().size()-1).setHasBackMedicine(true);
+            }
+        }
     }
 }

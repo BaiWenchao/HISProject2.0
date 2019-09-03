@@ -4,15 +4,9 @@ import entity.Hospital;
 import entity.Patient;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-import userInterface.DoctorRoot;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Util {
 
