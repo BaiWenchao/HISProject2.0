@@ -47,14 +47,18 @@ public class PharmacyDistribute {
         for(Patient p : hospital.getPatientList()){
             if(p.getHosRecordNum().equals(hosRecordNum.getText())){
                 confirm.setText(p.getName());
-                if(!p.getPatientDataList().get(p.getPatientDataList().size()-1).isGetMedicine()){
-                    for(Prescription item : p.getPatientDataList().get(p.getPatientDataList().size()-1).getPrescriptionList()){
-                        for(Medicine m : item.getMedicineList()){
-                            medicineObservableList.add(m);
+                if(p.getPatientDataList().get(p.getPatientDataList().size()-1).isHasPay()){
+                    if(!p.getPatientDataList().get(p.getPatientDataList().size()-1).isGetMedicine()){
+                        for(Prescription item : p.getPatientDataList().get(p.getPatientDataList().size()-1).getPrescriptionList()){
+                            for(Medicine m : item.getMedicineList()){
+                                medicineObservableList.add(m);
+                            }
                         }
+                    }else{
+                        util.errorInformationAlert("药品已发送过了！");
                     }
                 }else{
-                    util.errorInformationAlert("药品已发送过了！");
+                    util.errorInformationAlert("患者还未缴费！");
                 }
             }
         }
