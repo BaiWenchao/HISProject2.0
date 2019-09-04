@@ -15,6 +15,7 @@ import logic.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import static userInterface.PatientLogin.patientHosRecordNum;
@@ -77,7 +78,6 @@ public class PatientRegist {
 
     private AnchorPane pay;
 
-
     //初始化choiceBox
     @FXML
     private void initDepartment(){
@@ -108,7 +108,7 @@ public class PatientRegist {
         List<String> doctorName = new ArrayList<>();
 
         for(Doctor d : hospital.getDoctorList()){
-            if(d.getDepartment().equals(departmentName) && ((expert.equals("专家号") && d.getLevel().equals("0")) || (expert.equals("普通号") && d.getLevel().equals("1")))){
+            if(d.getDepartment().equals(departmentName) && ((expert.equals("专家号") && d.getLevel().equals("0")) || (expert.equals("普通号") && d.getLevel().equals("1"))) && d.isWork()){
                 doctorName.add(d.getName());
             }
         }
@@ -157,6 +157,9 @@ public class PatientRegist {
     private void initialize(){
         hosRecordNum.setText(patientHosRecordNum);
         name.setText(patientName);
+
+        //为各个医生刷新其工作状态
+        calculate.isWork();
     }
 
 }

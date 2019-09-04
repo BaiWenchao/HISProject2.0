@@ -37,8 +37,12 @@ public class MedicineDetail {
     public TextField medSpec;
 
     @FXML
+    private TextField medUnit;
+
+    @FXML
     private void submit(){
-        Medicine medicine = new Medicine(medName.getText(), medSpec.getText(), medUse.getText(), medAmount.getText(), medTime.getText(), medPrice.getText(), medNum.getText());
+        String num = medNum.getText() + medUnit.getText();
+        Medicine medicine = new Medicine(medName.getText(), medSpec.getText(), medUse.getText(), medAmount.getText(), medTime.getText(), medPrice.getText(), num);
         medicines.add(medicine);
         util.completeInformationAlert("药品已添加！");
     }

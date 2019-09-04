@@ -92,6 +92,12 @@ public class Util {
             return;
         }
 
+        if(name.equals("ma") && code.equals("ma")){
+            Parent root = FXMLLoader.load(getClass().getResource("/userInterface/Arrange.fxml"));
+            show.turnToStage(root,1500,900);
+            return;
+        }
+
         errorInformationAlert("用户名或密码错误！");
 
     }

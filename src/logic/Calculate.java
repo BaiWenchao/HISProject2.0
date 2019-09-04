@@ -1,8 +1,11 @@
 package logic;
 
+import entity.Doctor;
+import entity.Hospital;
 import entity.Medicine;
 import entity.Prescription;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class Calculate {
@@ -16,6 +19,9 @@ public class Calculate {
         }
         return instance;
     }
+
+    //创建医院单例
+    Hospital hospital = Hospital.getInstance();
 
     public String registCalculate(boolean needRecordBook, String isExpert){
         int fee = 0;
@@ -39,5 +45,20 @@ public class Calculate {
             }
         }
         return String.valueOf(totalFee)+"元";
+    }
+
+    public void isWork(){
+        Calendar cal = Calendar.getInstance();
+        int date = cal.get(Calendar.DAY_OF_WEEK);
+
+        for(Doctor d : hospital.getDoctorList()){
+            if(((date == 1)||(date == 3)||(date == 5)||(date == 7)) && d.getRule().equals("1010101")){
+                d.setWork(true);
+            }else if(((date == 1)||(date == 2)||(date == 4)||(date == 6)) && d.getRule().equals("1101010")){
+                d.setWork(true);
+            }else{
+                d.setWork(false);
+            }
+        }
     }
 }

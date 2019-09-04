@@ -6,7 +6,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.MedicineDetail">
    <children>
       <Label layoutX="363.0" layoutY="30.0" text="药品编辑：" />
@@ -24,6 +23,8 @@
       <TextField fx:id="medTime" layoutX="350.0" layoutY="317.0" prefHeight="30.0" prefWidth="355.0" />
       <TextField fx:id="medPrice" layoutX="350.0" layoutY="379.0" prefHeight="30.0" prefWidth="355.0" />
       <TextField fx:id="medNum" layoutX="350.0" layoutY="436.0" prefHeight="30.0" prefWidth="355.0" />
-      <Button fx:id="confirm" layoutX="366.0" layoutY="523.0" mnemonicParsing="false" onAction="#submit" text="确认提交" />
+      <Button fx:id="confirm" layoutX="361.0" layoutY="547.0" mnemonicParsing="false" onAction="#submit" text="确认提交" />
+      <Label layoutX="181.0" layoutY="497.0" text="药品单位：" />
+      <TextField fx:id="medUnit" layoutX="350.0" layoutY="492.0" prefHeight="30.0" prefWidth="355.0" />
    </children>
 </AnchorPane>

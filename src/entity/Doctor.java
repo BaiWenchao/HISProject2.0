@@ -1,23 +1,32 @@
 package entity;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class Doctor {
     private List<Patient> pastList = new ArrayList<>();
     private List<Patient> futureList = new ArrayList<>();
 
-    private String name;
-    private String department;
-    private String level;//0代表专家，1代表普通
+    private StringProperty name = new SimpleStringProperty();
+    private StringProperty department = new SimpleStringProperty();
+    private StringProperty level = new SimpleStringProperty();//0代表专家，1代表普通
+
+    //排号规则及是否排号
+    private StringProperty rule = new SimpleStringProperty();
+    private boolean isWork = false;
 
     public Doctor(String name, String department, String level) {
-        this.name = name;
-        this.department = department;
-        this.level = level;
+        this.name.set(name);
+        this.department.set(department);
+        this.level.set(level);
     }
 
     public Doctor() {
+
     }
 
     public List<Patient> getPastList() {
@@ -37,26 +46,58 @@ public class Doctor {
     }
 
     public String getName() {
+        return name.get();
+    }
+
+    public StringProperty nameProperty() {
         return name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name.set(name);
     }
 
     public String getDepartment() {
+        return department.get();
+    }
+
+    public StringProperty departmentProperty() {
         return department;
     }
 
     public void setDepartment(String department) {
-        this.department = department;
+        this.department.set(department);
     }
 
     public String getLevel() {
+        return level.get();
+    }
+
+    public StringProperty levelProperty() {
         return level;
     }
 
     public void setLevel(String level) {
-        this.level = level;
+        this.level.set(level);
+    }
+
+    public String getRule() {
+        return rule.get();
+    }
+
+    public StringProperty ruleProperty() {
+        return rule;
+    }
+
+    public void setRule(String rule) {
+        this.rule.set(rule);
+    }
+
+    public boolean isWork() {
+        return isWork;
+    }
+
+    public void setWork(boolean work) {
+        isWork = work;
     }
 }

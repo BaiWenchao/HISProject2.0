@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.Arrange">
+   <children>
+      <Label layoutX="42.0" layoutY="35.0" text="排班管理">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="42.0" layoutY="115.0" text="本周排班情况一览：" />
+      <SplitPane dividerPositions="0.7550761421319797" layoutX="42.0" layoutY="195.0" prefHeight="448.0" prefWidth="1139.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="449.0" prefWidth="507.0">
+               <children>
+                  <TableView fx:id="table" prefHeight="449.0" prefWidth="591.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="depCol" prefWidth="75.0" text="科室" />
+                      <TableColumn fx:id="docCol" prefWidth="75.0" text="医生" />
+                        <TableColumn fx:id="rulCol" prefWidth="75.0" text="排班规则" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="308.0" prefWidth="349.0">
+               <children>
+                  <Label layoutX="65.0" layoutY="4.0" text="排班信息编辑区：" />
+                  <Label layoutX="14.0" layoutY="82.0" text="科室" />
+                  <Label layoutX="14.0" layoutY="171.0" text="医生" />
+                  <Label layoutX="9.0" layoutY="274.0" text="排班规则" />
+                  <Label fx:id="department" layoutX="137.0" layoutY="82.0" />
+                  <Label fx:id="docName" layoutX="137.0" layoutY="171.0" />
+                  <Button fx:id="confirm" layoutX="100.0" layoutY="378.0" mnemonicParsing="false" onAction="#submit" text="确认" />
+                  <ChoiceBox fx:id="rule" layoutX="101.0" layoutY="269.0" onMousePressed="#initRule" prefWidth="150.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <Button fx:id="complete" layoutX="505.0" layoutY="727.0" mnemonicParsing="false" onAction="#completeEdit" text="完成编辑" />
+   </children>
+</AnchorPane>
