@@ -159,7 +159,11 @@ public class PatientRegist {
         name.setText(patientName);
 
         //为各个医生刷新其工作状态
-        calculate.isWork();
+        try{
+            calculate.isWork();
+        }catch (NullPointerException e){
+            util.errorInformationAlert("尚未给医生排班！");
+        }
     }
 
 }
