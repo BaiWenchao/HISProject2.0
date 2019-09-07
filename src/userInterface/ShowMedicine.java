@@ -95,6 +95,8 @@ public class ShowMedicine {
                         show.turnToStage(medicineDetail,800,600);
                     } catch (IOException e) {
                         e.printStackTrace();
+                    }catch (NullPointerException e){
+
                     }
                 })
         );

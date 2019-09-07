@@ -111,6 +111,7 @@ public class PatientPayBack {
         show.turnToStage(pane, 800, 600);
 
         //初始化退费药品列表
+        medicines.clear();
         for(Medicine m : medicineObservableList){
             if(m.getMyCheckBox().isSelected()){
                 medicines.add(m);
