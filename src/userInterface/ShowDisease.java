@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import static userInterface.DoctorDiagnosis.diseases;
@@ -96,5 +97,8 @@ public class ShowDisease {
                 diseases.add(d);
             }
         }
+
+        Stage stage = (Stage)confirm.getScene().getWindow();
+        stage.close();
     }
 }

@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import logic.Show;
 import logic.Util;
 
@@ -200,6 +201,8 @@ public class DoctorMedicine {
             Prescription prescription = new Prescription(str);
 
             prescriptionObservableList.add(prescription);
+            Stage stage = (Stage)addController.confirm.getScene().getWindow();
+            stage.close();
 
             util.completeInformationAlert("处方新建成功！");
         });

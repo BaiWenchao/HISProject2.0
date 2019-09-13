@@ -3,10 +3,13 @@ package userInterface;
 import entity.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import logic.Show;
 
 import java.io.IOException;
@@ -67,9 +70,13 @@ public class DoctorDiagnosis {
     @FXML
     public Label nameLabel;
 
+    AnchorPane root = new AnchorPane();
+
     @FXML
     private void showDisease() throws IOException {
-        Parent root = FXMLLoader.load(Entrance.class.getResource("ShowDisease.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Entrance.class.getResource("ShowDisease.fxml"));
+        root = loader.load();
         show.turnToStage(root,800,300);
     }
 
