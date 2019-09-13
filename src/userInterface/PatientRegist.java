@@ -112,6 +112,10 @@ public class PatientRegist {
         }
         ObservableList<String> choices = FXCollections.observableArrayList(doctorName);
         doctor.setItems(choices);
+
+        if(choices.size() == 0){
+            util.errorInformationAlert("尚无排班医生！");
+        }
     }
 
 
