@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import logic.*;
 
 import java.io.IOException;
@@ -63,9 +64,6 @@ public class PatientRegist {
 
     @FXML
     private ChoiceBox<String> wayToPay;
-
-    @FXML
-    private RadioButton getRecordNum;
 
     @FXML
     private ChoiceBox<String> department;
@@ -146,24 +144,13 @@ public class PatientRegist {
 
     }
 
-    //获取病历号
-    @FXML
-    private void getRecordNum(){
-        recordNum.setText(returnNum.returnRecordNum());
-    }
-
     //初始化患者信息
     @FXML
     private void initialize(){
         hosRecordNum.setText(patientHosRecordNum);
         name.setText(patientName);
 
-        //为各个医生刷新其工作状态
-        try{
-            calculate.isWork();
-        }catch (NullPointerException e){
-            util.errorInformationAlert("尚未给医生排班！");
-        }
+        recordNum.setText(returnNum.returnRecordNum());
     }
 
 }

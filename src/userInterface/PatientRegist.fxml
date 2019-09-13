@@ -9,7 +9,6 @@
 
 <AnchorPane prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.PatientRegist">
    <children>
-      <RadioButton fx:id="getRecordNum" layoutX="24.0" layoutY="117.0" mnemonicParsing="false" onAction="#getRecordNum" text="获取病历号" />
       <Label layoutX="54.0" layoutY="307.0" text="挂号科室" />
       <Label layoutX="54.0" layoutY="233.0" text="看诊日期" />
       <Label layoutX="54.0" layoutY="383.0" text="号别" />
@@ -28,5 +27,6 @@
       <Label layoutX="23.0" layoutY="40.0" text="患者信息确认：" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="1372.0" AnchorPane.topAnchor="40.0" />
       <Label fx:id="hosRecordNum" layoutX="282.0" layoutY="40.0" />
       <Label fx:id="name" layoutX="691.0" layoutY="40.0" />
+      <Label layoutX="56.0" layoutY="117.0" text="病历号：" />
    </children>
 </AnchorPane>

@@ -31,9 +31,6 @@ public class PatientSignUp {
     private DatePicker birthday;
 
     @FXML
-    private RadioButton getHosRecordNum;
-
-    @FXML
     private ChoiceBox<String> gender;
 
     @FXML
@@ -55,11 +52,6 @@ public class PatientSignUp {
     private TextField IDNum;
 
     @FXML
-    private void getHosRecordNum(){
-        hosRecordNum.setText(returnNum.returnHosRecordNum());
-    }
-
-    @FXML
     private void regist(){
         //数据缺失处理
         if(hosRecordNum.getText() == null || name.getText() == null || gender.getValue() == null || birthday.getValue() == null){
@@ -78,6 +70,11 @@ public class PatientSignUp {
     private void initGender(){
         ObservableList<String> choices = FXCollections.observableArrayList("男","女");
         gender.setItems(choices);
+    }
+
+    @FXML
+    private void initialize(){
+        hosRecordNum.setText(returnNum.returnHosRecordNum());
     }
 
 }

@@ -28,6 +28,6 @@
       <ChoiceBox fx:id="gender" layoutX="956.0" layoutY="335.0" onMousePressed="#initGender" prefWidth="150.0" />
       <TextField fx:id="hosRecordNum" layoutX="398.0" layoutY="195.0" />
       <Label layoutX="635.0" layoutY="200.0" text="(请保存好自己的病案号)" />
-      <RadioButton fx:id="getHosRecordNum" layoutX="262.0" layoutY="200.0" mnemonicParsing="false" onAction="#getHosRecordNum" text="获取病案号" />
+      <Label layoutX="286.0" layoutY="200.0" text="病案号：" />
    </children>
 </AnchorPane>

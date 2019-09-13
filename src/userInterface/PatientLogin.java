@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import logic.Calculate;
 import logic.Show;
 import logic.Util;
 
@@ -19,6 +20,8 @@ public class PatientLogin {
     Util util = Util.getInstance();
     //创建医院单例
     Hospital hospital = Hospital.getInstance();
+    //创建Calculate单例
+    Calculate calculate = Calculate.getInstance();
 
 
 
@@ -53,7 +56,13 @@ public class PatientLogin {
             patientHosRecordNum = hosRecordNum.getText();
 
             Parent root = FXMLLoader.load(Entrance.class.getResource("PatientRoot.fxml"));
-            show.turnToStage(root,1500,900);
+            //为各个医生刷新其工作状态
+            try{
+                calculate.isWork();
+                show.turnToStage(root,1500,900);
+            }catch (NullPointerException e){
+                util.errorInformationAlert("尚未给医生排班！");
+            }
         }else {
             util.errorInformationAlert("无此病案号！");
             return;
