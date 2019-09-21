@@ -127,6 +127,7 @@ public class PatientRegist {
         }catch (NullPointerException e){
 
         }
+
         if(recordNum.getText() == null || date.getValue() == null || department.getValue() == null || isExpert.getValue() == null || doctor.getValue() == null || wayToPay.getValue() == null){
             util.errorInformationAlert("请完善挂号信息！");
             return;
@@ -140,9 +141,14 @@ public class PatientRegist {
         controller.howMuch.setText(registFee);
         show.turnToStage(pay,500,400);
 
+
         controller.pay.setOnAction((ActionEvent e) -> {
             //将挂号信息存入该患者，并将该患者挂号至对应医生
             save.registInfoSave(patientHosRecordNum, recordNum.getText(), needRecordBook.isSelected(), date.getValue().toString(), department.getValue(), isExpert.getValue(), doctor.getValue(), wayToPay.getValue());
+            //关闭二维码界面
+            Stage stage = (Stage) controller.pay.getScene().getWindow();
+            stage.close();
+
             util.completeInformationAlert("挂号成功！");
         });
 

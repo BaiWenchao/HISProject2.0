@@ -226,6 +226,8 @@ public class DoctorMedicine {
 
     @FXML
     private void finishEdit(){
+        prescriptionObservableList.get(prescriptionTable.getSelectionModel().getFocusedIndex()).getMedicineList().clear();
+
         prescriptionObservableList.get(prescriptionTable.getSelectionModel().getFocusedIndex()).getMedicineList().addAll(medicines);
         medicines.clear();
     }

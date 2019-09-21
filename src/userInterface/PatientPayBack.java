@@ -15,7 +15,9 @@ import logic.Show;
 import logic.Util;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
+import java.util.List;
 
 import static userInterface.PatientLogin.patientHosRecordNum;
 import static userInterface.PatientLogin.patientName;
@@ -111,6 +113,7 @@ public class PatientPayBack {
         show.turnToStage(pane, 800, 600);
 
         //初始化退费药品列表
+        fee = 0;
         medicines.clear();
         for(Medicine m : medicineObservableList){
             if(m.getMyCheckBox().isSelected()){
@@ -128,9 +131,11 @@ public class PatientPayBack {
 
         //计算总金额
         for(Medicine m : medicines){
-            int last = m.getMed_price().length()-1;
-            String tempFee = m.getMed_price().substring(0,last);
-            fee += Double.parseDouble(tempFee);
+            int lastFee = m.getMed_price().length()-1;
+            int lastNum = m.getMed_num().length()-1;
+            String tempFee = m.getMed_price().substring(0,lastFee);
+            String tempNum = m.getMed_num().substring(0,lastNum);
+            fee += Double.parseDouble(tempFee) * Integer.parseInt(tempNum);
         }
 
         controller.totalPrice.setText(String.valueOf(fee));
@@ -140,23 +145,23 @@ public class PatientPayBack {
 
             //将退掉的药品从患者信息中移除
             for(Patient p : hospital.getPatientList()){
-                try{
-                    //移除信息
-                    for(Prescription  item: p.getPatientDataList().get(p.getPatientDataList().size()-1).getPrescriptionList()){
-                        for(Medicine m : item.getMedicineList()){
-                            for(Medicine om : medicines){
-                                if(om.getMed_name().equals(m.getMed_name()) && om.getMed_num().equals(m.getMed_num())){
-                                    item.getMedicineList().remove(m);
-                                    medicineObservableList.remove(om);
+                if(p.getHosRecordNum().equals(hosRecordNum.getText())){
+                    for(Prescription item : p.getPatientDataList().get(p.getPatientDataList().size()-1).getPrescriptionList()){
+                        for(int i=0; i<item.getMedicineList().size(); i++){
+                            for(int j=0; j<medicines.size(); j++){
+                                if(item.getMedicineList().get(i).getMed_name().equals(medicines.get(j).getMed_name()) && item.getMedicineList().get(i).getMed_num().equals(medicines.get(j).getMed_num())){
+                                    medicineObservableList.remove(medicines.get(j));
+                                    item.getMedicineList().remove(i--);
+                                    medicines.remove(j--);
                                     break;
                                 }
                             }
                         }
                     }
-                }catch(ConcurrentModificationException ce){
-
                 }
             }
+
+            controller.totalPrice.setText("");
 
             util.completeInformationAlert("退费成功！");
             fee = 0;

@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import logic.Show;
 import logic.Util;
 
@@ -130,6 +131,9 @@ public class PatientPay {
         show.turnToStage(pay,500,400);
 
         payController.pay.setOnAction((ActionEvent e) -> {
+
+             Stage stage = (Stage) payController.pay.getScene().getWindow();
+             stage.close();
 
             //在药房中更新药品储量
             Set<Map.Entry<Medicine, String>> entries = pharmacy.getMedicineStringMap().entrySet();

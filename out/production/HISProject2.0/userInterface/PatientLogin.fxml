@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.PatientLogin">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@Entrance.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.PatientLogin">
    <children>
       <Label layoutX="125.0" layoutY="44.0" prefHeight="27.0" prefWidth="257.0" text="欢迎使用东软云医院HIS系统" AnchorPane.leftAnchor="172.0" AnchorPane.rightAnchor="172.0" AnchorPane.topAnchor="80.0">
          <font>
