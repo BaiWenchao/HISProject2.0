@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import entity.*;
+import javafx.scene.control.TreeItem;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -181,5 +182,23 @@ public class ReadFile {
         }
         List<Doctor> doctorList = JSON.parseArray(str,Doctor.class);
         return doctorList;
+    }
+
+    //读取疾病树
+    public DiseaseTree readDiseaseTree(){
+        File f = new File(getClass().getResource("DiseaseTree.data").getPath());
+        String str = null;
+        try(FileReader fr = new FileReader(f);
+            BufferedReader bfr = new BufferedReader(fr)){
+            str = bfr.readLine();
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+        DiseaseTree diseaseTree = JSON.parseObject(str, DiseaseTree.class);
+
+        return diseaseTree;
     }
 }

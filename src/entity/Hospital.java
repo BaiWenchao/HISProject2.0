@@ -1,13 +1,17 @@
 package entity;
 
+import javafx.scene.control.TreeItem;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Hospital {
 
     //单例模式：
     private static Hospital instance;
-    private Hospital(){}
+    private Hospital(){ }
     public static synchronized Hospital getInstance(){
         if(instance == null){
             instance = new Hospital();
@@ -24,6 +28,7 @@ public class Hospital {
     private List<Disease> diseaseList = new ArrayList<>();
     private List<Medicine> medicineList = new ArrayList<>();
     public List<Prescription> prescriptionTemplateList = new ArrayList<>();
+    private DiseaseTree diseaseTree = new DiseaseTree();
 
     public List<Patient> getPatientList() {
         return patientList;
@@ -80,4 +85,13 @@ public class Hospital {
     public void setPharmacy(Pharmacy pharmacy) {
         this.pharmacy = pharmacy;
     }
+
+    public DiseaseTree getDiseaseTree() {
+        return diseaseTree;
+    }
+
+    public void setDiseaseTree(DiseaseTree diseaseTree) {
+        this.diseaseTree = diseaseTree;
+    }
+
 }

@@ -86,4 +86,19 @@ public class WriteFile {
         }
     }
 
+    // 写入存储疾病树的map
+    public void writeDiseaseTree(){
+        //将map转化为字符串
+        String str = JSON.toJSONString(hospital.getDiseaseTree());
+        //将字符串存入文件
+        File f = new File(getClass().getResource("DiseaseTree.data").getPath());
+        try(FileWriter fw = new FileWriter(f);
+            BufferedWriter bfw = new BufferedWriter(fw)){
+            bfw.write(str);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+
 }

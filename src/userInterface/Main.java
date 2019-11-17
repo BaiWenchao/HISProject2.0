@@ -3,10 +3,7 @@ package userInterface;
 import com.alibaba.fastjson.JSON;
 import dataAccess.ReadFile;
 import dataAccess.WriteFile;
-import entity.Department;
-import entity.Doctor;
-import entity.Hospital;
-import entity.Patient;
+import entity.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -32,13 +29,13 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
+
         //创建读写类单例
         ReadFile read = ReadFile.getInstance();
         WriteFile write = WriteFile.getInstance();
 
         //创建医院单例
         Hospital hospital = Hospital.getInstance();
-
 
         //读取科室信息
         read.readDepartmentFile();
@@ -83,6 +80,15 @@ public class Main extends Application {
 
         }
 
+        //读取疾病树
+        try{
+            if(read.readDiseaseTree() != null){
+                hospital.setDiseaseTree(read.readDiseaseTree());
+            }
+        }catch (NullPointerException e){
+
+        }
+
         launch(args);
 
 
@@ -92,5 +98,7 @@ public class Main extends Application {
         write.writeDoctorList();
         //写入药品信息
         write.writeMedicine();
+        //写入疾病树
+        write.writeDiseaseTree();
     }
 }
