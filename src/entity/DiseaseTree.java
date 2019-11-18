@@ -1,10 +1,6 @@
 package entity;
 
-import javafx.scene.control.TreeItem;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class DiseaseTree {
@@ -32,15 +28,14 @@ public class DiseaseTree {
         this.nodeMap = nodeMap;
     }
 
-    public boolean addNode(String nodeName, String fatherName){
+    public boolean addNode(String nodeName, String fatherName, String code){
 
         try{
             DiseaseTreeNode newNode = new DiseaseTreeNode(nodeName);
 
             nodeMap.put(nodeName, newNode);
             nodeMap.get(fatherName).addChild(newNode);
-
-
+            nodeMap.get(nodeName).setDiseaseCode(code);
 
             return true;
 

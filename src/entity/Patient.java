@@ -16,6 +16,7 @@ public class Patient {
     private StringProperty phoneNum = new SimpleStringProperty();
     private StringProperty idNum = new SimpleStringProperty();
     private List<PatientData> patientDataList = new ArrayList<>();
+    private StringProperty currentRecordNum = new SimpleStringProperty();
 
     public Patient() {
     }
@@ -120,5 +121,17 @@ public class Patient {
 
     public void setIdNum(String idNum) {
         this.idNum.set(idNum);
+    }
+
+    public String getCurrentRecordNum() {
+        return currentRecordNum.get();
+    }
+
+    public StringProperty currentRecordNumProperty() {
+        return currentRecordNum;
+    }
+
+    public void setCurrentRecordNum(String currentRecordNum) {
+        this.currentRecordNum.set(currentRecordNum);
     }
 }

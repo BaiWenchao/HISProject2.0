@@ -4,10 +4,14 @@ import javafx.scene.control.TreeItem;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class DiseaseTreeNode {
     private String diseaseName;
     private List<DiseaseTreeNode> childList = new ArrayList<>();
+    private Map<String, String> patientMap = new TreeMap<>();
+    private String diseaseCode;
 
     public DiseaseTreeNode() {
     }
@@ -34,5 +38,21 @@ public class DiseaseTreeNode {
 
     public void addChild(DiseaseTreeNode node){
         this.childList.add(node);
+    }
+
+    public Map<String, String> getPatientMap() {
+        return patientMap;
+    }
+
+    public void setPatientMap(Map<String, String> patientMap) {
+        this.patientMap = patientMap;
+    }
+
+    public String getDiseaseCode() {
+        return diseaseCode;
+    }
+
+    public void setDiseaseCode(String diseaseCode) {
+        this.diseaseCode = diseaseCode;
     }
 }

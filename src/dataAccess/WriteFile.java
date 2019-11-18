@@ -100,5 +100,17 @@ public class WriteFile {
         }
     }
 
+    // 写入当天挂号数
+    public void writeRecordNum(){
+        File f = new File(getClass().getResource("recordNum.txt").getPath());
+        String str = hospital.getRecordNum_A().toString() + "," + hospital.getRecordNum_B().toString();
+        try(FileWriter fw = new FileWriter(f);
+            BufferedWriter bfw = new BufferedWriter(fw)){
+            bfw.write(str);
+        }catch (IOException ie) {
+            ie.printStackTrace();
+        }
+    }
+
 
 }

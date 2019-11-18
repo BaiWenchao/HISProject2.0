@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.DoctorDiagnosisAgain">
+    <children>
+        <Label layoutX="22.0" layoutY="17.0" text="患者信息确认" textFill="#3299cc" />
+        <Label layoutX="196.0" layoutY="17.0" text="病案号：" />
+        <Label layoutX="442.0" layoutY="17.0" text="姓名：" AnchorPane.leftAnchor="442.0" />
+        <Label layoutX="26.0" layoutY="204.0" text="评估/诊断：" textFill="#3299cc" />
+        <TableView fx:id="diagnosis" layoutX="178.0" layoutY="204.0" prefHeight="115.0" prefWidth="691.0">
+            <columns>
+                <TableColumn fx:id="icdCode" prefWidth="336.0" text="ICD编码" />
+                <TableColumn fx:id="diseaseName" prefWidth="346.0" text="名称" />
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </TableView>
+      <Button fx:id="add" layoutX="957.0" layoutY="289.0" mnemonicParsing="false" text="添加" />
+      <Button fx:id="add" layoutX="1061.0" layoutY="289.0" mnemonicParsing="false" text="删除" />
+      <Label layoutX="26.0" layoutY="471.0" text="医师建议：" textFill="#3299cc" />
+      <TextArea fx:id="advice" layoutX="178.0" layoutY="471.0" prefHeight="209.0" prefWidth="691.0" />
+      <Button fx:id="submit" layoutX="957.0" layoutY="650.0" mnemonicParsing="false" text="提交诊断" />
+    </children>
+
+</AnchorPane>

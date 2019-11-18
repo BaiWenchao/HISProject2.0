@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import entity.*;
 import javafx.scene.control.TreeItem;
 
@@ -200,5 +201,29 @@ public class ReadFile {
         DiseaseTree diseaseTree = JSON.parseObject(str, DiseaseTree.class);
 
         return diseaseTree;
+    }
+
+    // 读取当天挂号数
+    public void readRecordNum(){
+        BufferedReader reader;
+        {
+            try{
+                reader = new BufferedReader(new FileReader(getClass().getResource("recordNum.txt").getPath()));
+                String s = reader.readLine();
+                if(s != null){
+                    String[] str = s.split(",");
+                    hospital.setRecordNum_A(Integer.parseInt(str[0]));
+                    hospital.setRecordNum_B(Integer.parseInt(str[1]));
+                }else{
+                    hospital.setRecordNum_A(0);
+                    hospital.setRecordNum_B(0);
+                }
+                reader.close();
+            }catch (FileNotFoundException e){
+                e.printStackTrace();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 package userInterface;
 
+import entity.DiseaseTreeNode;
 import entity.Hospital;
 import entity.Patient;
 import javafx.fxml.FXML;
@@ -26,6 +27,9 @@ public class AddDisease {
     private TableColumn<Patient, String> hosRecordNum;
 
     @FXML
+    private TableColumn<DiseaseTreeNode, String> diseaseNameCol;
+
+    @FXML
     private Button addDisease;
 
     @FXML
@@ -34,18 +38,27 @@ public class AddDisease {
     @FXML
     private TextField diseaseType;
 
+    @FXML
+    private TextField diseaseCode;
+
 
     //创建医院单例
     Hospital hospital = Hospital.getInstance();
+    //创建数据结构算法类单例
+    Algorithms algorithms = Algorithms.getInstance();
 
     @FXML
-    public void setAddDisease(){
-        hospital.getDiseaseTree().addNode(diseaseName.getText(), fatherName.getText());
+    public void setAddDisease() throws Exception {
+        try{
+            hospital.getDiseaseTree().addNode(diseaseName.getText(), fatherName.getText(), diseaseCode.getText());
+        }catch (NullPointerException npe){
+
+        }
+        diseaseTreeView.setRoot(algorithms.diseaseBFT(hospital.getDiseaseTree().getNodeMap().get("疾病")));
     }
 
     @FXML
     public void initialize() throws Exception {
-        Algorithms algorithms = Algorithms.getInstance();
         diseaseTreeView.setRoot(algorithms.diseaseBFT(hospital.getDiseaseTree().getNodeMap().get("疾病")));
     }
 

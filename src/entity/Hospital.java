@@ -28,6 +28,9 @@ public class Hospital {
     private List<Disease> diseaseList = new ArrayList<>();
     private List<Medicine> medicineList = new ArrayList<>();
     public List<Prescription> prescriptionTemplateList = new ArrayList<>();
+    private Integer recordNum_A = null;
+    private Integer recordNum_B = null;
+
     private DiseaseTree diseaseTree = new DiseaseTree();
 
     public List<Patient> getPatientList() {
@@ -94,4 +97,19 @@ public class Hospital {
         this.diseaseTree = diseaseTree;
     }
 
+    public Integer getRecordNum_A() {
+        return recordNum_A;
+    }
+
+    public void setRecordNum_A(Integer recordNum_A) {
+        this.recordNum_A = recordNum_A;
+    }
+
+    public Integer getRecordNum_B() {
+        return recordNum_B;
+    }
+
+    public void setRecordNum_B(Integer recordNum_B) {
+        this.recordNum_B = recordNum_B;
+    }
 }

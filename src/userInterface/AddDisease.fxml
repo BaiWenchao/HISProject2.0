@@ -7,7 +7,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.AddDisease">
    <children>
       <Label layoutX="61.0" layoutY="27.0" text="疾病管理" textFill="#3299cc" AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="35.0">
@@ -30,11 +29,13 @@
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <Button fx:id="addDisease" layoutX="326.0" layoutY="317.0" mnemonicParsing="false" onAction="#setAddDisease" text="添加" />
-                                    <TextField fx:id="diseaseName" layoutX="164.0" layoutY="63.0" />
-                                    <TextField fx:id="fatherName" layoutX="164.0" layoutY="181.0" />
-                                    <Label layoutX="42.0" layoutY="68.0" text="插入疾病名称" />
-                                    <Label layoutX="42.0" layoutY="186.0" text="疾病父结点名称" />
+                                    <Button fx:id="addDisease" layoutX="326.0" layoutY="342.0" mnemonicParsing="false" onAction="#setAddDisease" text="添加" />
+                                    <TextField fx:id="diseaseName" layoutX="225.0" layoutY="63.0" />
+                                    <TextField fx:id="fatherName" layoutX="225.0" layoutY="220.0" />
+                                    <Label layoutX="42.0" layoutY="68.0" text="插入疾病名称：" />
+                                    <Label layoutX="42.0" layoutY="225.0" text="疾病父结点名称：" />
+                                    <Label layoutX="42.0" layoutY="120.0" text="插入疾病ICD编码：" />
+                                    <TextField fx:id="diseaseCode" layoutX="225.0" layoutY="115.0" promptText="非叶节点可不填" />
                                  </children>
                               </AnchorPane>
                         </content>
@@ -48,6 +49,7 @@
                                     <TextField fx:id="diseaseType" layoutX="116.0" layoutY="14.0" />
                                     <TableView fx:id="patientTable" layoutY="96.0" prefHeight="364.0" prefWidth="445.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
                                       <columns>
+                                          <TableColumn fx:id="diseaseNameCol" prefWidth="75.0" text="疾病名称" />
                                         <TableColumn fx:id="hosRecordNum" prefWidth="75.0" text="病案号" />
                                         <TableColumn fx:id="patientName" prefWidth="75.0" text="姓名" />
                                       </columns>

@@ -38,7 +38,12 @@
       </TableView>
       <TabPane layoutX="300.0" layoutY="95.0" prefHeight="850.0" prefWidth="999.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
         <tabs>
-          <Tab fx:id="diagnosis" text="诊断" />
+          <Tab fx:id="diagnosis" text="初诊" />
+            <Tab text="复诊">
+              <content>
+                <fx:include source="DoctorDiagnosisAgain.fxml"/>
+              </content>
+            </Tab>
           <Tab fx:id="medicine" text="开方" />
         </tabs>
       </TabPane>

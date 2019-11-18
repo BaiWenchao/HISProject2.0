@@ -70,7 +70,7 @@ public class DoctorRoot {
         futureTable.setItems(future);
         pastTable.setItems(past);
 
-        futureNum.setCellValueFactory(cellData -> cellData.getValue().hosRecordNumProperty());
+        futureNum.setCellValueFactory(cellData -> cellData.getValue().currentRecordNumProperty());
         futureName.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         pastNum.setCellValueFactory(cellData -> cellData.getValue().hosRecordNumProperty());
         pastName.setCellValueFactory(cellData -> cellData.getValue().nameProperty());

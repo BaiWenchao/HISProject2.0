@@ -29,7 +29,6 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-
         //创建读写类单例
         ReadFile read = ReadFile.getInstance();
         WriteFile write = WriteFile.getInstance();
@@ -89,6 +88,9 @@ public class Main extends Application {
 
         }
 
+        // 读取挂号数
+        read.readRecordNum();
+
         launch(args);
 
 
@@ -100,5 +102,9 @@ public class Main extends Application {
         write.writeMedicine();
         //写入疾病树
         write.writeDiseaseTree();
+
+        //写入挂号数
+        write.writeRecordNum();
+
     }
 }

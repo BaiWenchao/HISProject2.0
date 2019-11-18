@@ -35,6 +35,7 @@ public class Save {
         for(Patient p : hospital.getPatientList()){
             if(p.getHosRecordNum().equals(hosRecordNum)){
                 p.getPatientDataList().add(patientData);
+                p.setCurrentRecordNum(recordNum);
 
                 //将该患者加入对应医生的未诊患者列表
                 for(Doctor d : hospital.getDoctorList()){
