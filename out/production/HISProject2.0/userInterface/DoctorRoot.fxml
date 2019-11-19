@@ -19,7 +19,7 @@
       <Label layoutX="7.0" layoutY="65.0" text="未诊患者：" />
       <TableView fx:id="futureTable" layoutY="94.0" prefHeight="370.0" prefWidth="300.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
         <columns>
-          <TableColumn fx:id="futureNum" prefWidth="75.0" text="病案号" />
+          <TableColumn fx:id="futureNum" prefWidth="75.0" text="病历号" />
           <TableColumn fx:id="futureName" prefWidth="75.0" text="姓名" />
         </columns>
          <columnResizePolicy>
@@ -41,7 +41,7 @@
           <Tab fx:id="diagnosis" text="初诊" />
             <Tab text="复诊">
               <content>
-                <fx:include source="DoctorDiagnosisAgain.fxml"/>
+                <fx:include source="DoctorDiagnosisAgain.fxml" />
               </content>
             </Tab>
           <Tab fx:id="medicine" text="开方" />

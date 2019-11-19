@@ -8,6 +8,7 @@ public class Regist{
     private String isExpert;
     private String doctor;
     private String wayToPay;
+    private boolean isEmergency;
 
     public String getRecordNum() {
         return recordNum;
@@ -65,5 +66,12 @@ public class Regist{
         this.wayToPay = wayToPay;
     }
 
+    public boolean isEmergency() {
+        return isEmergency;
+    }
+
+    public void setEmergency(boolean emergency) {
+        isEmergency = emergency;
+    }
 }
 

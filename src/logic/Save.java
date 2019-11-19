@@ -20,7 +20,7 @@ public class Save {
     //创建医院单例
     Hospital hospital = Hospital.getInstance();
 
-    public void registInfoSave(String hosRecordNum, String recordNum, boolean needRecordBook, String date, String department, String isExpert, String doctor, String wayToPay){
+    public void registInfoSave(String hosRecordNum, String recordNum, boolean needRecordBook, String date, String department, String isExpert, String doctor, String wayToPay, boolean isEmergency){
         //新建patientData，将患者挂号信息存入
         PatientData patientData = new PatientData();
         patientData.getRegist().setRecordNum(recordNum);
@@ -30,6 +30,7 @@ public class Save {
         patientData.getRegist().setIsExpert(isExpert);
         patientData.getRegist().setDoctor(doctor);
         patientData.getRegist().setWayToPay(wayToPay);
+        patientData.getRegist().setEmergency(isEmergency);
 
         //将patientData存入该患者,并把该患者挂号至相应医师
         for(Patient p : hospital.getPatientList()){

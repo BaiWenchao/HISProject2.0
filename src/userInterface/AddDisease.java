@@ -6,8 +6,12 @@ import entity.Patient;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import logic.DataStructure.Algorithms;
+import logic.Util;
 
 public class AddDisease {
+    // 创建Util单例
+    Util util = Util.getInstance();
+
     @FXML
     private TreeView<String> diseaseTreeView;
 
@@ -50,7 +54,9 @@ public class AddDisease {
     @FXML
     public void setAddDisease() throws Exception {
         try{
-            hospital.getDiseaseTree().addNode(diseaseName.getText(), fatherName.getText(), diseaseCode.getText());
+            if(!hospital.getDiseaseTree().addNode(diseaseName.getText(), fatherName.getText(), diseaseCode.getText())){
+                util.errorInformationAlert("无此父节点！");
+            }
         }catch (NullPointerException npe){
 
         }

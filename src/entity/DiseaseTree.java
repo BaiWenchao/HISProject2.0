@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class DiseaseTree {
 
+
     private transient DiseaseTreeNode root = new DiseaseTreeNode("疾病");
     private Map<String, DiseaseTreeNode> nodeMap = new HashMap<>();
 

@@ -41,6 +41,9 @@ public class DoctorDiagnosis {
     private Button submit;
 
     @FXML
+    private Button turnToReDiagnosis;
+
+    @FXML
     public TextArea examine;
 
     @FXML

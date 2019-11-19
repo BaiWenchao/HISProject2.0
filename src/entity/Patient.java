@@ -7,7 +7,7 @@ import sun.security.ssl.SSLContextImpl;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Patient {
+public class Patient implements Comparable<Patient>{
     private StringProperty hosRecordNum = new SimpleStringProperty();
     private StringProperty name = new SimpleStringProperty();
     private StringProperty gender = new SimpleStringProperty();
@@ -17,6 +17,7 @@ public class Patient {
     private StringProperty idNum = new SimpleStringProperty();
     private List<PatientData> patientDataList = new ArrayList<>();
     private StringProperty currentRecordNum = new SimpleStringProperty();
+    private int priority = 0;
 
     public Patient() {
     }
@@ -133,5 +134,17 @@ public class Patient {
 
     public void setCurrentRecordNum(String currentRecordNum) {
         this.currentRecordNum.set(currentRecordNum);
+    }
+
+    @Override
+    public int compareTo(Patient o) {
+        if(this.priority < o.priority){
+            return -1;
+        }else if(this.priority == o.priority){
+            return 0;
+        }else{
+            return 1;
+        }
+
     }
 }

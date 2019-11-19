@@ -26,7 +26,7 @@
       </TableView>
       <Button fx:id="add" layoutX="1014.0" layoutY="554.0" mnemonicParsing="false" onAction="#showDisease" prefHeight="20.0" prefWidth="50.0" text="添加" />
       <Button fx:id="delete" layoutX="1104.0" layoutY="554.0" mnemonicParsing="false" onAction="#deleteDisease" text="删除" />
-      <Button fx:id="submit" layoutX="1014.0" layoutY="707.0" mnemonicParsing="false" onAction="#submit" prefHeight="30.0" prefWidth="82.0" text="提交诊断" />
+      <Button fx:id="submit" layoutX="1072.0" layoutY="741.0" mnemonicParsing="false" onAction="#submit" prefHeight="30.0" prefWidth="82.0" text="提交诊断" />
       <Label layoutX="44.0" layoutY="139.0" text="主诉：" />
       <Label layoutX="43.0" layoutY="260.0" text="既往史：" />
       <Label layoutX="43.0" layoutY="390.0" text="体格检查：" />
@@ -37,5 +37,6 @@
       <TextArea fx:id="advice" layoutX="225.0" layoutY="626.0" prefHeight="62.0" prefWidth="684.0" />
       <Label layoutX="662.0" layoutY="17.0" text="诊断医师：" />
       <Label fx:id="doctor" layoutX="749.0" layoutY="17.0" />
+      <Button fx:id="turnToReDiagnosis" layoutX="1073.0" layoutY="688.0" mnemonicParsing="false" text="等待复诊" />
    </children>
 </AnchorPane>

@@ -74,6 +74,9 @@ public class PatientRegist {
     @FXML
     private Button payOnline;
 
+    @FXML
+    private RadioButton emergencyButton;
+
     private AnchorPane pay;
 
     //初始化choiceBox
@@ -122,8 +125,10 @@ public class PatientRegist {
     //打开支付二维码界面，同时保存患者的挂号信息，同时将该患者加入对应医生的未诊患者列表
     @FXML
     private void turnToPayRegist() throws IOException {
+        // 计算患者优先级
+
         try{
-            registFee = calculate.registCalculate(needRecordBook.isSelected(),isExpert.getValue());
+            registFee = calculate.registCalculate(needRecordBook.isSelected(), emergencyButton.isSelected(), isExpert.getValue());
         }catch (NullPointerException e){
 
         }
@@ -144,7 +149,7 @@ public class PatientRegist {
 
         controller.pay.setOnAction((ActionEvent e) -> {
             //将挂号信息存入该患者，并将该患者挂号至对应医生
-            save.registInfoSave(patientHosRecordNum, recordNum.getText(), needRecordBook.isSelected(), date.getValue().toString(), department.getValue(), isExpert.getValue(), doctor.getValue(), wayToPay.getValue());
+            save.registInfoSave(patientHosRecordNum, recordNum.getText(), needRecordBook.isSelected(), date.getValue().toString(), department.getValue(), isExpert.getValue(), doctor.getValue(), wayToPay.getValue(), emergencyButton.isSelected());
             //关闭二维码界面
             Stage stage = (Stage) controller.pay.getScene().getWindow();
             stage.close();
