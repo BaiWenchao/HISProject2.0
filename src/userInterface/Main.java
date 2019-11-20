@@ -91,6 +91,7 @@ public class Main extends Application {
         // 读取挂号数
         read.readRecordNum();
 
+
         launch(args);
 
 
@@ -105,6 +106,7 @@ public class Main extends Application {
 
         //写入挂号数
         write.writeRecordNum();
+
 
     }
 }

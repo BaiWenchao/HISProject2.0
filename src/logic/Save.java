@@ -35,8 +35,11 @@ public class Save {
         //将patientData存入该患者,并把该患者挂号至相应医师
         for(Patient p : hospital.getPatientList()){
             if(p.getHosRecordNum().equals(hosRecordNum)){
+
                 p.getPatientDataList().add(patientData);
+                // 刷新该患者当前病历号以及加急号选取
                 p.setCurrentRecordNum(recordNum);
+                p.setCurrentEmergency(isEmergency);
 
                 //将该患者加入对应医生的未诊患者列表
                 for(Doctor d : hospital.getDoctorList()){

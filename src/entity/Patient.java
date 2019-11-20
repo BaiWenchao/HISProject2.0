@@ -17,7 +17,7 @@ public class Patient implements Comparable<Patient>{
     private StringProperty idNum = new SimpleStringProperty();
     private List<PatientData> patientDataList = new ArrayList<>();
     private StringProperty currentRecordNum = new SimpleStringProperty();
-    private int priority = 0;
+    private boolean currentEmergency;
 
     public Patient() {
     }
@@ -136,14 +136,49 @@ public class Patient implements Comparable<Patient>{
         this.currentRecordNum.set(currentRecordNum);
     }
 
+    public boolean isCurrentEmergency() {
+        return currentEmergency;
+    }
+
+    public void setCurrentEmergency(boolean currentEmergency) {
+        this.currentEmergency = currentEmergency;
+    }
+
     @Override
     public int compareTo(Patient o) {
-        if(this.priority < o.priority){
-            return -1;
-        }else if(this.priority == o.priority){
-            return 0;
+        String thisRecordNum = this.getCurrentRecordNum();
+        String otherRecordNum = o.getCurrentRecordNum();
+        boolean thisEmergency = this.isCurrentEmergency();
+        boolean otherEmergency = o.isCurrentEmergency();
+
+        String thisType = thisRecordNum.substring(0,1);
+        String otherType = otherRecordNum.substring(0,1);
+
+        int thisNum = Integer.parseInt(thisRecordNum.substring(1));
+        int otherNum = Integer.parseInt(otherRecordNum.substring(1));
+
+        if(!((thisEmergency && otherEmergency) || (!thisEmergency && !otherEmergency))){
+            // 处理一个加急另一个非加急的情况
+            if(thisEmergency){
+                return 1;
+            }else{
+                return -1;
+            }
         }else{
-            return 1;
+            // 处理同为加急或都非加急的情况
+            // 如果为B类，即为复诊，则给其排号减去5，最后比较排号大小，小的那个有更高优先级
+            if(thisType.equals("B")){
+                thisNum -= 5;
+            }
+            if(otherType.equals("B")){
+                otherNum -= 5;
+            }
+
+            if(thisNum < otherNum){
+                return 1;
+            }else{
+                return -1;
+            }
         }
 
     }

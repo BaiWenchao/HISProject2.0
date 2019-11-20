@@ -125,7 +125,6 @@ public class PatientRegist {
     //打开支付二维码界面，同时保存患者的挂号信息，同时将该患者加入对应医生的未诊患者列表
     @FXML
     private void turnToPayRegist() throws IOException {
-        // 计算患者优先级
 
         try{
             registFee = calculate.registCalculate(needRecordBook.isSelected(), emergencyButton.isSelected(), isExpert.getValue());
