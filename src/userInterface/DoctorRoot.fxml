@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.DoctorRoot">
+<AnchorPane fx:id="reDiagnosis" prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.DoctorRoot">
    <children>
       <Label layoutX="14.0" layoutY="20.0" prefHeight="62.0" prefWidth="1500.0" text="妙手回春只是我的常规操作，处事低调是我不变的修养" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <font>
@@ -39,12 +39,8 @@
       <TabPane layoutX="300.0" layoutY="95.0" prefHeight="850.0" prefWidth="999.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
         <tabs>
           <Tab fx:id="diagnosis" text="初诊" />
-            <Tab text="复诊">
-              <content>
-                <fx:include source="DoctorDiagnosisAgain.fxml" />
-              </content>
-            </Tab>
-          <Tab fx:id="medicine" text="开方" />
+            <Tab fx:id="rediagnosis" text="复诊" />
+            <Tab fx:id="medicine" text="开方" />
         </tabs>
       </TabPane>
    </children>

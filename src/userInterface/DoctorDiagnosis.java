@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import logic.DataStructure.MyPriorityQueue;
 import logic.Show;
 
 import java.io.IOException;
@@ -75,6 +76,8 @@ public class DoctorDiagnosis {
 
     AnchorPane root = new AnchorPane();
 
+    private MyPriorityQueue<Patient> queue = new MyPriorityQueue<>();
+
     @FXML
     private void showDisease() throws IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -110,12 +113,25 @@ public class DoctorDiagnosis {
                     if(d.getName().equals(doctor.getText())){
                         for(int i=0; i<d.getFutureList().size(); i++){
                             if(p.getName().equals(d.getFutureList().get(i).getName())){
+                                /*d.getFutureList().remove(i);
+                                future.remove(i);*/
+
                                 d.getFutureList().remove(i);
-                                future.remove(i);
+
+                                future.clear();
+
+                                for(int k=0; k<d.getFutureList().size(); k++){
+                                    queue.insert(d.getFutureList().get(k));
+                                }
+
+                                for(int j=0; j<queue.size(); j++){
+                                    future.add(queue.remove());
+                                }
                             }
                         }
                         d.getPastList().add(p);
                         past.add(p);
+
                         break;
                     }
                 }

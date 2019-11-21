@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import logic.DataStructure.MyPriorityQueue;
 import userInterface.DoctorRoot;
 
 import java.io.IOException;
@@ -18,6 +19,8 @@ import static userInterface.DoctorLogin.future;
 public class Show {
     //创建hospital单例
     Hospital hospital = Hospital.getInstance();
+
+    MyPriorityQueue<Patient> queue = new MyPriorityQueue<>();
 
     //单例模式：
     private static Show instance;
@@ -46,7 +49,16 @@ public class Show {
         AnchorPane a = (AnchorPane) loader.load();
         DoctorRoot dr = loader.getController();
 
-        future.addAll(hospital.getDoctorList().get(docIndex).getFutureList());
+
+
+        for(int i=0; i<hospital.getDoctorList().get(docIndex).getFutureList().size(); i++){
+            queue.insert(hospital.getDoctorList().get(docIndex).getFutureList().get(i));
+        }
+
+        for(int i=0; i<hospital.getDoctorList().get(docIndex).getFutureList().size(); i++){
+            future.add(queue.remove());
+        }
+
         past.addAll(hospital.getDoctorList().get(docIndex).getPastList());
 
         dr.doctorName.setText(docName);

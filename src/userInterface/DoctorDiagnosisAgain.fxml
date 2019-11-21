@@ -28,6 +28,8 @@
       <TextArea fx:id="advice" layoutX="178.0" layoutY="471.0" prefHeight="209.0" prefWidth="691.0" />
       <Button fx:id="submit" layoutX="957.0" layoutY="650.0" mnemonicParsing="false" text="提交诊断" />
       <Button fx:id="turnToReDiagnosis" layoutX="957.0" layoutY="594.0" mnemonicParsing="false" text="等待复诊" />
+      <Label fx:id="hosRecordNumLabel" layoutX="256.0" layoutY="17.0" />
+      <Label fx:id="nameLabel" layoutX="487.0" layoutY="17.0" />
     </children>
 
 </AnchorPane>

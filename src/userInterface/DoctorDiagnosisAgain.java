@@ -2,10 +2,7 @@ package userInterface;
 
 import entity.DiseaseTreeNode;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 
 public class DoctorDiagnosisAgain {
     @FXML
@@ -31,4 +28,10 @@ public class DoctorDiagnosisAgain {
 
     @FXML
     private TableView<DiseaseTreeNode> diagnosis;
+
+    @FXML
+    public Label nameLabel;
+
+    @FXML
+    public Label hosRecordNumLabel;
 }

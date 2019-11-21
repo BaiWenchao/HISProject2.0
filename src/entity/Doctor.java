@@ -2,6 +2,8 @@ package entity;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import logic.DataStructure.MyHeap;
+import logic.DataStructure.MyPriorityQueue;
 
 import java.util.ArrayList;
 import java.util.Calendar;

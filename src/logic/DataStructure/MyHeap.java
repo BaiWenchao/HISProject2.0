@@ -58,4 +58,8 @@ public class MyHeap<E extends Comparable<E>> {
 
         return returnValue;
     }
+
+    public int size(){
+        return list.size() - 1;
+    }
 }

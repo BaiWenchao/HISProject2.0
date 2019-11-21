@@ -45,9 +45,14 @@ public class DoctorRoot {
     @FXML
     private Tab medicine;
 
+    @FXML
+    private Tab rediagnosis;
+
 
     private AnchorPane rootDiagnosis;
     private AnchorPane rootMedicine;
+    private AnchorPane rootReDiagnosis;
+
 
     @FXML
     private void initialize() throws IOException {
@@ -66,6 +71,14 @@ public class DoctorRoot {
         DoctorMedicine docMed = loader2.getController();
         medicine.setContent(rootMedicine);
 
+        // 加载复诊界面
+        FXMLLoader loader3 = new FXMLLoader();
+        loader3.setLocation(getClass().getResource("DoctorDiagnosisAgain.fxml"));
+        rootReDiagnosis = loader3.load();
+
+        // 获取DoctorDiagnosisAgain控制器
+        DoctorDiagnosisAgain docDiagAga = loader3.getController();
+        rediagnosis.setContent(rootReDiagnosis);
 
         futureTable.setItems(future);
         pastTable.setItems(past);
@@ -86,6 +99,10 @@ public class DoctorRoot {
                         docDiag.history.setText("");
                         docDiag.examine.setText("");
                         docDiag.advice.setText("");
+
+                        docDiagAga.hosRecordNumLabel.setText(newValue.getHosRecordNum());
+                        docDiagAga.nameLabel.setText(newValue.getName());
+
                         diseases.clear();
                     }catch (NullPointerException ne){
 
@@ -98,6 +115,9 @@ public class DoctorRoot {
                         docDiag.recordNumLabel.setText(newValue.getHosRecordNum());
                         docDiag.nameLabel.setText(newValue.getName());
                         docDiag.doctor.setText(doctorName.getText());
+
+                        docDiagAga.hosRecordNumLabel.setText(newValue.getHosRecordNum());
+                        docDiagAga.nameLabel.setText(newValue.getName());
 
                         int num = newValue.getPatientDataList().size()-1;
                         docDiag.describe.setText(newValue.getPatientDataList().get(num).getDiagnosis().getDescribe());

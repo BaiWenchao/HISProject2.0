@@ -11,4 +11,8 @@ public class MyPriorityQueue<E extends Comparable<E>> {
         return heap.remove();
     }
 
+    public int size(){
+        return heap.size();
+    }
+
 }

@@ -92,6 +92,13 @@ public class Main extends Application {
         read.readRecordNum();
 
 
+        /*for(Doctor d : hospital.getDoctorList()){
+            if(d.getName().equals("华佗")){
+                System.out.println(d.getFutureList().size());
+                break;
+            }
+        }*/
+
         launch(args);
 
 
