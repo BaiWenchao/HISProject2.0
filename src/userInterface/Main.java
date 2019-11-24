@@ -1,6 +1,7 @@
 package userInterface;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.parser.ParserConfig;
 import dataAccess.ReadFile;
 import dataAccess.WriteFile;
 import entity.*;
@@ -90,14 +91,6 @@ public class Main extends Application {
 
         // 读取挂号数
         read.readRecordNum();
-
-
-        /*for(Doctor d : hospital.getDoctorList()){
-            if(d.getName().equals("华佗")){
-                System.out.println(d.getFutureList().size());
-                break;
-            }
-        }*/
 
         launch(args);
 

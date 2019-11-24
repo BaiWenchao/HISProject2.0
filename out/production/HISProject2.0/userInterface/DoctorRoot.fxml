@@ -43,5 +43,7 @@
             <Tab fx:id="medicine" text="开方" />
         </tabs>
       </TabPane>
+      <Label layoutX="793.0" layoutY="65.0" text="所属部门：" />
+      <Label fx:id="department" layoutX="868.0" layoutY="65.0" />
    </children>
 </AnchorPane>

@@ -48,6 +48,9 @@ public class DoctorRoot {
     @FXML
     private Tab rediagnosis;
 
+    @FXML
+    public Label department;
+
 
     private AnchorPane rootDiagnosis;
     private AnchorPane rootMedicine;
@@ -95,6 +98,7 @@ public class DoctorRoot {
                         docDiag.recordNumLabel.setText(newValue.getHosRecordNum());
                         docDiag.nameLabel.setText(newValue.getName());
                         docDiag.doctor.setText(doctorName.getText());
+                        docDiag.department.setText(department.getText());
                         docDiag.describe.setText("");
                         docDiag.history.setText("");
                         docDiag.examine.setText("");
@@ -102,6 +106,8 @@ public class DoctorRoot {
 
                         docDiagAga.hosRecordNumLabel.setText(newValue.getHosRecordNum());
                         docDiagAga.nameLabel.setText(newValue.getName());
+                        docDiagAga.doctorLabel.setText(doctorName.getText());
+                        docDiagAga.departmentLabel.setText(department.getText());
 
                         diseases.clear();
                     }catch (NullPointerException ne){
@@ -118,6 +124,8 @@ public class DoctorRoot {
 
                         docDiagAga.hosRecordNumLabel.setText(newValue.getHosRecordNum());
                         docDiagAga.nameLabel.setText(newValue.getName());
+                        docDiagAga.departmentLabel.setText(department.getText());
+                        docDiagAga.doctorLabel.setText(doctorName.getText());
 
                         int num = newValue.getPatientDataList().size()-1;
                         docDiag.describe.setText(newValue.getPatientDataList().get(num).getDiagnosis().getDescribe());

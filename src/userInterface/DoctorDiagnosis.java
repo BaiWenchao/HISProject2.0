@@ -1,5 +1,6 @@
 package userInterface;
 
+import com.alibaba.fastjson.parser.ParserConfig;
 import entity.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -74,9 +75,10 @@ public class DoctorDiagnosis {
     @FXML
     public Label nameLabel;
 
-    AnchorPane root = new AnchorPane();
+    @FXML
+    public Label department;
 
-    private MyPriorityQueue<Patient> queue = new MyPriorityQueue<>();
+    AnchorPane root = new AnchorPane();
 
     @FXML
     private void showDisease() throws IOException {
@@ -84,6 +86,15 @@ public class DoctorDiagnosis {
         loader.setLocation(Entrance.class.getResource("ShowDisease.fxml"));
         root = loader.load();
         show.turnToStage(root,800,300);
+    }
+
+    // 新的显示树方法：
+    @FXML
+    private void showDiseaseTree() {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ShowDiseaseTree.fxml"));
+        ShowDiseaseTree controller = loader.getController();
+
     }
 
     @FXML
@@ -101,6 +112,7 @@ public class DoctorDiagnosis {
 
     @FXML
     private void submit(){
+
         for(Patient p : hospital.getPatientList()){
             if(p.getHosRecordNum().equals(recordNumLabel.getText())){
                 List<Disease> diseaseList = new ArrayList<>();
@@ -111,22 +123,16 @@ public class DoctorDiagnosis {
                 //对患者列表信息进行增减
                 for(Doctor d : hospital.getDoctorList()){
                     if(d.getName().equals(doctor.getText())){
-                        for(int i=0; i<d.getFutureList().size(); i++){
-                            if(p.getName().equals(d.getFutureList().get(i).getName())){
-                                /*d.getFutureList().remove(i);
-                                future.remove(i);*/
-
-                                d.getFutureList().remove(i);
+                        for(int i=0; i<d.getFutureQueue().size(); i++){
+                            if(p.getName().equals(d.getFutureQueue().getItem(i).getName())){
+                                d.getFutureQueue().remove();
 
                                 future.clear();
 
-                                for(int k=0; k<d.getFutureList().size(); k++){
-                                    queue.insert(d.getFutureList().get(k));
+                                for(int j=0; j<d.getFutureQueue().size(); j++){
+                                    future.add(d.getFutureQueue().get(j));
                                 }
 
-                                for(int j=0; j<queue.size(); j++){
-                                    future.add(queue.remove());
-                                }
                             }
                         }
                         d.getPastList().add(p);

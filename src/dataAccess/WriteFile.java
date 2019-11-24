@@ -6,6 +6,7 @@ import entity.Hospital;
 import entity.Medicine;
 import entity.Patient;
 import entity.Pharmacy;
+import logic.DataStructure.MyPriorityQueue;
 
 import java.io.BufferedWriter;
 import java.io.File;

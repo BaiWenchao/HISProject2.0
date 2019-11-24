@@ -11,7 +11,8 @@ import java.util.List;
 
 public class Doctor {
     private List<Patient> pastList = new ArrayList<>();
-    private List<Patient> futureList = new ArrayList<>();
+
+    private MyPriorityQueue<Patient> futureQueue = new MyPriorityQueue<>();
 
     private StringProperty name = new SimpleStringProperty();
     private StringProperty department = new SimpleStringProperty();
@@ -37,14 +38,6 @@ public class Doctor {
 
     public void setPastList(List<Patient> pastList) {
         this.pastList = pastList;
-    }
-
-    public List<Patient> getFutureList() {
-        return futureList;
-    }
-
-    public void setFutureList(List<Patient> futureList) {
-        this.futureList = futureList;
     }
 
     public String getName() {
@@ -101,5 +94,13 @@ public class Doctor {
 
     public void setWork(boolean work) {
         isWork = work;
+    }
+
+    public MyPriorityQueue<Patient> getFutureQueue() {
+        return futureQueue;
+    }
+
+    public void setFutureQueue(MyPriorityQueue<Patient> futureQueue) {
+        this.futureQueue = futureQueue;
     }
 }

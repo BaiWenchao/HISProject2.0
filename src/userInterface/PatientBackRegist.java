@@ -105,9 +105,10 @@ public class PatientBackRegist {
                 String docName = p.getPatientDataList().get(p.getPatientDataList().size()-1).getRegist().getDoctor();
                 for(Doctor d : hospital.getDoctorList()){
                     if(d.getName().equals(docName)){
-                        for(int i=0; i<d.getFutureList().size(); i++){
-                            if(d.getFutureList().get(i).getHosRecordNum().equals(patientHosRecordNum)){
-                                d.getFutureList().remove(i);
+                        int size = d.getFutureQueue().size();
+                        for(int i=0; i<size; i++){
+                            if(d.getFutureQueue().getItem(i).getHosRecordNum().equals(patientHosRecordNum)){
+                                d.getFutureQueue().remove(i);
                             }
                         }
                     }

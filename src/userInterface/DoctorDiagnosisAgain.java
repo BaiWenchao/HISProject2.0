@@ -18,9 +18,6 @@ public class DoctorDiagnosisAgain {
     private Button delete;
 
     @FXML
-    private Button turnToReDiagnosis;
-
-    @FXML
     private TextArea advice;
 
     @FXML
@@ -34,4 +31,10 @@ public class DoctorDiagnosisAgain {
 
     @FXML
     public Label hosRecordNumLabel;
+
+    @FXML
+    public Label doctorLabel;
+
+    @FXML
+    public Label departmentLabel;
 }

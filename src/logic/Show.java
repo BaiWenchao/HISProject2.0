@@ -20,8 +20,6 @@ public class Show {
     //创建hospital单例
     Hospital hospital = Hospital.getInstance();
 
-    MyPriorityQueue<Patient> queue = new MyPriorityQueue<>();
-
     //单例模式：
     private static Show instance;
     private Show(){}
@@ -39,7 +37,7 @@ public class Show {
         stage.show();
     }
 
-    public void showDoctorRoot(String docName, int docIndex) throws IOException {
+    public void showDoctorRoot(String docName, int docIndex, String department) throws IOException {
 
         future.clear();
         past.clear();
@@ -50,18 +48,15 @@ public class Show {
         DoctorRoot dr = loader.getController();
 
 
-
-        for(int i=0; i<hospital.getDoctorList().get(docIndex).getFutureList().size(); i++){
-            queue.insert(hospital.getDoctorList().get(docIndex).getFutureList().get(i));
-        }
-
-        for(int i=0; i<hospital.getDoctorList().get(docIndex).getFutureList().size(); i++){
-            future.add(queue.remove());
+        int size = hospital.getDoctorList().get(docIndex).getFutureQueue().size();
+        for(int i=0; i<size; i++){
+            future.add(hospital.getDoctorList().get(docIndex).getFutureQueue().get(i));
         }
 
         past.addAll(hospital.getDoctorList().get(docIndex).getPastList());
 
         dr.doctorName.setText(docName);
+        dr.department.setText(department);
 
         Stage primaryStage = new Stage();
         primaryStage.setTitle("东软云医院HIS系统");

@@ -44,7 +44,7 @@ public class Save {
                 //将该患者加入对应医生的未诊患者列表
                 for(Doctor d : hospital.getDoctorList()){
                     if(d.getName().equals(doctor)){
-                        d.getFutureList().add(p);
+                        d.getFutureQueue().insert(p);
                     }
                 }
             }

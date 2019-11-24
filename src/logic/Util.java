@@ -57,32 +57,32 @@ public class Util {
     public void docLogin(String name, String code) throws IOException {
 
         if(name.equals("ht") && code.equals("ht")){
-            show.showDoctorRoot("华佗",0);
+            show.showDoctorRoot("华佗",0, "内科");
             return;
         }
 
         if(name.equals("bq") && code.equals("bq")){
-            show.showDoctorRoot("扁鹊",1);
+            show.showDoctorRoot("扁鹊",1, "内科");
             return;
         }
 
         if(name.equals("ssm") && code.equals("ssm")){
-            show.showDoctorRoot("孙思邈",2);
+            show.showDoctorRoot("孙思邈",2, "内科");
             return;
         }
 
         if(name.equals("lsz") && code.equals("lsz")){
-            show.showDoctorRoot("李时珍",3);
+            show.showDoctorRoot("李时珍",3, "外科");
             return;
         }
 
         if(name.equals("xb") && code.equals("xb")){
-            show.showDoctorRoot("希波克拉底",4);
+            show.showDoctorRoot("希波克拉底",4, "外科");
             return;
         }
 
         if(name.equals("gl") && code.equals("gl")){
-            show.showDoctorRoot("盖伦",5);
+            show.showDoctorRoot("盖伦",5, "外科");
             return;
         }
 

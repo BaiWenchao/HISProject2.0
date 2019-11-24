@@ -2,7 +2,6 @@ package entity;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import sun.security.ssl.SSLContextImpl;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -167,4 +167,16 @@ public class PatientRegist {
         recordNum.setText(returnNum.returnRecordNum());
     }
 
+    //若加急号则将患者的画好类型改为C类
+    @FXML
+    private void changeRegistInfo(){
+        if(emergencyButton.isSelected()){
+            String newNum = "C" + recordNum.getText().substring(1);
+            recordNum.setText(newNum);
+        }else{
+            String newNum = "A" + recordNum.getText().substring(1);
+            recordNum.setText(newNum);
+        }
+    }
+
 }
