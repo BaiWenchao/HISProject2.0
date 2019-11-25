@@ -83,7 +83,7 @@ public class PatientBackRegist {
                         boolean book = p.getPatientDataList().get(p.getPatientDataList().size()-1).getRegist().isNeedRecordBook();
                         boolean emergency = p.getPatientDataList().get(p.getPatientDataList().size()-1).getRegist().isEmergency();
                         String haobie = p.getPatientDataList().get(p.getPatientDataList().size()-1).getRegist().getIsExpert();
-                        totalFee.setText(calculate.registCalculate(book,emergency,haobie));
+                        totalFee.setText(calculate.registCalculate(book,haobie));
                     }else{
                         util.errorInformationAlert("医师已经为您诊断过了，不可退号！");
                     }

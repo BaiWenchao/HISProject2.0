@@ -1,6 +1,5 @@
 package entity;
 
-import javafx.scene.control.TreeItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +8,9 @@ import java.util.TreeMap;
 
 public class DiseaseTreeNode {
     private String diseaseName;
-    private List<DiseaseTreeNode> childList = new ArrayList<>();
     private Map<String, String> patientMap = new TreeMap<>();
     private String diseaseCode;
+    private List<DiseaseTreeNode> childList = new ArrayList<>();
 
     public DiseaseTreeNode() {
     }

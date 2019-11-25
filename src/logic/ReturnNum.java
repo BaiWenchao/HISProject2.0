@@ -27,7 +27,7 @@ public class ReturnNum {
 
     public String returnRecordNum(){
         hospital.setRecordNum_A(hospital.getRecordNum_A() + 1);
-        return "A" + hospital.getRecordNum_A().toString();
+        return hospital.getRecordNum_A().toString();
     }
 
     public String returnAgainRecordNum(){

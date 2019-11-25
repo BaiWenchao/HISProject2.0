@@ -3,7 +3,6 @@ package entity;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-
 /**
  * 这个类已被DiseaseTreeNode取代*/
 

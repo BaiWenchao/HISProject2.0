@@ -23,13 +23,10 @@ public class Calculate {
     //创建医院单例
     Hospital hospital = Hospital.getInstance();
 
-    public String registCalculate(boolean needRecordBook, boolean isEmergency, String isExpert){
+    public String registCalculate(boolean needRecordBook, String isExpert){
         int fee = 0;
         if(needRecordBook){
             fee += 1;
-        }
-        if(isEmergency){
-            fee += 100;
         }
         if(isExpert.equals("专家号")){
             fee += 70;

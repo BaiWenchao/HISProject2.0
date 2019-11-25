@@ -16,7 +16,7 @@ public class Patient implements Comparable<Patient>{
     private StringProperty idNum = new SimpleStringProperty();
     private List<PatientData> patientDataList = new ArrayList<>();
     private StringProperty currentRecordNum = new SimpleStringProperty();
-    private boolean currentEmergency;
+    private StringProperty currentDoctor = new SimpleStringProperty();
 
     public Patient() {
     }
@@ -135,20 +135,22 @@ public class Patient implements Comparable<Patient>{
         this.currentRecordNum.set(currentRecordNum);
     }
 
-    public boolean isCurrentEmergency() {
-        return currentEmergency;
+    public String getCurrentDoctor() {
+        return currentDoctor.get();
     }
 
-    public void setCurrentEmergency(boolean currentEmergency) {
-        this.currentEmergency = currentEmergency;
+    public StringProperty currentDoctorProperty() {
+        return currentDoctor;
+    }
+
+    public void setCurrentDoctor(String currentDoctor) {
+        this.currentDoctor.set(currentDoctor);
     }
 
     @Override
     public int compareTo(Patient o) {
         String thisRecordNum = this.getCurrentRecordNum();
         String otherRecordNum = o.getCurrentRecordNum();
-        boolean thisEmergency = this.isCurrentEmergency();
-        boolean otherEmergency = o.isCurrentEmergency();
 
         String thisType = thisRecordNum.substring(0,1);
         String otherType = otherRecordNum.substring(0,1);
@@ -156,9 +158,9 @@ public class Patient implements Comparable<Patient>{
         int thisNum = Integer.parseInt(thisRecordNum.substring(1));
         int otherNum = Integer.parseInt(otherRecordNum.substring(1));
 
-        if(!((thisEmergency && otherEmergency) || (!thisEmergency && !otherEmergency))){
+        if(!((thisType.equals("C") && otherType.equals("C")) || (!thisType.equals("C") && !otherType.equals("C")))){
             // 处理一个加急另一个非加急的情况
-            if(thisEmergency){
+            if(thisType.equals("C")){
                 return 1;
             }else{
                 return -1;

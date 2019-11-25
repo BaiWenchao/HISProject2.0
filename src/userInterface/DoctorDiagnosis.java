@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import logic.DataStructure.Algorithms;
 import logic.DataStructure.MyPriorityQueue;
 import logic.Show;
 
@@ -32,6 +33,9 @@ public class DoctorDiagnosis {
 
     //创建医院单例
     Hospital hospital = Hospital.getInstance();
+
+    // 创建数据结构算法类单例
+    Algorithms algorithms = Algorithms.getInstance();
 
     @FXML
     private TableColumn<Disease, String> diseaseName;
@@ -90,10 +94,22 @@ public class DoctorDiagnosis {
 
     // 新的显示树方法：
     @FXML
-    private void showDiseaseTree() {
+    private void showDiseaseTree() throws Exception {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("ShowDiseaseTree.fxml"));
+        root = loader.load();
         ShowDiseaseTree controller = loader.getController();
+        //为新界面初始化部门
+        controller.department.setText(department.getText());
+        //为新界面初始化疾病树
+        controller.diseaseTreeView.setRoot(algorithms.diseaseBFT(hospital.getDiseaseTree().getNodeMap().get(department.getText())));
+        //跳转到新界面
+        show.turnToStage(root, 800, 600);
+
+        // 设置DiseaseTree方法
+        controller.addButton.setOnAction((ActionEvent e) -> {
+
+        });
 
     }
 

@@ -24,7 +24,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button fx:id="add" layoutX="1014.0" layoutY="554.0" mnemonicParsing="false" onAction="#showDisease" prefHeight="20.0" prefWidth="50.0" text="添加" />
+      <Button fx:id="add" layoutX="1014.0" layoutY="554.0" mnemonicParsing="false" onAction="#showDiseaseTree" prefHeight="20.0" prefWidth="50.0" text="添加" />
       <Button fx:id="delete" layoutX="1104.0" layoutY="554.0" mnemonicParsing="false" onAction="#deleteDisease" text="删除" />
       <Button fx:id="submit" layoutX="1072.0" layoutY="673.0" mnemonicParsing="false" onAction="#submit" prefHeight="30.0" prefWidth="82.0" text="提交诊断" />
       <Label layoutX="44.0" layoutY="139.0" text="主诉：" />

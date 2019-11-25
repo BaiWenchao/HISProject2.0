@@ -1,12 +1,7 @@
 package logic.DataStructure;
 
-import entity.Disease;
-import entity.DiseaseTree;
 import entity.DiseaseTreeNode;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.scene.control.TreeItem;
-import logic.DataStructure.MyQueue;
 
 import java.util.HashMap;
 import java.util.Map;

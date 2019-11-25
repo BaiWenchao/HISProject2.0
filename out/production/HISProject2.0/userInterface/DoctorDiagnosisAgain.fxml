@@ -10,8 +10,8 @@
 <AnchorPane prefHeight="800.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.DoctorDiagnosisAgain">
     <children>
         <Label layoutX="22.0" layoutY="17.0" text="患者信息确认" textFill="#3299cc" />
-        <Label layoutX="196.0" layoutY="17.0" text="病案号：" />
-        <Label layoutX="442.0" layoutY="17.0" text="姓名：" AnchorPane.leftAnchor="442.0" />
+        <Label layoutX="196.0" layoutY="17.0" text="病案号：" AnchorPane.leftAnchor="200.0" />
+        <Label layoutX="442.0" layoutY="17.0" text="姓名：" AnchorPane.leftAnchor="440.0" />
         <Label layoutX="26.0" layoutY="204.0" text="评估/诊断：" textFill="#3299cc" />
         <TableView fx:id="diagnosis" layoutX="178.0" layoutY="204.0" prefHeight="115.0" prefWidth="691.0">
             <columns>
@@ -27,12 +27,12 @@
       <Label layoutX="26.0" layoutY="471.0" text="医师建议：" textFill="#3299cc" />
       <TextArea fx:id="advice" layoutX="178.0" layoutY="471.0" prefHeight="209.0" prefWidth="691.0" />
       <Button fx:id="submit" layoutX="957.0" layoutY="650.0" mnemonicParsing="false" text="提交诊断" />
-      <Label fx:id="hosRecordNumLabel" layoutX="256.0" layoutY="17.0" />
-      <Label fx:id="nameLabel" layoutX="487.0" layoutY="17.0" />
-      <Label layoutX="655.0" layoutY="17.0" text="诊断医师：" />
-      <Label fx:id="doctorLabel" layoutX="741.0" layoutY="17.0" />
-      <Label layoutX="957.0" layoutY="17.0" text="所属部门：" />
-      <Label fx:id="departmentLabel" layoutX="1033.0" layoutY="17.0" prefHeight="20.0" prefWidth="45.0" />
+      <Label fx:id="hosRecordNumLabel" layoutX="256.0" layoutY="17.0" AnchorPane.leftAnchor="260.0" />
+      <Label fx:id="nameLabel" layoutX="487.0" layoutY="17.0" AnchorPane.leftAnchor="485.0" />
+      <Label layoutX="655.0" layoutY="17.0" text="诊断医师：" AnchorPane.leftAnchor="680.0" />
+      <Label fx:id="doctorLabel" layoutX="741.0" layoutY="17.0" AnchorPane.leftAnchor="750.0" />
+      <Label layoutX="957.0" layoutY="17.0" text="所属部门：" AnchorPane.leftAnchor="930.0" />
+      <Label fx:id="departmentLabel" layoutX="1033.0" layoutY="17.0" prefHeight="20.0" prefWidth="45.0" AnchorPane.leftAnchor="1000.0" />
     </children>
 
 </AnchorPane>

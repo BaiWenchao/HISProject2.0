@@ -74,8 +74,6 @@ public class PatientRegist {
     @FXML
     private Button payOnline;
 
-    @FXML
-    private RadioButton emergencyButton;
 
     private AnchorPane pay;
 
@@ -127,7 +125,7 @@ public class PatientRegist {
     private void turnToPayRegist() throws IOException {
 
         try{
-            registFee = calculate.registCalculate(needRecordBook.isSelected(), emergencyButton.isSelected(), isExpert.getValue());
+            registFee = calculate.registCalculate(needRecordBook.isSelected(), isExpert.getValue());
         }catch (NullPointerException e){
 
         }
@@ -148,7 +146,7 @@ public class PatientRegist {
 
         controller.pay.setOnAction((ActionEvent e) -> {
             //将挂号信息存入该患者，并将该患者挂号至对应医生
-            save.registInfoSave(patientHosRecordNum, recordNum.getText(), needRecordBook.isSelected(), date.getValue().toString(), department.getValue(), isExpert.getValue(), doctor.getValue(), wayToPay.getValue(), emergencyButton.isSelected());
+            save.registInfoSave(patientHosRecordNum, recordNum.getText(), needRecordBook.isSelected(), date.getValue().toString(), department.getValue(), isExpert.getValue(), doctor.getValue(), wayToPay.getValue());
             //关闭二维码界面
             Stage stage = (Stage) controller.pay.getScene().getWindow();
             stage.close();
@@ -165,18 +163,6 @@ public class PatientRegist {
         name.setText(patientName);
 
         recordNum.setText(returnNum.returnRecordNum());
-    }
-
-    //若加急号则将患者的画好类型改为C类
-    @FXML
-    private void changeRegistInfo(){
-        if(emergencyButton.isSelected()){
-            String newNum = "C" + recordNum.getText().substring(1);
-            recordNum.setText(newNum);
-        }else{
-            String newNum = "A" + recordNum.getText().substring(1);
-            recordNum.setText(newNum);
-        }
     }
 
 }

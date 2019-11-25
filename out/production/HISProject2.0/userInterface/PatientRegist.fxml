@@ -28,6 +28,5 @@
       <Label fx:id="hosRecordNum" layoutX="282.0" layoutY="40.0" />
       <Label fx:id="name" layoutX="691.0" layoutY="40.0" />
       <Label layoutX="56.0" layoutY="117.0" text="病历号：" />
-      <RadioButton fx:id="emergencyButton" layoutX="185.0" layoutY="172.0" mnemonicParsing="false" onAction="#changeRegistInfo" text="加急号" />
    </children>
 </AnchorPane>

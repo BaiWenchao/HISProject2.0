@@ -20,7 +20,7 @@ public class Save {
     //创建医院单例
     Hospital hospital = Hospital.getInstance();
 
-    public void registInfoSave(String hosRecordNum, String recordNum, boolean needRecordBook, String date, String department, String isExpert, String doctor, String wayToPay, boolean isEmergency){
+    public void registInfoSave(String hosRecordNum, String recordNum, boolean needRecordBook, String date, String department, String isExpert, String doctor, String wayToPay){
         //新建patientData，将患者挂号信息存入
         PatientData patientData = new PatientData();
         patientData.getRegist().setRecordNum(recordNum);
@@ -30,23 +30,22 @@ public class Save {
         patientData.getRegist().setIsExpert(isExpert);
         patientData.getRegist().setDoctor(doctor);
         patientData.getRegist().setWayToPay(wayToPay);
-        patientData.getRegist().setEmergency(isEmergency);
 
         //将patientData存入该患者,并把该患者挂号至相应医师
         for(Patient p : hospital.getPatientList()){
             if(p.getHosRecordNum().equals(hosRecordNum)){
 
                 p.getPatientDataList().add(patientData);
-                // 刷新该患者当前病历号以及加急号选取
+                // 刷新该患者当前病历号
                 p.setCurrentRecordNum(recordNum);
-                p.setCurrentEmergency(isEmergency);
+                p.setCurrentDoctor(doctor);
 
-                //将该患者加入对应医生的未诊患者列表
+                /*//将该患者加入对应医生的未诊患者列表
                 for(Doctor d : hospital.getDoctorList()){
                     if(d.getName().equals(doctor)){
                         d.getFutureQueue().insert(p);
                     }
-                }
+                }*/
             }
         }
     }

@@ -104,6 +104,14 @@ public class Util {
             return;
         }
 
+        if(name.equals("nurse") && code.equals("nurse")){
+            Parent root = FXMLLoader.load(getClass().getResource("/userInterface/Nurse.fxml"));
+            show.turnToStage(root,1500,900);
+            return;
+        }
+
+
+
         errorInformationAlert("用户名或密码错误！");
 
     }

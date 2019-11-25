@@ -9,10 +9,10 @@
 <AnchorPane prefHeight="800.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.DoctorDiagnosis">
    <children>
       <Label layoutX="22.0" layoutY="17.0" text="患者信息确认" textFill="#3299cc" />
-      <Label layoutX="196.0" layoutY="17.0" text="病案号：" />
-      <Label fx:id="recordNumLabel" layoutX="262.0" layoutY="17.0" />
-      <Label layoutX="442.0" layoutY="17.0" text="姓名：" AnchorPane.leftAnchor="442.0" />
-      <Label fx:id="nameLabel" layoutX="424.0" layoutY="17.0" AnchorPane.leftAnchor="495.0" />
+      <Label layoutX="196.0" layoutY="17.0" text="病案号：" AnchorPane.leftAnchor="200.0" />
+      <Label fx:id="recordNumLabel" layoutX="262.0" layoutY="17.0" AnchorPane.leftAnchor="260.0" />
+      <Label layoutX="442.0" layoutY="17.0" text="姓名：" AnchorPane.leftAnchor="440.0" />
+      <Label fx:id="nameLabel" layoutX="424.0" layoutY="17.0" AnchorPane.leftAnchor="485.0" />
       <Label layoutX="29.0" layoutY="74.0" text="病史内容：" textFill="#3299cc" />
       <Label layoutX="44.0" layoutY="511.0" text="评估/诊断：" textFill="#3299cc" />
       <TableView fx:id="diagnosis" layoutX="225.0" layoutY="469.0" prefHeight="115.0" prefWidth="691.0">
@@ -24,7 +24,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button fx:id="add" layoutX="1014.0" layoutY="554.0" mnemonicParsing="false" onAction="#showDisease" prefHeight="20.0" prefWidth="50.0" text="添加" />
+      <Button fx:id="add" layoutX="1014.0" layoutY="554.0" mnemonicParsing="false" onAction="#showDiseaseTree" prefHeight="20.0" prefWidth="50.0" text="添加" />
       <Button fx:id="delete" layoutX="1104.0" layoutY="554.0" mnemonicParsing="false" onAction="#deleteDisease" text="删除" />
       <Button fx:id="submit" layoutX="1072.0" layoutY="673.0" mnemonicParsing="false" onAction="#submit" prefHeight="30.0" prefWidth="82.0" text="提交诊断" />
       <Label layoutX="44.0" layoutY="139.0" text="主诉：" />
@@ -35,10 +35,10 @@
       <TextArea fx:id="examine" layoutX="225.0" layoutY="369.0" prefHeight="62.0" prefWidth="684.0" />
       <Label layoutX="43.0" layoutY="647.0" text="医师意见：" />
       <TextArea fx:id="advice" layoutX="225.0" layoutY="626.0" prefHeight="62.0" prefWidth="684.0" />
-      <Label layoutX="662.0" layoutY="17.0" text="诊断医师：" />
-      <Label fx:id="doctor" layoutX="749.0" layoutY="17.0" />
+      <Label layoutX="662.0" layoutY="17.0" text="诊断医师：" AnchorPane.leftAnchor="680.0" />
+      <Label fx:id="doctor" layoutX="749.0" layoutY="17.0" AnchorPane.leftAnchor="750.0" />
       <Button fx:id="turnToReDiagnosis" layoutX="1073.0" layoutY="632.0" mnemonicParsing="false" text="等待复诊" />
-      <Label layoutX="848.0" layoutY="17.0" text="所属部门：" />
-      <Label fx:id="department" layoutX="923.0" layoutY="17.0" />
+      <Label layoutX="848.0" layoutY="17.0" text="所属部门：" AnchorPane.leftAnchor="930.0" />
+      <Label fx:id="department" layoutX="923.0" layoutY="17.0" AnchorPane.leftAnchor="1000.0" />
    </children>
 </AnchorPane>
