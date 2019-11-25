@@ -3,12 +3,13 @@ package entity;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-/**
- * 这个类已被DiseaseTreeNode取代*/
+import java.util.ArrayList;
+import java.util.List;
 
 public class Disease {
     private StringProperty icdCode = new SimpleStringProperty();
     private StringProperty name = new SimpleStringProperty();
+    private List<Patient> patientList = new ArrayList<>();
 
     private transient MyCheckBox myCheckBox = new MyCheckBox();
 
@@ -46,5 +47,13 @@ public class Disease {
 
     public MyCheckBox getMyCheckBox() {
         return myCheckBox;
+    }
+
+    public List<Patient> getPatientList() {
+        return patientList;
+    }
+
+    public void setPatientList(List<Patient> patientList) {
+        this.patientList = patientList;
     }
 }

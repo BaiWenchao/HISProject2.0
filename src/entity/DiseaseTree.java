@@ -1,5 +1,6 @@
 package entity;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,5 +45,7 @@ public class DiseaseTree {
             return false;
         }
     }
+
+
 
 }

@@ -7,24 +7,26 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class DiseaseTreeNode {
-    private String diseaseName;
+    /*private String diseaseName;
     private Map<String, String> patientMap = new TreeMap<>();
-    private String diseaseCode;
+    private String diseaseCode;*/
+
+    private Disease disease = new Disease();
     private List<DiseaseTreeNode> childList = new ArrayList<>();
 
     public DiseaseTreeNode() {
     }
 
     public DiseaseTreeNode(String diseaseName) {
-        this.diseaseName = diseaseName;
+        this.disease.setName(diseaseName);
     }
 
     public String getDiseaseName() {
-        return diseaseName;
+        return this.disease.getName();
     }
 
     public void setDiseaseName(String diseaseName) {
-        this.diseaseName = diseaseName;
+        this.disease.setName(diseaseName);
     }
 
     public List<DiseaseTreeNode> getChildList() {
@@ -39,19 +41,15 @@ public class DiseaseTreeNode {
         this.childList.add(node);
     }
 
-    public Map<String, String> getPatientMap() {
-        return patientMap;
-    }
-
-    public void setPatientMap(Map<String, String> patientMap) {
-        this.patientMap = patientMap;
+    public List<Patient> getPatientList(){
+        return this.disease.getPatientList();
     }
 
     public String getDiseaseCode() {
-        return diseaseCode;
+        return this.disease.getIcdCode();
     }
 
     public void setDiseaseCode(String diseaseCode) {
-        this.diseaseCode = diseaseCode;
+        this.disease.setIcdCode(diseaseCode);
     }
 }

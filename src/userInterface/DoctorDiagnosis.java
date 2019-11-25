@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.CheckBoxTreeCell;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import logic.DataStructure.Algorithms;
@@ -102,14 +103,12 @@ public class DoctorDiagnosis {
         //为新界面初始化部门
         controller.department.setText(department.getText());
         //为新界面初始化疾病树
+            //设置选择框
+        controller.diseaseTreeView.setCellFactory(CheckBoxTreeCell.forTreeView());
+        controller.diseaseTreeView.setEditable(true);
         controller.diseaseTreeView.setRoot(algorithms.diseaseBFT(hospital.getDiseaseTree().getNodeMap().get(department.getText())));
         //跳转到新界面
         show.turnToStage(root, 800, 600);
-
-        // 设置DiseaseTree方法
-        controller.addButton.setOnAction((ActionEvent e) -> {
-
-        });
 
     }
 

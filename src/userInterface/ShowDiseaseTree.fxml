@@ -7,7 +7,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.ShowDiseaseTree">
    <children>
       <Label layoutX="30.0" layoutY="23.0" text="所属科室：">
@@ -20,7 +19,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <TreeView fx:id="diseaseTreeView" layoutX="66.0" layoutY="100.0" prefHeight="410.0" prefWidth="431.0" />
-      <Button fx:id="addButton" layoutX="602.0" layoutY="480.0" mnemonicParsing="false" text="添加" />
+      <TreeView fx:id="diseaseTreeView" layoutX="66.0" layoutY="100.0" prefHeight="410.0" prefWidth="470.0" />
+      <Button fx:id="addButton" layoutX="625.0" layoutY="480.0" mnemonicParsing="false" text="添加" />
    </children>
 </AnchorPane>

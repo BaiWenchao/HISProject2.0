@@ -51,9 +51,7 @@ public class Nurse {
 
     @FXML
     private void initialize(){
-        waitQueue.setItems(future);
-        sequentNum.setCellValueFactory(cellData -> cellData.getValue().currentRecordNumProperty());
-        name.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+
     }
 
     @FXML
@@ -63,6 +61,21 @@ public class Nurse {
         boolean isFind = false;
         for(Patient p : hospital.getPatientList()){
             if(p.getHosRecordNum().equals(num)){
+                // 显示待诊队列
+                for(Doctor d : hospital.getDoctorList()){
+                    if(d.getName().equals(p.getCurrentDoctor())){
+                        future.clear();
+                        int size = d.getFutureQueue().size();
+                        for(int i=0; i<size; i++){
+                            future.add(d.getFutureQueue().get(i));
+                        }
+                    }
+                }
+                waitQueue.setItems(future);
+                sequentNum.setCellValueFactory(cellData -> cellData.getValue().currentRecordNumProperty());
+                name.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+
+
                 // 找到该患者
                 isFind = true;
                 // 显示病人基本挂号信息

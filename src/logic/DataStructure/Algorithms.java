@@ -1,6 +1,7 @@
 package logic.DataStructure;
 
 import entity.DiseaseTreeNode;
+import javafx.scene.control.CheckBoxTreeItem;
 import javafx.scene.control.TreeItem;
 
 import java.util.HashMap;
