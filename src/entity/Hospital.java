@@ -1,6 +1,7 @@
 package entity;
 
 import javafx.scene.control.TreeItem;
+import org.omg.PortableInterceptor.INACTIVE;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,8 +29,14 @@ public class Hospital {
     private List<Disease> diseaseList = new ArrayList<>();
     private List<Medicine> medicineList = new ArrayList<>();
     public List<Prescription> prescriptionTemplateList = new ArrayList<>();
-    private Integer recordNum_A = null;
-    private Integer recordNum_B = null;
+    private Integer recordNum = 0;
+    private Integer htNum = 0;
+    private Integer bqNum = 0;
+    private Integer ssmNum = 0;
+    private Integer lszNum = 0;
+    private Integer xbNum = 0;
+    private Integer glNum = 0;
+    private Map<String, Integer> numMap = new HashMap<>();
 
     private DiseaseTree diseaseTree = new DiseaseTree();
 
@@ -97,19 +104,67 @@ public class Hospital {
         this.diseaseTree = diseaseTree;
     }
 
-    public Integer getRecordNum_A() {
-        return recordNum_A;
+    public Integer getRecordNum() {
+        return recordNum;
     }
 
-    public void setRecordNum_A(Integer recordNum_A) {
-        this.recordNum_A = recordNum_A;
+    public void setRecordNum(Integer recordNum) {
+        this.recordNum = recordNum;
     }
 
-    public Integer getRecordNum_B() {
-        return recordNum_B;
+    public Integer getHtNum() {
+        return htNum;
     }
 
-    public void setRecordNum_B(Integer recordNum_B) {
-        this.recordNum_B = recordNum_B;
+    public void setHtNum(Integer htNum) {
+        this.htNum = htNum;
+    }
+
+    public Integer getBqNum() {
+        return bqNum;
+    }
+
+    public void setBqNum(Integer bqNum) {
+        this.bqNum = bqNum;
+    }
+
+    public Integer getSsmNum() {
+        return ssmNum;
+    }
+
+    public void setSsmNum(Integer ssmNum) {
+        this.ssmNum = ssmNum;
+    }
+
+    public Integer getLszNum() {
+        return lszNum;
+    }
+
+    public void setLszNum(Integer lszNum) {
+        this.lszNum = lszNum;
+    }
+
+    public Integer getXbNum() {
+        return xbNum;
+    }
+
+    public void setXbNum(Integer xbNum) {
+        this.xbNum = xbNum;
+    }
+
+    public Integer getGlNum() {
+        return glNum;
+    }
+
+    public void setGlNum(Integer glNum) {
+        this.glNum = glNum;
+    }
+
+    public Map<String, Integer> getNumMap() {
+        return numMap;
+    }
+
+    public void setNumMap(Map<String, Integer> numMap) {
+        this.numMap = numMap;
     }
 }

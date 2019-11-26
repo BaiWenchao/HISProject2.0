@@ -7,13 +7,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTreeCell;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import logic.DataStructure.Algorithms;
-import logic.DataStructure.MyPriorityQueue;
 import logic.Show;
 
 import java.io.IOException;
@@ -106,9 +104,36 @@ public class DoctorDiagnosis {
             //设置选择框
         controller.diseaseTreeView.setCellFactory(CheckBoxTreeCell.forTreeView());
         controller.diseaseTreeView.setEditable(true);
-        controller.diseaseTreeView.setRoot(algorithms.diseaseBFT(hospital.getDiseaseTree().getNodeMap().get(department.getText())));
+
+        CheckBoxTreeItem<String> item = algorithms.diseaseBFTwithCheckBox(hospital.getDiseaseTree().getNodeMap().get(department.getText()));
+        controller.diseaseTreeView.setRoot(item);
+
         //跳转到新界面
         show.turnToStage(root, 800, 600);
+
+        // 将选中药品添加到列表
+        controller.addButton.setOnAction((ActionEvent e) -> {
+            try {
+                // 将病人加入静态的列表
+                algorithms.diseaseBFTwithObservableList(item);
+
+                // 将病人添加到相应疾病的疾病列表中
+                for(Patient p : hospital.getPatientList()){
+                    if(p.getHosRecordNum().equals(recordNumLabel.getText())){
+                        for(Disease d : diseases){
+                            hospital.getDiseaseTree().getNodeMap().get(d.getName()).getDisease().getPatientList().add(p);
+                        }
+                    }
+                }
+
+                // 关闭该页面
+                Stage stage = (Stage) controller.addButton.getScene().getWindow();
+                stage.close();
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
 
     }
 

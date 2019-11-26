@@ -1,17 +1,14 @@
 package userInterface;
 
-import entity.DiseaseTreeNode;
-import entity.Hospital;
-import entity.Patient;
+import entity.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import logic.DataStructure.Algorithms;
 import logic.Util;
 
 public class AddDisease {
-    // 创建Util单例
-    Util util = Util.getInstance();
-
     @FXML
     private TreeView<String> diseaseTreeView;
 
@@ -22,16 +19,16 @@ public class AddDisease {
     private TextField fatherName;
 
     @FXML
-    private TableColumn<Patient, String> patientName;
+    private TableColumn<ShowPatientUnderDisease, String> patientName;
 
     @FXML
-    private TableView<Patient> patientTable;
+    private TableView<ShowPatientUnderDisease> patientTable;
 
     @FXML
-    private TableColumn<Patient, String> hosRecordNum;
+    private TableColumn<ShowPatientUnderDisease, String> hosRecordNum;
 
     @FXML
-    private TableColumn<DiseaseTreeNode, String> diseaseNameCol;
+    private TableColumn<ShowPatientUnderDisease, String> diseaseNameCol;
 
     @FXML
     private Button addDisease;
@@ -50,6 +47,8 @@ public class AddDisease {
     Hospital hospital = Hospital.getInstance();
     //创建数据结构算法类单例
     Algorithms algorithms = Algorithms.getInstance();
+    // 创建Util单例
+    Util util = Util.getInstance();
 
     @FXML
     public void setAddDisease() throws Exception {
@@ -66,6 +65,16 @@ public class AddDisease {
     @FXML
     public void initialize() throws Exception {
         diseaseTreeView.setRoot(algorithms.diseaseBFT(hospital.getDiseaseTree().getNodeMap().get("疾病")));
+    }
+
+    @FXML
+    public void setSearchPatient() throws Exception {
+        String name = diseaseType.getText();
+        patientTable.setItems(algorithms.diseaseBFTwithDiseaseList(name));
+
+        patientName.setCellValueFactory(cellData -> cellData.getValue().patientNameProperty());
+        hosRecordNum.setCellValueFactory(cellData -> cellData.getValue().recordNumProperty());
+        diseaseNameCol.setCellValueFactory(cellData -> cellData.getValue().diseaseNameProperty());
     }
 
 

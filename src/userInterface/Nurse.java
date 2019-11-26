@@ -60,7 +60,14 @@ public class Nurse {
         String num = hosRecordNumInput.getText();
         boolean isFind = false;
         for(Patient p : hospital.getPatientList()){
+
             if(p.getHosRecordNum().equals(num)){
+                // 处理重复分诊
+                if(p.getCurrentRecordNum().substring(0,1).equals("A") || p.getCurrentRecordNum().substring(0,1).equals("C")){
+                    util.errorInformationAlert("您已在候诊队列！");
+                    return;
+                }
+
                 // 显示待诊队列
                 for(Doctor d : hospital.getDoctorList()){
                     if(d.getName().equals(p.getCurrentDoctor())){
@@ -82,8 +89,10 @@ public class Nurse {
                 nameInfo.setText(p.getName());
                 sexInfo.setText(p.getGender());
                 docInfo.setText(p.getCurrentDoctor());
-                // 将病人初始化为A类
-                p.setCurrentRecordNum("A" + p.getCurrentRecordNum());
+                // 初始化患者候诊序号
+                String s = "A" + hospital.getNumMap().get(docInfo.getText()).toString();
+                hospital.getNumMap().put(docInfo.getText(),hospital.getNumMap().get(docInfo.getText()) + 1);
+                p.setCurrentRecordNum(s);
             }
         }
         if(!isFind){

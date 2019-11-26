@@ -26,12 +26,7 @@ public class ReturnNum {
     }
 
     public String returnRecordNum(){
-        hospital.setRecordNum_A(hospital.getRecordNum_A() + 1);
-        return hospital.getRecordNum_A().toString();
-    }
-
-    public String returnAgainRecordNum(){
-        hospital.setRecordNum_B(hospital.getRecordNum_B() + 1);
-        return "B" + hospital.getRecordNum_B().toString();
+        hospital.setRecordNum(hospital.getRecordNum() + 1);
+        return hospital.getRecordNum().toString();
     }
 }

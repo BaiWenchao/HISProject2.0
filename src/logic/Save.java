@@ -39,13 +39,6 @@ public class Save {
                 // 刷新该患者当前病历号
                 p.setCurrentRecordNum(recordNum);
                 p.setCurrentDoctor(doctor);
-
-                /*//将该患者加入对应医生的未诊患者列表
-                for(Doctor d : hospital.getDoctorList()){
-                    if(d.getName().equals(doctor)){
-                        d.getFutureQueue().insert(p);
-                    }
-                }*/
             }
         }
     }

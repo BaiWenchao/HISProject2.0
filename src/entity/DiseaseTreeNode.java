@@ -52,4 +52,12 @@ public class DiseaseTreeNode {
     public void setDiseaseCode(String diseaseCode) {
         this.disease.setIcdCode(diseaseCode);
     }
+
+    public Disease getDisease() {
+        return disease;
+    }
+
+    public void setDisease(Disease disease) {
+        this.disease = disease;
+    }
 }

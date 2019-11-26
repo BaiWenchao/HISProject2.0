@@ -104,7 +104,10 @@ public class WriteFile {
     // 写入当天挂号数
     public void writeRecordNum(){
         File f = new File(getClass().getResource("recordNum.txt").getPath());
-        String str = hospital.getRecordNum_A().toString() + "," + hospital.getRecordNum_B().toString();
+        String str = hospital.getRecordNum().toString() + "," + hospital.getNumMap().get("华佗") + ","
+                    + hospital.getNumMap().get("扁鹊") + "," + hospital.getNumMap().get("孙思邈") + ","
+                    + hospital.getNumMap().get("李时珍") + "," + hospital.getNumMap().get("希波克拉底") + ","
+                    + hospital.getNumMap().get("盖伦");
         try(FileWriter fw = new FileWriter(f);
             BufferedWriter bfw = new BufferedWriter(fw)){
             bfw.write(str);

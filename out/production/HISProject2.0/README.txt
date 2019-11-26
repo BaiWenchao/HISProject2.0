@@ -1,1 +1,1 @@
-1. 用ShowDiseaseTree取代ShowDisease
+1. 挂号方面需要改进之处：每一个部门的各号别计数

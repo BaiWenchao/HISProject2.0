@@ -44,7 +44,7 @@
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <Button fx:id="searchPatient" layoutX="397.0" layoutY="14.0" mnemonicParsing="false" text="查询" />
+                                    <Button fx:id="searchPatient" layoutX="397.0" layoutY="14.0" mnemonicParsing="false" onAction="#setSearchPatient" text="查询" />
                                     <Label layoutX="26.0" layoutY="19.0" text="请输入病种：" />
                                     <TextField fx:id="diseaseType" layoutX="116.0" layoutY="14.0" />
                                     <TableView fx:id="patientTable" layoutY="96.0" prefHeight="364.0" prefWidth="445.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
