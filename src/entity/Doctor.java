@@ -13,6 +13,7 @@ public class Doctor {
     private List<Patient> pastList = new ArrayList<>();
 
     private MyPriorityQueue<Patient> futureQueue = new MyPriorityQueue<>();
+    private MyPriorityQueue<Patient> reDiagnosisQueue = new MyPriorityQueue<>();
 
     private StringProperty name = new SimpleStringProperty();
     private StringProperty department = new SimpleStringProperty();
@@ -102,5 +103,13 @@ public class Doctor {
 
     public void setFutureQueue(MyPriorityQueue<Patient> futureQueue) {
         this.futureQueue = futureQueue;
+    }
+
+    public MyPriorityQueue<Patient> getReDiagnosisQueue() {
+        return reDiagnosisQueue;
+    }
+
+    public void setReDiagnosisQueue(MyPriorityQueue<Patient> reDiagnosisQueue) {
+        this.reDiagnosisQueue = reDiagnosisQueue;
     }
 }

@@ -17,6 +17,7 @@ public class Patient implements Comparable<Patient>{
     private List<PatientData> patientDataList = new ArrayList<>();
     private StringProperty currentRecordNum = new SimpleStringProperty();
     private StringProperty currentDoctor = new SimpleStringProperty();
+    private boolean currentNeedRediagnosis = false;
 
     public Patient() {
     }
@@ -147,6 +148,14 @@ public class Patient implements Comparable<Patient>{
         this.currentDoctor.set(currentDoctor);
     }
 
+    public boolean isCurrentNeedRediagnosis() {
+        return currentNeedRediagnosis;
+    }
+
+    public void setCurrentNeedRediagnosis(boolean currentNeedRediagnosis) {
+        this.currentNeedRediagnosis = currentNeedRediagnosis;
+    }
+
     @Override
     public int compareTo(Patient o) {
         String thisRecordNum = this.getCurrentRecordNum();
@@ -158,23 +167,15 @@ public class Patient implements Comparable<Patient>{
         int thisNum = Integer.parseInt(thisRecordNum.substring(1));
         int otherNum = Integer.parseInt(otherRecordNum.substring(1));
 
-        if(!((thisType.equals("C") && otherType.equals("C")) || (!thisType.equals("C") && !otherType.equals("C")))){
+        if(!((thisType.equals("C") && otherType.equals("C")) || (!thisType.equals("C") && !otherType.equals("C"))) || !((thisType.equals("D") && otherType.equals("D")) || (!thisType.equals("D") && !otherType.equals("D")))){
             // 处理一个加急另一个非加急的情况
-            if(thisType.equals("C")){
+            if(thisType.equals("C") || thisType.equals("D")){
                 return 1;
             }else{
                 return -1;
             }
         }else{
             // 处理同为加急或都非加急的情况
-            // 如果为B类，即为复诊，则给其排号减去5，最后比较排号大小，小的那个有更高优先级
-            if(thisType.equals("B")){
-                thisNum -= 5;
-            }
-            if(otherType.equals("B")){
-                otherNum -= 5;
-            }
-
             if(thisNum < otherNum){
                 return 1;
             }else{

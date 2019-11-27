@@ -159,6 +159,7 @@ public class DoctorDiagnosis {
                 diseaseList.addAll(diseases);
                 Diagnosis diagnosis = new Diagnosis(describe.getText(), history.getText(), examine.getText(), advice.getText(), diseaseList);
                 p.getPatientDataList().get(p.getPatientDataList().size()-1).setDiagnosis(diagnosis);
+                p.getPatientDataList().get(p.getPatientDataList().size()-1).setRediagnosis(null);
 
                 //对患者列表信息进行增减
                 for(Doctor d : hospital.getDoctorList()){
@@ -177,6 +178,48 @@ public class DoctorDiagnosis {
                         }
                         d.getPastList().add(p);
                         past.add(p);
+
+                        break;
+                    }
+                }
+
+                //将该患者该次病历中设置为已诊断
+                p.getPatientDataList().get(p.getPatientDataList().size()-1).setHasDiagnosis(true);
+
+                break;
+            }
+        }
+    }
+
+    @FXML
+    private void setTurnToReDiagnosis(){
+        for(Patient p : hospital.getPatientList()){
+            if(p.getHosRecordNum().equals(recordNumLabel.getText())){
+                // 设置患者化验属性为true
+                p.setCurrentNeedRediagnosis(true);
+
+                // 将医师诊断记录存入对应患者
+                List<Disease> diseaseList = new ArrayList<>();
+                diseaseList.addAll(diseases);
+                Diagnosis diagnosis = new Diagnosis(describe.getText(), history.getText(), examine.getText(), advice.getText(), diseaseList);
+                p.getPatientDataList().get(p.getPatientDataList().size()-1).setDiagnosis(diagnosis);
+                p.getPatientDataList().get(p.getPatientDataList().size()-1).setRediagnosis(null);
+
+                //对患者列表信息进行增减
+                for(Doctor d : hospital.getDoctorList()){
+                    if(d.getName().equals(doctor.getText())){
+                        for(int i=0; i<d.getFutureQueue().size(); i++){
+                            if(p.getName().equals(d.getFutureQueue().getItem(i).getName())){
+                                d.getFutureQueue().remove();
+
+                                future.clear();
+
+                                for(int j=0; j<d.getFutureQueue().size(); j++){
+                                    future.add(d.getFutureQueue().get(j));
+                                }
+
+                            }
+                        }
 
                         break;
                     }

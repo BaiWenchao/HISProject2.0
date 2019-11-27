@@ -37,7 +37,7 @@
       <TextArea fx:id="advice" layoutX="225.0" layoutY="626.0" prefHeight="62.0" prefWidth="684.0" />
       <Label layoutX="662.0" layoutY="17.0" text="诊断医师：" AnchorPane.leftAnchor="680.0" />
       <Label fx:id="doctor" layoutX="749.0" layoutY="17.0" AnchorPane.leftAnchor="750.0" />
-      <Button fx:id="turnToReDiagnosis" layoutX="1073.0" layoutY="632.0" mnemonicParsing="false" text="等待复诊" />
+      <Button fx:id="turnToReDiagnosis" layoutX="1073.0" layoutY="632.0" mnemonicParsing="false" onAction="#setTurnToReDiagnosis" text="前往化验" />
       <Label layoutX="848.0" layoutY="17.0" text="所属部门：" AnchorPane.leftAnchor="930.0" />
       <Label fx:id="department" layoutX="923.0" layoutY="17.0" AnchorPane.leftAnchor="1000.0" />
    </children>

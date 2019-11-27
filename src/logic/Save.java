@@ -38,7 +38,10 @@ public class Save {
                 p.getPatientDataList().add(patientData);
                 // 刷新该患者当前病历号
                 p.setCurrentRecordNum(recordNum);
+                // 刷新患者当前就诊医师
                 p.setCurrentDoctor(doctor);
+                // 将患者化验属性设置为false
+                p.setCurrentNeedRediagnosis(false);
             }
         }
     }

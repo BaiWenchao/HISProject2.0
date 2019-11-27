@@ -7,7 +7,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.Nurse">
    <children>
       <Label layoutX="52.0" layoutY="39.0" text="分诊界面" textFill="#3299cc">
@@ -47,12 +46,14 @@
                   </Label>
                   <Label layoutX="107.0" layoutY="87.0" text="姓名：" AnchorPane.leftAnchor="100.0" />
                   <Label layoutX="107.0" layoutY="181.0" text="性别：" AnchorPane.leftAnchor="100.0" />
-                  <Label layoutX="100.0" layoutY="285.0" text="诊断医师：" AnchorPane.leftAnchor="100.0" />
-                  <RadioButton fx:id="isEmergency" layoutX="94.0" layoutY="405.0" mnemonicParsing="false" onAction="#setEmergency" text="是否加急" AnchorPane.leftAnchor="94.0" />
-                  <Button fx:id="insert" layoutX="339.0" layoutY="400.0" mnemonicParsing="false" onAction="#setInsert" text="插入队列" />
-                  <Label fx:id="nameInfo" layoutX="287.0" layoutY="87.0" />
-                  <Label fx:id="sexInfo" layoutX="287.0" layoutY="181.0" />
-                  <Label fx:id="docInfo" layoutX="287.0" layoutY="285.0" />
+                  <Label layoutX="85.0" layoutY="285.0" text="诊断医师：" AnchorPane.leftAnchor="100.0" />
+                  <RadioButton fx:id="isEmergency" layoutX="90.0" layoutY="493.0" mnemonicParsing="false" text="是否加急" AnchorPane.leftAnchor="90.0" />
+                  <Button fx:id="insert" layoutX="349.0" layoutY="488.0" mnemonicParsing="false" onAction="#setInsert" text="插入队列" />
+                  <Label fx:id="nameInfo" layoutX="287.0" layoutY="87.0" AnchorPane.leftAnchor="250.0" />
+                  <Label fx:id="sexInfo" layoutX="287.0" layoutY="181.0" AnchorPane.leftAnchor="250.0" />
+                  <Label fx:id="docInfo" layoutX="287.0" layoutY="285.0" AnchorPane.leftAnchor="250.0" />
+                  <Label layoutX="94.0" layoutY="380.0" text="是否初诊：" AnchorPane.leftAnchor="100.0" />
+                  <Label fx:id="needReDiagnosis" layoutX="238.0" layoutY="380.0" AnchorPane.leftAnchor="250.0" />
                </children>
             </AnchorPane>
         </items>

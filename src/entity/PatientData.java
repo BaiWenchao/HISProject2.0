@@ -6,6 +6,7 @@ import java.util.List;
 public class PatientData {
     private Regist regist = new Regist();
     private Diagnosis diagnosis = new Diagnosis();
+    private Rediagnosis rediagnosis = new Rediagnosis();
     private List<Prescription> prescriptionList = new ArrayList<>();
     private boolean getMedicine = false;
     private boolean hasPay = false;
@@ -71,5 +72,12 @@ public class PatientData {
         this.hasDiagnosis = hasDiagnosis;
     }
 
+    public Rediagnosis getRediagnosis() {
+        return rediagnosis;
+    }
+
+    public void setRediagnosis(Rediagnosis rediagnosis) {
+        this.rediagnosis = rediagnosis;
+    }
 }
 
