@@ -5,6 +5,7 @@ import entity.Hospital;
 import entity.Patient;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import logic.DataStructure.Algorithms;
 import logic.Util;
 
 import static userInterface.DoctorLogin.future;
@@ -15,6 +16,8 @@ public class Nurse {
     Hospital hospital = Hospital.getInstance();
     // 床架Util单例
     Util util = Util.getInstance();
+    // 创建算法类单例
+    Algorithms algorithms = Algorithms.getInstance();
 
     @FXML
     private RadioButton isEmergency;
@@ -80,55 +83,8 @@ public class Nurse {
                 // 显示待诊队列
                 for(Doctor d : hospital.getDoctorList()){
                     if(d.getName().equals(p.getCurrentDoctor())){
-                        future.clear();
-                        //将医生队列中的患者按优先级插入队列
-                        future.clear();
-                        int sizeA = d.getFutureQueue().size();
-                        int countA = 0;
-                        int sizeB = d.getReDiagnosisQueue().size();
-                        int countB = 0;
-
-                        String typeA = null;
-                        String typeB = null;
-
-                        while((countA < sizeA) || (countB < sizeB)){
-                            //处理A类队列已经扔完
-                            if(countA >= sizeA){
-                                future.add(d.getReDiagnosisQueue().get(countB++));
-                                continue;
-                            }
-                            //处理B类队列已经扔完
-                            if(countB >= sizeB){
-                                future.add(d.getFutureQueue().get(countA++));
-                                continue;
-                            }
-                            //处理AB队列都没扔完
-                            typeA = d.getFutureQueue().get(countA).getCurrentRecordNum().substring(0,1);
-                            typeB = d.getReDiagnosisQueue().get(countB).getCurrentRecordNum().substring(0,1);
-                            //AB两个队列都有加急患者
-                            if(typeA.equals("C") && typeB.equals("D")){
-                                future.add(d.getFutureQueue().get(countA++));
-                                future.add(d.getReDiagnosisQueue().get(countB++));
-                            }else if(typeA.equals("C")){
-                                // A有加急患者，B没有
-                                // 将A类加急患者全部扔进列表
-                                while(typeA.equals("C")){
-                                    future.add(d.getFutureQueue().get(countA++));
-                                    typeA = d.getFutureQueue().get(countA).getCurrentRecordNum().substring(0,1);
-                                }
-                            }else if(typeB.equals("D")){
-                                // B有加急患者A没有
-                                // 将B类加急患者全部扔进列表
-                                while(typeB.equals("D")){
-                                    future.add(d.getReDiagnosisQueue().get(countB++));
-                                    typeB = d.getReDiagnosisQueue().get(countB).getCurrentRecordNum().substring(0,1);
-                                }
-                            }else{
-                                // AB都没有加急患者
-                                future.add(d.getFutureQueue().get(countA++));
-                                future.add(d.getReDiagnosisQueue().get(countB++));
-                            }
-                        }
+                        // 将两个队列合并送入观察者列表
+                        algorithms.mergeQueue(d.getFutureQueue(),d.getReDiagnosisQueue());
                     }
                 }
                 waitQueue.setItems(future);
@@ -143,17 +99,11 @@ public class Nurse {
                 sexInfo.setText(p.getGender());
                 docInfo.setText(p.getCurrentDoctor());
 
-                // 初始化患者候诊序号
+                // 显示患者是否初诊
                 if(p.isCurrentNeedRediagnosis()){
                     needReDiagnosis.setText("否");
-                    String s = "B" + hospital.getNumMap().get(docInfo.getText()).toString();
-                    hospital.getNumMap().put(docInfo.getText(),hospital.getNumMap().get(docInfo.getText()) + 1);
-                    p.setCurrentRecordNum(s);
                 }else{
                     needReDiagnosis.setText("是");
-                    String s = "A" + hospital.getNumMap().get(docInfo.getText()).toString();
-                    hospital.getNumMap().put(docInfo.getText(),hospital.getNumMap().get(docInfo.getText()) + 1);
-                    p.setCurrentRecordNum(s);
                 }
 
             }
@@ -169,11 +119,22 @@ public class Nurse {
             util.errorInformationAlert("请输入病案号！");
         }
 
-        //若设置为加急状态则修改当前候诊序号
-        if(isEmergency.isSelected()){
-            String num = hosRecordNumInput.getText();
-            for(Patient p : hospital.getPatientList()){
-                if(p.getHosRecordNum().equals(num)){
+        //先初始化患者序号，若设置为加急状态则修改当前候诊序号
+        String num = hosRecordNumInput.getText();
+        for(Patient p : hospital.getPatientList()){
+            if(p.getHosRecordNum().equals(num)){
+                // 初始化患者序号
+                if(p.isCurrentNeedRediagnosis()){
+                    String s = "B" + hospital.getNumMap().get(docInfo.getText()).toString();
+                    hospital.getNumMap().put(docInfo.getText(),hospital.getNumMap().get(docInfo.getText()) + 1);
+                    p.setCurrentRecordNum(s);
+                }else{
+                    String s = "A" + hospital.getNumMap().get(docInfo.getText()).toString();
+                    hospital.getNumMap().put(docInfo.getText(),hospital.getNumMap().get(docInfo.getText()) + 1);
+                    p.setCurrentRecordNum(s);
+                }
+
+                if(isEmergency.isSelected()){
                     if(p.isCurrentNeedRediagnosis()){
                         // 将患者改为D类
                         p.setCurrentRecordNum("D" + p.getCurrentRecordNum().substring(1));
@@ -208,53 +169,7 @@ public class Nurse {
                         }
 
                         //将医生队列中的患者按优先级插入队列
-                        future.clear();
-                        int sizeA = d.getFutureQueue().size();
-                        int countA = 0;
-                        int sizeB = d.getReDiagnosisQueue().size();
-                        int countB = 0;
-
-                        String typeA = null;
-                        String typeB = null;
-
-                        while((countA < sizeA) || (countB < sizeB)){
-                            //处理A类队列已经扔完
-                            if(countA >= sizeA){
-                                future.add(d.getReDiagnosisQueue().get(countB++));
-                                continue;
-                            }
-                            //处理B类队列已经扔完
-                            if(countB >= sizeB){
-                                future.add(d.getFutureQueue().get(countA++));
-                                continue;
-                            }
-                            //处理AB队列都没扔完
-                            typeA = d.getFutureQueue().get(countA).getCurrentRecordNum().substring(0,1);
-                            typeB = d.getReDiagnosisQueue().get(countB).getCurrentRecordNum().substring(0,1);
-                            //AB两个队列都有加急患者
-                            if(typeA.equals("C") && typeB.equals("D")){
-                                future.add(d.getFutureQueue().get(countA++));
-                                future.add(d.getReDiagnosisQueue().get(countB++));
-                            }else if(typeA.equals("C")){
-                                // A有加急患者，B没有
-                                // 将A类加急患者全部扔进列表
-                                while(typeA.equals("C")){
-                                    future.add(d.getFutureQueue().get(countA++));
-                                    typeA = d.getFutureQueue().get(countA).getCurrentRecordNum().substring(0,1);
-                                }
-                            }else if(typeB.equals("D")){
-                                // B有加急患者A没有
-                                // 将B类加急患者全部扔进列表
-                                while(typeB.equals("D")){
-                                    future.add(d.getReDiagnosisQueue().get(countB++));
-                                    typeB = d.getReDiagnosisQueue().get(countB).getCurrentRecordNum().substring(0,1);
-                                }
-                            }else{
-                                // AB都没有加急患者
-                                future.add(d.getFutureQueue().get(countA++));
-                                future.add(d.getReDiagnosisQueue().get(countB++));
-                            }
-                        }
+                        algorithms.mergeQueue(d.getFutureQueue(), d.getReDiagnosisQueue());
 
                     }
                 }
