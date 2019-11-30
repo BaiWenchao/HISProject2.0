@@ -18,15 +18,17 @@ public class Doctor {
     private StringProperty name = new SimpleStringProperty();
     private StringProperty department = new SimpleStringProperty();
     private StringProperty level = new SimpleStringProperty();//0代表专家，1代表普通
+    private StringProperty num = new SimpleStringProperty();
 
     //排号规则及是否排号
     private StringProperty rule = new SimpleStringProperty();
     private boolean isWork = false;
 
-    public Doctor(String name, String department, String level) {
+    public Doctor(String name, String department, String level, String num) {
         this.name.set(name);
         this.department.set(department);
         this.level.set(level);
+        this.num.set(num);
     }
 
     public Doctor() {
@@ -111,5 +113,17 @@ public class Doctor {
 
     public void setReDiagnosisQueue(MyPriorityQueue<Patient> reDiagnosisQueue) {
         this.reDiagnosisQueue = reDiagnosisQueue;
+    }
+
+    public String getNum() {
+        return num.get();
+    }
+
+    public StringProperty numProperty() {
+        return num;
+    }
+
+    public void setNum(String num) {
+        this.num.set(num);
     }
 }

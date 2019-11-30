@@ -196,4 +196,12 @@ public class Algorithms {
             }
         }
     }
+
+    public void searchRecords_Common(ObservableList<Records> recordsObservableList, String hosRecordNum){
+        for(Records r : hospital.getRecordsList()){
+            if(r.getPatientID().equals(hosRecordNum)){
+                recordsObservableList.add(r);
+            }
+        }
+    }
 }

@@ -12,6 +12,7 @@ import javafx.scene.control.cell.CheckBoxTreeCell;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import logic.DataStructure.Algorithms;
+import logic.ReturnNum;
 import logic.Show;
 
 import java.io.IOException;
@@ -35,6 +36,7 @@ public class DoctorDiagnosis {
 
     // 创建数据结构算法类单例
     Algorithms algorithms = Algorithms.getInstance();
+
 
     @FXML
     private TableColumn<Disease, String> diseaseName;
@@ -168,11 +170,7 @@ public class DoctorDiagnosis {
                             if(p.getName().equals(d.getFutureQueue().getItem(i).getName())){
                                 d.getFutureQueue().remove();
 
-                                future.clear();
-
-                                for(int j=0; j<d.getFutureQueue().size(); j++){
-                                    future.add(d.getFutureQueue().get(j));
-                                }
+                                algorithms.mergeQueue(d.getFutureQueue(), d.getReDiagnosisQueue());
 
                             }
                         }

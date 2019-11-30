@@ -45,5 +45,8 @@
       </TabPane>
       <Label layoutX="793.0" layoutY="65.0" text="所属部门：" />
       <Label fx:id="department" layoutX="868.0" layoutY="65.0" />
+      <Button fx:id="nextButton" layoutX="231.0" layoutY="60.0" mnemonicParsing="false" onAction="#showNext" text="下一位" />
+      <RadioButton fx:id="showRecords" layoutX="345.0" layoutY="65.0" mnemonicParsing="false" text="不显示患者就诊记录" />
+      <Button fx:id="fresh" layoutX="150.0" layoutY="60.0" mnemonicParsing="false" onAction="#fresh" text="刷新" />
    </children>
 </AnchorPane>

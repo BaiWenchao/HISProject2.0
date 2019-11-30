@@ -13,10 +13,6 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    //创建ReadFile单例
-    ReadFile read = ReadFile.getInstance();
-    //创建医院单例
-    Hospital hospital = Hospital.getInstance();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -47,6 +43,7 @@ public class Main extends Application {
         read.readDrugFile();
         //将药品信息读入药房
         read.readMedicineInPharmacy();
+
         //读取处方模板
         try{
             hospital.getPrescriptionTemplateList().clear();
@@ -106,7 +103,5 @@ public class Main extends Application {
 
         //写入挂号数
         write.writeRecordNum();
-
-
     }
 }

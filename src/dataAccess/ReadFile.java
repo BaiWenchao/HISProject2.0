@@ -52,7 +52,7 @@ public class ReadFile {
                 String line = reader.readLine();
                 while(line != null){
                     String[] str = line.split(",");
-                    Doctor doctor = new Doctor(str[0], str[1], str[2]);
+                    Doctor doctor = new Doctor(str[0], str[1], str[2], str[3]);
                     hospital.getDoctorList().add(doctor);
                     //在对应部门中加入该医生
                     for(Department d : hospital.getDepartmentList()){

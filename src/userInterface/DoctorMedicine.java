@@ -14,11 +14,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import logic.ReturnNum;
 import logic.Show;
 import logic.Util;
 
 
 import java.io.IOException;
+import java.util.List;
 
 public class DoctorMedicine {
     //创建Show单例
@@ -27,6 +29,8 @@ public class DoctorMedicine {
     Util util = Util.getInstance();
     //创建医院单例
     Hospital hospital = Hospital.getInstance();
+    //创建ReturnNum单例
+    ReturnNum returnNum = ReturnNum.getInstance();
 
 
     //创建处方列表
@@ -250,6 +254,15 @@ public class DoctorMedicine {
                 p.getPatientDataList().get(p.getPatientDataList().size()-1).getPrescriptionList().addAll(prescriptionObservableList);
                 prescriptionObservableList.clear();
                 util.completeInformationAlert("开立成功！");
+
+                // 将一次就诊信息写入医院的就诊记录表
+                String patientID = p.getHosRecordNum();
+                String docName = p.getPatientDataList().get(p.getPatientDataList().size() - 1).getRegist().getDoctor();
+                String time = returnNum.returnHosRecordNum();
+                List<Prescription> prescriptions = p.getPatientDataList().get(p.getPatientDataList().size() - 1).getPrescriptionList();
+                Diagnosis diagnosis = p.getPatientDataList().get(p.getPatientDataList().size() - 1).getDiagnosis();
+                Rediagnosis rediagnosis = p.getPatientDataList().get(p.getPatientDataList().size() - 1).getRediagnosis();
+                hospital.getRecordsList().add(new Records(patientID, docName, time, prescriptions, diagnosis, rediagnosis));
             }
         }
 

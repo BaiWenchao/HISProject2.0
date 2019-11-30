@@ -22,11 +22,11 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
         </TableView>
-      <Button fx:id="add" layoutX="957.0" layoutY="289.0" mnemonicParsing="false" text="添加" />
-      <Button fx:id="delete" layoutX="1061.0" layoutY="289.0" mnemonicParsing="false" text="删除" />
+      <Button fx:id="add" layoutX="957.0" layoutY="289.0" mnemonicParsing="false" onAction="#showDiseaseTree" text="添加" />
+      <Button fx:id="delete" layoutX="1061.0" layoutY="289.0" mnemonicParsing="false" onAction="#deleteDisease" text="删除" />
       <Label layoutX="26.0" layoutY="471.0" text="医师建议：" textFill="#3299cc" />
       <TextArea fx:id="advice" layoutX="178.0" layoutY="471.0" prefHeight="209.0" prefWidth="691.0" />
-      <Button fx:id="submit" layoutX="957.0" layoutY="650.0" mnemonicParsing="false" text="提交诊断" />
+      <Button fx:id="submit" layoutX="957.0" layoutY="650.0" mnemonicParsing="false" onAction="#submit" text="提交诊断" />
       <Label fx:id="hosRecordNumLabel" layoutX="256.0" layoutY="17.0" AnchorPane.leftAnchor="260.0" />
       <Label fx:id="nameLabel" layoutX="487.0" layoutY="17.0" AnchorPane.leftAnchor="485.0" />
       <Label layoutX="655.0" layoutY="17.0" text="诊断医师：" AnchorPane.leftAnchor="680.0" />

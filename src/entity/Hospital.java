@@ -37,8 +37,8 @@ public class Hospital {
     private Integer xbNum = 0;
     private Integer glNum = 0;
     private Map<String, Integer> numMap = new HashMap<>();
-
     private DiseaseTree diseaseTree = new DiseaseTree();
+    private List<Records> recordsList = new ArrayList<>();
 
     public List<Patient> getPatientList() {
         return patientList;
@@ -166,5 +166,13 @@ public class Hospital {
 
     public void setNumMap(Map<String, Integer> numMap) {
         this.numMap = numMap;
+    }
+
+    public List<Records> getRecordsList() {
+        return recordsList;
+    }
+
+    public void setRecordsList(List<Records> recordsList) {
+        this.recordsList = recordsList;
     }
 }

@@ -1,13 +1,16 @@
 package userInterface;
 
 import entity.Patient;
+import entity.Records;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import logic.DataStructure.Algorithms;
+import logic.Show;
+import logic.Util;
 
 import java.io.IOException;
 
@@ -17,6 +20,15 @@ import static userInterface.DoctorLogin.future;
 
 
 public class DoctorRoot {
+
+    // 创建算法类单例
+    Algorithms algorithms = Algorithms.getInstance();
+
+    // 创建Show单例
+    Show show = Show.getInstance();
+
+    // 创建Util单例
+    Util util = Util.getInstance();
 
     @FXML
     public Label doctorName;
@@ -51,11 +63,23 @@ public class DoctorRoot {
     @FXML
     public Label department;
 
+    @FXML
+    private Button nextButton;
 
+    @FXML
+    private RadioButton showRecords;
+
+    // 3个tab下属AnchorPane
     private AnchorPane rootDiagnosis;
     private AnchorPane rootMedicine;
     private AnchorPane rootReDiagnosis;
 
+    private AnchorPane showrecords;
+
+    // 3个AnchorPane的控制器
+    private DoctorDiagnosis docDiag;
+    private DoctorMedicine docMed;
+    private DoctorDiagnosisAgain docDiagAga;
 
     @FXML
     private void initialize() throws IOException {
@@ -64,14 +88,14 @@ public class DoctorRoot {
         loader1.setLocation(getClass().getResource("DoctorDiagnosis.fxml"));
         rootDiagnosis = loader1.load();
           //获取DoctorDiagnosis控制器
-        DoctorDiagnosis docDiag = loader1.getController();
+        docDiag = loader1.getController();
         diagnosis.setContent(rootDiagnosis);
         //加载开方页面
         FXMLLoader loader2 = new FXMLLoader();
         loader2.setLocation(getClass().getResource("DoctorMedicine.fxml"));
         rootMedicine = loader2.load();
           //获取DoctorMedicine控制器
-        DoctorMedicine docMed = loader2.getController();
+        docMed = loader2.getController();
         medicine.setContent(rootMedicine);
 
         // 加载复诊界面
@@ -80,7 +104,7 @@ public class DoctorRoot {
         rootReDiagnosis = loader3.load();
 
         // 获取DoctorDiagnosisAgain控制器
-        DoctorDiagnosisAgain docDiagAga = loader3.getController();
+        docDiagAga = loader3.getController();
         rediagnosis.setContent(rootReDiagnosis);
 
         futureTable.setItems(future);
@@ -143,6 +167,62 @@ public class DoctorRoot {
                     }
                 })
         );
+    }
+
+    @FXML
+    private void showNext() throws IOException {
+        String hosRecordNum = future.get(0).getHosRecordNum();
+        String name = future.get(0).getName();
+        docDiag.recordNumLabel.setText(hosRecordNum);
+        docDiag.nameLabel.setText(name);
+        docDiag.doctor.setText(doctorName.getText());
+        docDiag.department.setText(department.getText());
+        docDiag.describe.setText("");
+        docDiag.history.setText("");
+        docDiag.examine.setText("");
+        docDiag.advice.setText("");
+
+        docDiagAga.hosRecordNumLabel.setText(hosRecordNum);
+        docDiagAga.nameLabel.setText(name);
+        docDiagAga.doctorLabel.setText(doctorName.getText());
+        docDiagAga.departmentLabel.setText(department.getText());
+
+        diseases.clear();
+
+
+        // 展示该病人的就诊记录
+        ObservableList<Records> records = FXCollections.observableArrayList();
+            // 用遍历法搜索患者记录
+        algorithms.searchRecords_Common(records, hosRecordNum);
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Entrance.class.getResource("ShowRecords.fxml"));
+        showrecords = loader.load();
+
+        ShowRecords controller = loader.getController();
+        controller.recordTable.setItems(records);
+
+        controller.numColumn.setCellValueFactory(cellData -> cellData.getValue().patientIDProperty());
+        controller.timeColumn.setCellValueFactory(cellData -> cellData.getValue().timeProperty());
+        controller.docColumn.setCellValueFactory(cellData -> cellData.getValue().docNameProperty());
+
+        if(!showRecords.isSelected()){
+            show.turnToStage(showrecords,500,600);
+        }
+
+    }
+
+    @FXML
+    private void fresh(){
+        futureTable.setItems(future);
+        pastTable.setItems(past);
+
+        futureNum.setCellValueFactory(cellData -> cellData.getValue().currentRecordNumProperty());
+        futureName.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        pastNum.setCellValueFactory(cellData -> cellData.getValue().hosRecordNumProperty());
+        pastName.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+
+        util.completeInformationAlert("刷新成功！");
     }
 
 
