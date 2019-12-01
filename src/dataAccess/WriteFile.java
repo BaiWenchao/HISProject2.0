@@ -2,16 +2,15 @@ package dataAccess;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import entity.Hospital;
-import entity.Medicine;
-import entity.Patient;
-import entity.Pharmacy;
+import entity.*;
 import logic.DataStructure.MyPriorityQueue;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -89,8 +88,16 @@ public class WriteFile {
 
     // 写入存储疾病树的map
     public void writeDiseaseTree(){
-        //将map转化为字符串
-        String str = JSON.toJSONString(hospital.getDiseaseTree());
+        /*//将map转化为字符串
+        String str = JSON.toJSONString(hospital.getDiseaseTree().getNodeMap());*/
+
+        // 策略2：将map中的node转移到list中，存储list
+        List<DiseaseTreeNode> nodeList = new ArrayList<>();
+        for(String s : hospital.getDiseaseTree().getNodeMap().getKeyList()){
+            nodeList.add(hospital.getDiseaseTree().getNodeMap().get(s));
+        }
+        String str = JSON.toJSONString(nodeList);
+
         //将字符串存入文件
         File f = new File(getClass().getResource("DiseaseTree.data").getPath());
         try(FileWriter fw = new FileWriter(f);
@@ -113,6 +120,34 @@ public class WriteFile {
             bfw.write(str);
         }catch (IOException ie) {
             ie.printStackTrace();
+        }
+    }
+
+    // 将患者挂号信息存入文件
+    public void writeRecords(){
+        // 将列表转化为字符串
+        String str = JSON.toJSONString(hospital.getRecordsList());
+        // 将字符串写入文件
+        File f = new File(getClass().getResource("RecordsFile.data").getPath());
+        try(FileWriter fw = new FileWriter(f);
+            BufferedWriter bfw = new BufferedWriter(fw)){
+            bfw.write(str);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // 将部门信息写入文件
+    public void writeDepartment() {
+        // 将列表转化为字符串
+        String str = JSON.toJSONString(hospital.getDepartmentList());
+        // 将字符串写入文件
+        File f = new File(getClass().getResource("DepartmentList.data").getPath());
+        try(FileWriter fw = new FileWriter(f);
+            BufferedWriter bfw = new BufferedWriter(fw)){
+            bfw.write(str);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

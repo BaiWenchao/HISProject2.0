@@ -1,14 +1,21 @@
 package entity;
 
+import logic.DataStructure.MyHashMap;
+
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-public class DiseaseTree {
-
+public class DiseaseTree{
 
     private transient DiseaseTreeNode root = new DiseaseTreeNode("疾病");
-    private Map<String, DiseaseTreeNode> nodeMap = new HashMap<>();
+    private MyHashMap<String, DiseaseTreeNode> nodeMap = new MyHashMap<>();
+
+    public DiseaseTree(DiseaseTreeNode root, MyHashMap<String, DiseaseTreeNode> nodeMap) {
+        this.root = root;
+        this.nodeMap = nodeMap;
+    }
 
     public DiseaseTree() {
         this.nodeMap.put("疾病", root);
@@ -22,11 +29,11 @@ public class DiseaseTree {
         this.root = root;
     }
 
-    public Map<String, DiseaseTreeNode> getNodeMap() {
+    public MyHashMap<String, DiseaseTreeNode> getNodeMap() {
         return nodeMap;
     }
 
-    public void setNodeMap(Map<String, DiseaseTreeNode> nodeMap) {
+    public void setNodeMap(MyHashMap<String, DiseaseTreeNode> nodeMap) {
         this.nodeMap = nodeMap;
     }
 

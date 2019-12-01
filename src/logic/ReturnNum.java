@@ -29,4 +29,11 @@ public class ReturnNum {
         hospital.setRecordNum(hospital.getRecordNum() + 1);
         return hospital.getRecordNum().toString();
     }
+
+    public String returnTime(){
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(date);
+    }
+
 }

@@ -166,6 +166,15 @@ public class DoctorDiagnosis {
                 //对患者列表信息进行增减
                 for(Doctor d : hospital.getDoctorList()){
                     if(d.getName().equals(doctor.getText())){
+
+                        // 将患者写入对应部门
+                        for(Department de : hospital.getDepartmentList()){
+                            if(de.getName().equals(d.getDepartment())){
+                                de.getPatientList().add(p);
+                            }
+                        }
+
+
                         for(int i=0; i<d.getFutureQueue().size(); i++){
                             if(p.getName().equals(d.getFutureQueue().getItem(i).getName())){
                                 d.getFutureQueue().remove();

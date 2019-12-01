@@ -89,8 +89,21 @@ public class Main extends Application {
         // 读取挂号数
         read.readRecordNum();
 
-        launch(args);
+        // 读取部门信息
+        try{
+            if(read.readDepartment() != null){
+                hospital.setDepartmentList(read.readDepartment());
+            }
+        }catch (NullPointerException e){
 
+        }
+
+        // 读取患者诊断信息
+        if(read.readRecords() != null){
+            hospital.getRecordsList().addAll(read.readRecords());
+        }
+
+        launch(args);
 
         //将病人信息写入文件
         write.writePatientList();
@@ -103,5 +116,11 @@ public class Main extends Application {
 
         //写入挂号数
         write.writeRecordNum();
+
+        // 写入患者挂号信息
+        write.writeRecords();
+
+        // 将部门类信息写入
+        write.writeDepartment();
     }
 }

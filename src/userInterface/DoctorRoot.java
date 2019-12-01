@@ -1,7 +1,6 @@
 package userInterface;
 
-import entity.Patient;
-import entity.Records;
+import entity.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -192,8 +191,13 @@ public class DoctorRoot {
 
         // 展示该病人的就诊记录
         ObservableList<Records> records = FXCollections.observableArrayList();
+
+        // 创建患者某次就诊的疾病和药品列表
+        ObservableList<Medicine> medicineObservableList = FXCollections.observableArrayList();
+        ObservableList<Disease> diseaseObservableList = FXCollections.observableArrayList();
+
             // 用遍历法搜索患者记录
-        algorithms.searchRecords_Common(records, hosRecordNum);
+        algorithms.searchRecords_Binary(records, hosRecordNum);
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Entrance.class.getResource("ShowRecords.fxml"));
@@ -206,8 +210,61 @@ public class DoctorRoot {
         controller.timeColumn.setCellValueFactory(cellData -> cellData.getValue().timeProperty());
         controller.docColumn.setCellValueFactory(cellData -> cellData.getValue().docNameProperty());
 
+        /*futureTable.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> {
+                    try{
+                        docDiag.recordNumLabel.setText(newValue.getHosRecordNum());
+                        docDiag.nameLabel.setText(newValue.getName());
+                        docDiag.doctor.setText(doctorName.getText());
+                        docDiag.department.setText(department.getText());
+                        docDiag.describe.setText("");
+                        docDiag.history.setText("");
+                        docDiag.examine.setText("");
+                        docDiag.advice.setText("");
+
+                        docDiagAga.hosRecordNumLabel.setText(newValue.getHosRecordNum());
+                        docDiagAga.nameLabel.setText(newValue.getName());
+                        docDiagAga.doctorLabel.setText(doctorName.getText());
+                        docDiagAga.departmentLabel.setText(department.getText());
+
+                        diseases.clear();
+                    }catch (NullPointerException ne){
+
+                    }
+                });*/
+
+        controller.recordTable.getSelectionModel().selectedItemProperty().addListener(
+                ((observable, oldValue, newValue) -> {
+                    medicineObservableList.clear();
+                    diseaseObservableList.clear();
+
+                    // 向药品列表中加入本次就诊开出的药品
+                    for(Prescription p : newValue.getMedicines()){
+                        for(Medicine m : p.getMedicineList()){
+                            medicineObservableList.add(m);
+                        }
+                    }
+                    // 向疾病列表中添加本次就诊中诊断的疾病
+                    for(Disease d : newValue.getDiagnosis().getDiseaseList()){
+                        diseaseObservableList.add(d);
+                    }
+                    for(Disease d : newValue.getRediagnosis().getDiseaseList()){
+                        diseaseObservableList.add(d);
+                    }
+
+                    // 将两个列表装入table
+                    controller.diseaseTable.setItems(diseaseObservableList);
+                    controller.medicineTable.setItems(medicineObservableList);
+
+                    controller.diseaseColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+                    controller.medicineColumn.setCellValueFactory(cellData -> cellData.getValue().med_nameProperty());
+
+                })
+        );
+
+
         if(!showRecords.isSelected()){
-            show.turnToStage(showrecords,500,600);
+            show.turnToStage(showrecords,800,600);
         }
 
     }

@@ -6,6 +6,7 @@ import java.util.List;
 public class Department {
     private String name;
     private List<Doctor> doctorList = new ArrayList<>();
+    private List<Patient> patientList = new ArrayList<>();
 
     public Department() {
     }
@@ -28,5 +29,13 @@ public class Department {
 
     public void setDoctorList(List<Doctor> doctorList) {
         this.doctorList = doctorList;
+    }
+
+    public List<Patient> getPatientList() {
+        return patientList;
+    }
+
+    public void setPatientList(List<Patient> patientList) {
+        this.patientList = patientList;
     }
 }

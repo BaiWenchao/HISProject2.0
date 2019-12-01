@@ -132,6 +132,15 @@ public class DoctorDiagnosisAgain {
                 //对患者列表信息进行增减
                 for(Doctor d : hospital.getDoctorList()){
                     if(d.getName().equals(doctorLabel.getText())){
+
+                        // 将患者写入对应部门
+                        for(Department de : hospital.getDepartmentList()){
+                            if(de.getName().equals(d.getDepartment())){
+                                de.getPatientList().add(p);
+                            }
+                        }
+
+
                         d.getReDiagnosisQueue().remove();
 
                         algorithms.mergeQueue(d.getFutureQueue(), d.getReDiagnosisQueue());

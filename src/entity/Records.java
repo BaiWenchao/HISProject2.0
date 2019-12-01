@@ -6,7 +6,7 @@ import javafx.beans.property.StringProperty;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Records {
+public class Records implements Comparable<Records>{
     StringProperty patientID = new SimpleStringProperty();
     StringProperty docName = new SimpleStringProperty();
     StringProperty time = new SimpleStringProperty();
@@ -84,5 +84,17 @@ public class Records {
 
     public void setRediagnosis(Rediagnosis rediagnosis) {
         this.rediagnosis = rediagnosis;
+    }
+
+    @Override
+    public int compareTo(Records o) {
+        int thisID = Integer.parseInt(this.getPatientID().substring(2));
+        int otherID = Integer.parseInt(o.getPatientID().substring(2));
+
+        if(thisID < otherID){
+            return -1;
+        }else{
+            return 1;
+        }
     }
 }

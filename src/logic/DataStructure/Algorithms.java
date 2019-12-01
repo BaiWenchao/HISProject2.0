@@ -204,4 +204,37 @@ public class Algorithms {
             }
         }
     }
+
+    public void searchRecords_Binary(ObservableList<Records> recordsObservableList, String hosRecordNum){
+        int targetNum = Integer.parseInt(hosRecordNum.substring(2));
+        int left = 0;
+        int right = hospital.getRecordsList().size() - 1;
+        int mid;
+        while(left <= right){
+            mid = (left + right)/2;
+            int midNum = Integer.parseInt(hospital.getRecordsList().get(mid).getPatientID().substring(2));
+            if(midNum == targetNum){
+                // 找到目标病案号
+                    //搜索列表中目标病案号的第一位
+                while((mid > 0) && (hospital.getRecordsList().get(mid).getPatientID().equals(hospital.getRecordsList().get(mid-1).getPatientID()))){
+                    mid--;
+                }
+                while(hospital.getRecordsList().get(mid).getPatientID().equals(hosRecordNum)){
+                    recordsObservableList.add(hospital.getRecordsList().get(mid));
+                    mid++;
+                    if(mid == hospital.getRecordsList().size()){
+                        break;
+                    }
+                }
+                break;
+
+            }else if(midNum < targetNum){
+                // 目标病案号在中值病案号右边
+                left = mid + 1;
+            }else{
+                // 目标病案号在中值病案号左边
+                right = mid - 1;
+            }
+        }
+    }
 }

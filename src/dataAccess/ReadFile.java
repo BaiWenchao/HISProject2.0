@@ -198,8 +198,14 @@ public class ReadFile {
             e.printStackTrace();
         }
 
-        DiseaseTree diseaseTree = JSON.parseObject(str, DiseaseTree.class);
+        /*DiseaseTree diseaseTree = JSON.parseObject(str, DiseaseTree.class);*/
 
+        // 策略2：将读取的ArrayList塞回map，并返回
+        List<DiseaseTreeNode> nodeList = JSON.parseArray(str, DiseaseTreeNode.class);
+        DiseaseTree diseaseTree = new DiseaseTree();
+        for(DiseaseTreeNode d : nodeList){
+            diseaseTree.getNodeMap().put(d.getDiseaseName(), d);
+        }
         return diseaseTree;
     }
 
@@ -242,5 +248,35 @@ public class ReadFile {
                 e.printStackTrace();
             }
         }
+    }
+
+    // 读取患者诊断记录
+    public List<Records> readRecords(){
+        File f = new File(getClass().getResource("RecordsFile.data").getPath());
+        String str = null;
+        try(FileReader fr = new FileReader(f);
+            BufferedReader bfr = new BufferedReader(fr)){
+            str = bfr.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        List<Records> records = JSON.parseArray(str,Records.class);
+        return records;
+    }
+
+    // 读取部门信息
+    public List<Department> readDepartment(){
+        File f = new File(getClass().getResource("DepartmentList.data").getPath());
+        String str = null;
+        try(FileReader fr = new FileReader(f);
+            BufferedReader bfr = new BufferedReader(fr)){
+            str = bfr.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        List<Department> departments = JSON.parseArray(str,Department.class);
+        return departments;
     }
 }

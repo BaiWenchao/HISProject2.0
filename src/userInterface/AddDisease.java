@@ -8,6 +8,8 @@ import javafx.scene.control.*;
 import logic.DataStructure.Algorithms;
 import logic.Util;
 
+import java.util.HashMap;
+
 public class AddDisease {
     @FXML
     private TreeView<String> diseaseTreeView;

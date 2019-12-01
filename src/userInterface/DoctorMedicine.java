@@ -258,11 +258,25 @@ public class DoctorMedicine {
                 // 将一次就诊信息写入医院的就诊记录表
                 String patientID = p.getHosRecordNum();
                 String docName = p.getPatientDataList().get(p.getPatientDataList().size() - 1).getRegist().getDoctor();
-                String time = returnNum.returnHosRecordNum();
+                String time = returnNum.returnTime();
                 List<Prescription> prescriptions = p.getPatientDataList().get(p.getPatientDataList().size() - 1).getPrescriptionList();
                 Diagnosis diagnosis = p.getPatientDataList().get(p.getPatientDataList().size() - 1).getDiagnosis();
                 Rediagnosis rediagnosis = p.getPatientDataList().get(p.getPatientDataList().size() - 1).getRediagnosis();
-                hospital.getRecordsList().add(new Records(patientID, docName, time, prescriptions, diagnosis, rediagnosis));
+
+                Records records = new Records(patientID, docName, time, prescriptions, diagnosis, rediagnosis);
+                boolean isFind = false;
+
+                // 将患者插入到有序列表
+                for(int i=0; i<hospital.getRecordsList().size(); i++){
+                    if(records.compareTo(hospital.getRecordsList().get(i)) == -1){
+                        hospital.getRecordsList().add(i, records);
+                        isFind = true;
+                        break;
+                    }
+                }
+                if(!isFind){
+                    hospital.getRecordsList().add(records);
+                }
             }
         }
 

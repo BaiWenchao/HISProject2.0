@@ -1,5 +1,7 @@
 package userInterface;
 
+import entity.Disease;
+import entity.Medicine;
 import entity.Records;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -17,4 +19,16 @@ public class ShowRecords {
 
     @FXML
     public TableView<Records> recordTable;
+
+    @FXML
+    public TableView<Medicine> medicineTable;
+
+    @FXML
+    public TableColumn<Medicine, String> medicineColumn;
+
+    @FXML
+    public TableView<Disease> diseaseTable;
+
+    @FXML
+    public TableColumn<Disease, String> diseaseColumn;
 }
