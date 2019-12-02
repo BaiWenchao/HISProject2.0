@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.CheckBoxTreeItem;
 import javafx.scene.control.TreeItem;
 
+import java.text.Collator;
 import java.util.*;
 
 import static userInterface.DoctorDiagnosis.diseases;
@@ -237,26 +238,57 @@ public class Algorithms {
         }
     }
 
-    public static void quickSort(int[] arr, int low, int high){
-        if(arr.length <= 0) return;
-        if(low >= high) return;
-        int left = low;
-        int right = high;
+    // 归并排序算法
+    public void mergeSort(List<Patient> a, boolean isID) {
+        Patient[] helper = new Patient[a.size()];
+        sort(a, 0, a.size() - 1, helper, isID);
+    }
 
-        int temp = arr[left];   //挖坑1：保存基准的值
-        while (left < right){
-            while(left < right && arr[right] >= temp){  //坑2：从后向前找到比基准小的元素，插入到基准位置坑1中
-                right--;
+    private void sort(List<Patient> a, int lo, int hi, Patient[] helper, boolean isID) {
+        if (lo >= hi) return;
+        int mid = lo + (hi - lo) / 2;
+        sort(a, lo, mid, helper, isID);
+        sort(a, mid + 1, hi, helper, isID);
+        merge(a, lo, mid, hi, helper, isID);
+    }
+
+    private void merge(List<Patient> a, int lo, int mid, int hi, Patient[] helper, boolean isID) {
+        if(isID){
+            for (int i = lo; i <= hi; i++) {
+                helper[i] = a.get(i);
             }
-            arr[left] = arr[right];
-            while(left < right && arr[left] <= temp){   //坑3：从前往后找到比基准大的元素，放到刚才挖的坑2中
-                left++;
+            int i = lo;
+            int j = mid + 1;
+            for (int k = lo; k <= hi; k++) {
+                if (i > mid) {
+                    a.set(k,helper[j++]);
+                } else if (j > hi) {
+                    a.set(k,helper[i++]);
+                } else if (helper[i].getHosRecordNum().compareTo(helper[j].getHosRecordNum()) <= 0) {
+                    a.set(k,helper[i++]);
+                } else {
+                    a.set(k,helper[j++]);
+                }
             }
-            arr[right] = arr[left];
+        }else{
+            Comparator<Object> com= Collator.getInstance(java.util.Locale.CHINA);
+            for (int i = lo; i <= hi; i++) {
+                helper[i] = a.get(i);
+            }
+            int i = lo;
+            int j = mid + 1;
+            for (int k = lo; k <= hi; k++) {
+                if (i > mid) {
+                    a.set(k,helper[j++]);
+                } else if (j > hi) {
+                    a.set(k,helper[i++]);
+                } else if (com.compare(helper[i].getName(), helper[j].getName()) <= 0) {
+                    a.set(k,helper[i++]);
+                } else {
+                    a.set(k,helper[j++]);
+                }
+            }
         }
-        arr[left] = temp;   //基准值填补到坑3中，准备分治递归快排
-        quickSort(arr, low, left-1);
-        quickSort(arr, left+1, high);
     }
 
 }

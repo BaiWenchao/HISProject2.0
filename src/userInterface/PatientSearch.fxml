@@ -6,7 +6,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="800.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.PatientSearch">
    <children>
       <ChoiceBox fx:id="departmentBox" layoutX="440.0" layoutY="63.0" onMousePressed="#initDepartment" prefWidth="150.0" />
@@ -22,7 +21,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button fx:id="idSort" layoutX="996.0" layoutY="563.0" mnemonicParsing="false" text="按ID排序" />
-      <Button fx:id="nameSort" layoutX="996.0" layoutY="634.0" mnemonicParsing="false" text="按姓名排序" />
+      <Button fx:id="idSort" layoutX="996.0" layoutY="563.0" mnemonicParsing="false" onAction="#setIdSort" text="按ID排序" />
+      <Button fx:id="nameSort" layoutX="996.0" layoutY="634.0" mnemonicParsing="false" onAction="#setNameSort" text="按姓名排序" />
    </children>
 </AnchorPane>

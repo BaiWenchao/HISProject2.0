@@ -10,7 +10,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import logic.DataStructure.Algorithms;
 import logic.Util;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PatientSearch {
     // 创建Util单例
@@ -18,6 +22,9 @@ public class PatientSearch {
 
     // 创建医院单例
     Hospital hospital = Hospital.getInstance();
+
+    // 创建算法类单例
+    Algorithms algorithms = Algorithms.getInstance();
 
     ObservableList<Patient> patientObservableList = FXCollections.observableArrayList();
     @FXML
@@ -87,5 +94,27 @@ public class PatientSearch {
                 patientObservableList.addAll(d.getPatientList());
             }
         }
+    }
+
+    @FXML
+    private void setIdSort(){
+        List<Patient> patientList = new ArrayList<>();
+        for(Patient p : patientObservableList){
+            patientList.add(p);
+        }
+        algorithms.mergeSort(patientList, true);
+        patientObservableList.clear();
+        patientObservableList.addAll(patientList);
+    }
+
+    @FXML
+    private void setNameSort(){
+        List<Patient> patientList = new ArrayList<>();
+        for(Patient p : patientObservableList){
+            patientList.add(p);
+        }
+        algorithms.mergeSort(patientList, false);
+        patientObservableList.clear();
+        patientObservableList.addAll(patientList);
     }
 }
