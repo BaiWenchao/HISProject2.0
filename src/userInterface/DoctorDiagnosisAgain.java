@@ -9,6 +9,7 @@ import javafx.scene.control.cell.CheckBoxTreeCell;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import logic.DataStructure.Algorithms;
+import logic.ReturnNum;
 import logic.Show;
 import static userInterface.DoctorDiagnosis.diseases;
 import static userInterface.DoctorLogin.future;
@@ -27,6 +28,9 @@ public class DoctorDiagnosisAgain {
 
     // 创建数据结构算法类单例
     Algorithms algorithms = Algorithms.getInstance();
+
+    // 创建ReturnNum单例
+    ReturnNum returnNum = ReturnNum.getInstance();
 
     @FXML
     private TableColumn<Disease, String> diseaseName;
@@ -136,6 +140,7 @@ public class DoctorDiagnosisAgain {
                         // 将患者写入对应部门
                         for(Department de : hospital.getDepartmentList()){
                             if(de.getName().equals(d.getDepartment())){
+                                p.setCurrentInsertTime(returnNum.returnTime());
                                 de.getPatientList().add(p);
                             }
                         }

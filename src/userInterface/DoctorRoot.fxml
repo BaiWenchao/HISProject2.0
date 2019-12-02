@@ -41,6 +41,7 @@
           <Tab fx:id="diagnosis" text="初诊" />
             <Tab fx:id="rediagnosis" text="看诊" />
             <Tab fx:id="medicine" text="开方" />
+            <Tab fx:id="searchPatient" text="患者查询" />
         </tabs>
       </TabPane>
       <Label layoutX="793.0" layoutY="65.0" text="所属部门：" />

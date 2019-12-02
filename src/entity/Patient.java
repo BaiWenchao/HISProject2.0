@@ -18,6 +18,7 @@ public class Patient implements Comparable<Patient>{
     private StringProperty currentRecordNum = new SimpleStringProperty();
     private StringProperty currentDoctor = new SimpleStringProperty();
     private boolean currentNeedRediagnosis = false;
+    private StringProperty currentInsertTime = new SimpleStringProperty();
 
     public Patient() {
     }
@@ -154,6 +155,18 @@ public class Patient implements Comparable<Patient>{
 
     public void setCurrentNeedRediagnosis(boolean currentNeedRediagnosis) {
         this.currentNeedRediagnosis = currentNeedRediagnosis;
+    }
+
+    public String getCurrentInsertTime() {
+        return currentInsertTime.get();
+    }
+
+    public StringProperty currentInsertTimeProperty() {
+        return currentInsertTime;
+    }
+
+    public void setCurrentInsertTime(String currentInsertTime) {
+        this.currentInsertTime.set(currentInsertTime);
     }
 
     @Override

@@ -60,6 +60,9 @@ public class DoctorRoot {
     private Tab rediagnosis;
 
     @FXML
+    private Tab searchPatient;
+
+    @FXML
     public Label department;
 
     @FXML
@@ -68,17 +71,19 @@ public class DoctorRoot {
     @FXML
     private RadioButton showRecords;
 
-    // 3个tab下属AnchorPane
+    // 4个tab下属AnchorPane
     private AnchorPane rootDiagnosis;
     private AnchorPane rootMedicine;
     private AnchorPane rootReDiagnosis;
+    private AnchorPane rootSearchPatient;
 
     private AnchorPane showrecords;
 
-    // 3个AnchorPane的控制器
+    // 4个AnchorPane的控制器
     private DoctorDiagnosis docDiag;
     private DoctorMedicine docMed;
     private DoctorDiagnosisAgain docDiagAga;
+    private PatientSearch patSearch;
 
     @FXML
     private void initialize() throws IOException {
@@ -105,6 +110,15 @@ public class DoctorRoot {
         // 获取DoctorDiagnosisAgain控制器
         docDiagAga = loader3.getController();
         rediagnosis.setContent(rootReDiagnosis);
+
+        // 加载查询界面
+        FXMLLoader loader4 = new FXMLLoader();
+        loader4.setLocation(getClass().getResource("PatientSearch.fxml"));
+        rootSearchPatient = loader4.load();
+
+        // 获取PatientSearch的控制器
+        patSearch = loader4.getController();
+        searchPatient.setContent(rootSearchPatient);
 
         futureTable.setItems(future);
         pastTable.setItems(past);
@@ -209,29 +223,6 @@ public class DoctorRoot {
         controller.numColumn.setCellValueFactory(cellData -> cellData.getValue().patientIDProperty());
         controller.timeColumn.setCellValueFactory(cellData -> cellData.getValue().timeProperty());
         controller.docColumn.setCellValueFactory(cellData -> cellData.getValue().docNameProperty());
-
-        /*futureTable.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> {
-                    try{
-                        docDiag.recordNumLabel.setText(newValue.getHosRecordNum());
-                        docDiag.nameLabel.setText(newValue.getName());
-                        docDiag.doctor.setText(doctorName.getText());
-                        docDiag.department.setText(department.getText());
-                        docDiag.describe.setText("");
-                        docDiag.history.setText("");
-                        docDiag.examine.setText("");
-                        docDiag.advice.setText("");
-
-                        docDiagAga.hosRecordNumLabel.setText(newValue.getHosRecordNum());
-                        docDiagAga.nameLabel.setText(newValue.getName());
-                        docDiagAga.doctorLabel.setText(doctorName.getText());
-                        docDiagAga.departmentLabel.setText(department.getText());
-
-                        diseases.clear();
-                    }catch (NullPointerException ne){
-
-                    }
-                });*/
 
         controller.recordTable.getSelectionModel().selectedItemProperty().addListener(
                 ((observable, oldValue, newValue) -> {

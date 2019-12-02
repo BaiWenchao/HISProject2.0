@@ -37,6 +37,9 @@ public class DoctorDiagnosis {
     // 创建数据结构算法类单例
     Algorithms algorithms = Algorithms.getInstance();
 
+    // 创建ReturnNum单例
+    ReturnNum returnNum = ReturnNum.getInstance();
+
 
     @FXML
     private TableColumn<Disease, String> diseaseName;
@@ -170,6 +173,7 @@ public class DoctorDiagnosis {
                         // 将患者写入对应部门
                         for(Department de : hospital.getDepartmentList()){
                             if(de.getName().equals(d.getDepartment())){
+                                p.setCurrentInsertTime(returnNum.returnTime());
                                 de.getPatientList().add(p);
                             }
                         }
