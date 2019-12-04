@@ -151,5 +151,19 @@ public class WriteFile {
         }
     }
 
+    // 将处方模板写入文件
+    public void writePrescriptionTamplate(){
+        // 将列表转化为字符串
+        String str = JSON.toJSONString(hospital.getPrescriptionTemplateList());
+        // 将字符串写入文件
+        File f = new File(getClass().getResource("PrescriptionList.data").getPath());
+        try(FileWriter fw = new FileWriter(f);
+            BufferedWriter bfw = new BufferedWriter(fw)){
+            bfw.write(str);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }

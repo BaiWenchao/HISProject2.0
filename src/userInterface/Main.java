@@ -1,7 +1,5 @@
 package userInterface;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.parser.ParserConfig;
 import dataAccess.ReadFile;
 import dataAccess.WriteFile;
 import entity.*;
@@ -122,6 +120,9 @@ public class Main extends Application {
 
         // 将部门类信息写入
         write.writeDepartment();
+
+        // 将处方模板写入
+        write.writePrescriptionTamplate();
 
     }
 }

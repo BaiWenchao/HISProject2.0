@@ -64,6 +64,18 @@ public class MyHashMap<K,V> {
         return null;
     }
 
+    public Object[] getEntries() {
+        return entries;
+    }
+
+    public void setEntries(Object[] entries) {
+        this.entries = entries;
+    }
+
+    public void setKeySet(Set<String> keySet) {
+        this.keySet = keySet;
+    }
+
     public V remove(K key) {
         if(key == null){
             return null;
