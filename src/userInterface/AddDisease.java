@@ -1,6 +1,8 @@
 package userInterface;
 
 import entity.*;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -36,6 +38,9 @@ public class AddDisease {
     private Button addDisease;
 
     @FXML
+    private Button deleteDisease;
+
+    @FXML
     private Button searchPatient;
 
     @FXML
@@ -52,11 +57,24 @@ public class AddDisease {
     // 创建Util单例
     Util util = Util.getInstance();
 
+
     @FXML
     public void setAddDisease() throws Exception {
         try{
             if(!hospital.getDiseaseTree().addNode(diseaseName.getText(), fatherName.getText(), diseaseCode.getText())){
-                util.errorInformationAlert("无此父节点！");
+                util.errorInformationAlert("无此父结点！");
+            }
+        }catch (NullPointerException npe){
+
+        }
+        diseaseTreeView.setRoot(algorithms.diseaseBFT(hospital.getDiseaseTree().getNodeMap().get("疾病")));
+    }
+
+    @FXML
+    public void setDeleteDisease() throws Exception {
+        try{
+            if(!hospital.getDiseaseTree().removeNode(diseaseName.getText(), fatherName.getText())){
+                util.errorInformationAlert("无此结点！");
             }
         }catch (NullPointerException npe){
 
@@ -67,6 +85,20 @@ public class AddDisease {
     @FXML
     public void initialize() throws Exception {
         diseaseTreeView.setRoot(algorithms.diseaseBFT(hospital.getDiseaseTree().getNodeMap().get("疾病")));
+
+        diseaseTreeView.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> {
+                    if(newValue != null){
+                        diseaseName.setText(newValue.getValue());
+                        diseaseCode.setText("");
+
+                        if(!newValue.getValue().equals("疾病")){
+                            fatherName.setText(newValue.getParent().getValue());
+                        }else{
+                            fatherName.setText("null");
+                        }
+                    }
+                });
     }
 
     @FXML

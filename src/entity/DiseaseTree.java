@@ -53,6 +53,26 @@ public class DiseaseTree{
         }
     }
 
+    public boolean removeNode(String nodeName, String fatherName){
+        if(nodeMap.get(nodeName) == null){
+            return false;
+        }
+
+        nodeMap.get(fatherName).getChildList().remove(nodeMap.get(nodeName));
+
+        if(nodeMap.get(nodeName).getChildList().isEmpty()){
+            nodeMap.remove(nodeName);
+        }else{
+            List<DiseaseTreeNode> list = nodeMap.get(nodeName).getChildList();
+            nodeMap.remove(nodeName);
+            for(DiseaseTreeNode d : list){
+                removeNode(d.getDiseaseName(), nodeName);
+            }
+        }
+
+        return true;
+    }
+
 
 
 }

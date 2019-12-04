@@ -122,5 +122,6 @@ public class Main extends Application {
 
         // 将部门类信息写入
         write.writeDepartment();
+
     }
 }

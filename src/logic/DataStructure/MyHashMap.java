@@ -2,17 +2,14 @@ package logic.DataStructure;
 
 import javax.swing.plaf.basic.BasicScrollPaneUI;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**只支持String为键*/
 
 public class MyHashMap<K extends String,V> implements MyMap<K, V>{
     private MapEntry<K,V>[] array;
     private int size;
-    private List<K> keyList = new ArrayList<>();
+    private Set<String> keySet = new TreeSet<>();
 
     public MyHashMap() {
         array = new MapEntry[7];
@@ -28,12 +25,12 @@ public class MyHashMap<K extends String,V> implements MyMap<K, V>{
         int index = getIndex(key);
         while(true) {
             // 计算的index可用
-            if(array[index] == null) {
+            if(array[index] == null && !keySet.contains(key)) {
                 MapEntry newEntry = new MapEntry<>(key, value);
                 array[index] = newEntry;
                 ++size;
                 checkForExpansion();
-                keyList.add(key);
+                keySet.add(key);
                 return null;
             }
             else if(array[index].getKey().equals(key)) {
@@ -49,30 +46,23 @@ public class MyHashMap<K extends String,V> implements MyMap<K, V>{
         }
     }
 
-    public List<K> getKeyList() {
-        return keyList;
+    public Set<String> getKeySet() {
+        return keySet;
     }
 
     @Override
-    public V get(K key)
-    {
+    public V get(K key) {
         int index = getIndex(key);
         int collisions = 0;
-        while(true)
-        {
+        while(true) {
 
-            if(array[index] == null)
-            {
+            if(array[index] == null) {
                 //System.out.println("Collisions: " + collisions);
                 return null;
-            }
-            else if(array[index].getKey().equals(key))
-            {
+            } else if(array[index].getKey().equals(key)) {
                 //System.out.println("Collisions: " + collisions);
                 return array[index].getValue();
-            }
-            else
-            {
+            } else {
                 index = incIndex(index);
                 ++collisions;
             }
@@ -80,16 +70,24 @@ public class MyHashMap<K extends String,V> implements MyMap<K, V>{
     }
 
     @Override
-    public V remove(K key)
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void remove(K key) {
+        int index = getIndex(key);
+        while(true) {
+
+            if(array[index] == null) {
+                return;
+            } else if(array[index].getKey().equals(key)) {
+                array[index] = null;
+                keySet.remove(key);
+            } else {
+                index = incIndex(index);
+            }
+        }
     }
 
-    private int incIndex(int index)
-    {
+    private int incIndex(int index) {
         ++index;
-        if(index >= array.length)
-        {
+        if(index >= array.length) {
             index = 0;
         }
         return index;
@@ -104,42 +102,16 @@ public class MyHashMap<K extends String,V> implements MyMap<K, V>{
         return Math.abs(val) % array.length;
     }
 
-    private void checkForExpansion()
-    {
-        if((size * 10) / array.length > 2)
-        {
+    private void checkForExpansion() {
+        if((size * 10) / array.length > 2) {
             MapEntry<K,V>[] oldArray = array;
             array = new MapEntry[array.length*2];
             size = 0;
-            for(int i = 0; i < oldArray.length; ++i)
-            {
-                if(oldArray[i] != null)
-                {
+            for(int i = 0; i < oldArray.length; ++i) {
+                if(oldArray[i] != null) {
                     put(oldArray[i].getKey(), oldArray[i].getValue());
                 }
             }
-        }
-    }
-
-    private static class MapEntry<K,V>
-    {
-        private final K key;
-        private final V value;
-
-        public MapEntry(K key, V value)
-        {
-            this.key = key;
-            this.value = value;
-        }
-
-        public K getKey()
-        {
-            return key;
-        }
-
-        public V getValue()
-        {
-            return value;
         }
     }
 }

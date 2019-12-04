@@ -93,7 +93,7 @@ public class WriteFile {
 
         // 策略2：将map中的node转移到list中，存储list
         List<DiseaseTreeNode> nodeList = new ArrayList<>();
-        for(String s : hospital.getDiseaseTree().getNodeMap().getKeyList()){
+        for(String s : hospital.getDiseaseTree().getNodeMap().getKeySet()){
             nodeList.add(hospital.getDiseaseTree().getNodeMap().get(s));
         }
         String str = JSON.toJSONString(nodeList);
