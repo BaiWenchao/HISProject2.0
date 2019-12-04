@@ -1,117 +1,127 @@
 package logic.DataStructure;
 
-import javax.swing.plaf.basic.BasicScrollPaneUI;
-import java.io.Serializable;
-import java.util.*;
+import java.util.Set;
+import java.util.TreeSet;
 
-/**只支持String为键*/
+public class MyHashMap<K,V> {
 
-public class MyHashMap<K extends String,V> implements MyMap<K, V>{
-    private MapEntry<K,V>[] array;
-    private int size;
+    private class Entry{
+        K k;
+        V v;
+        private Entry(K key, V value){
+            k = key;
+            v = value;
+        }
+        public K getKey(){
+            return k;
+        }
+        public V getVal(){
+            return v;
+        }
+    }
+
+    private Object[] entries;
     private Set<String> keySet = new TreeSet<>();
 
+
+    private int size;
     public MyHashMap() {
-        array = new MapEntry[7];
-    }
-
-    @Override
-    public int size() {
-        return size;
-    }
-
-    @Override
-    public V put(K key, V value) {
-        int index = getIndex(key);
-        while(true) {
-            // 计算的index可用
-            if(array[index] == null && !keySet.contains(key)) {
-                MapEntry newEntry = new MapEntry<>(key, value);
-                array[index] = newEntry;
-                ++size;
-                checkForExpansion();
-                keySet.add(key);
-                return null;
-            }
-            else if(array[index].getKey().equals(key)) {
-                // 计算的index上有对象，但是key相同，则取代之，返回原先对象
-                V oldValue = array[index].getValue();
-                array[index] = new MapEntry<>(key, value);
-                return oldValue;
-            }
-            else {
-                // 计算的index无对象，且key不同，则递增index，如果index到头了，返回0
-                index = incIndex(index);
-            }
-        }
+        clear();
     }
 
     public Set<String> getKeySet() {
         return keySet;
     }
 
-    @Override
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    private int hash(K key){
+        // 获取键的哈希值
+        return Math.abs(key.hashCode())%entries.length;
+    }
+
+    public int size() {
+        // 返回哈希表的大小
+        return size;
+    }
+
     public V get(K key) {
-        int index = getIndex(key);
-        int collisions = 0;
-        while(true) {
-
-            if(array[index] == null) {
-                //System.out.println("Collisions: " + collisions);
-                return null;
-            } else if(array[index].getKey().equals(key)) {
-                //System.out.println("Collisions: " + collisions);
-                return array[index].getValue();
-            } else {
-                index = incIndex(index);
-                ++collisions;
-            }
+        // 获得某一个键的值
+        if(key == null){
+            return null;
         }
+        int h = hash(key);
+        Entry e = (Entry)entries[h];
+        if ( e != null && e.getKey().equals(key)  ) {
+            return e.getVal();
+        }
+        return null;
     }
 
-    @Override
-    public void remove(K key) {
-        int index = getIndex(key);
-        while(true) {
-
-            if(array[index] == null) {
-                return;
-            } else if(array[index].getKey().equals(key)) {
-                array[index] = null;
-                keySet.remove(key);
-            } else {
-                index = incIndex(index);
-            }
+    public V remove(K key) {
+        if(key == null){
+            return null;
         }
+        int h = hash(key);
+        Entry t = (Entry)entries[h];
+        if(t != null && t.getKey().equals(key)){
+            size--;
+            entries[h]=null;
+            keySet.remove(key.toString());
+            return t.getVal();
+        }
+        return null;
     }
 
-    private int incIndex(int index) {
-        ++index;
-        if(index >= array.length) {
-            index = 0;
+    public void put(K key, V value) {
+        if(key == null || value == null) {
+            return;
         }
-        return index;
+        int h = hash(key);
+        if(entries[h] == null){
+            entries[h] = new Entry(key, value);
+            keySet.add(key.toString());
+            size++;
+            return;
+        }
+        if(((Entry)entries[h]).getKey().equals(key)){
+            entries[h] = new Entry(key, value);
+            return;
+        }
+        // 当发生冲突就进行再散列
+        grow(2*entries.length);
+        put(key, value);
     }
 
-    private int getIndex(K key) {
-        int val = 0;
-        char[] ch = key.toCharArray();
-        for(char c : ch){
-            val += c;
-        }
-        return Math.abs(val) % array.length;
-    }
-
-    private void checkForExpansion() {
-        if((size * 10) / array.length > 2) {
-            MapEntry<K,V>[] oldArray = array;
-            array = new MapEntry[array.length*2];
-            size = 0;
-            for(int i = 0; i < oldArray.length; ++i) {
-                if(oldArray[i] != null) {
-                    put(oldArray[i].getKey(), oldArray[i].getValue());
+    public void grow(int s){
+        // 再散列方法
+        Object[] temp = new Object[s];
+        for(int i=0; i<entries.length; i++){
+            if(entries[i] != null){
+                Entry e = (Entry)entries[i];
+                int p = Math.abs(e.getKey().hashCode()) % temp.length;
+                if(temp[p] != null){
+                    grow(2*s);
+                    return;
                 }
+                temp[p]=e;
             }
+
         }
+
+        entries = temp;
     }
+
+    public void clear()
+    {
+        entries = new Object[20];
+        size=0;
+    }
+
 }

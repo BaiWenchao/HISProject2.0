@@ -38,17 +38,15 @@ public class DiseaseTree{
     }
 
     public boolean addNode(String nodeName, String fatherName, String code){
-
         try{
             DiseaseTreeNode newNode = new DiseaseTreeNode(nodeName);
-
             nodeMap.put(nodeName, newNode);
             nodeMap.get(fatherName).addChild(newNode);
             nodeMap.get(nodeName).setDiseaseCode(code);
 
             return true;
 
-        }catch (Exception e){
+        }catch (NullPointerException e){
             return false;
         }
     }
