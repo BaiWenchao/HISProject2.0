@@ -1,1 +1,1 @@
-[{"medicineList":[{"med_amount":"每次两粒","med_name":"克拉霉素","med_num":"1盒","med_price":"15元","med_spec":"150mg","med_time":"每日两次","med_use":"餐前服用"}],"name":"感冒"}]
+[{"medicineList":[{"med_amount":"每次两粒","med_name":"克拉霉素","med_num":"1盒","med_price":"15元","med_spec":"150mg","med_time":"每日两次","med_use":"餐前服用"}],"name":"感冒"},{"medicineList":[{"med_amount":"每次两粒","med_name":"青霉素","med_num":"1盒","med_price":"5元","med_spec":"150mg","med_time":"每日两次","med_use":"餐前服用"}],"name":"发烧"}]

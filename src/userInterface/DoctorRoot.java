@@ -236,11 +236,15 @@ public class DoctorRoot {
                         }
                     }
                     // 向疾病列表中添加本次就诊中诊断的疾病
-                    for(Disease d : newValue.getDiagnosis().getDiseaseList()){
-                        diseaseObservableList.add(d);
+                    if(newValue.getDiagnosis() != null){
+                        for(Disease d : newValue.getDiagnosis().getDiseaseList()){
+                            diseaseObservableList.add(d);
+                        }
                     }
-                    for(Disease d : newValue.getRediagnosis().getDiseaseList()){
-                        diseaseObservableList.add(d);
+                    if(newValue.getRediagnosis() != null){
+                        for(Disease d : newValue.getRediagnosis().getDiseaseList()){
+                            diseaseObservableList.add(d);
+                        }
                     }
 
                     // 将两个列表装入table

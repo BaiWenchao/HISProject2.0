@@ -36,7 +36,7 @@ public class Algorithms {
         MyQueue<DiseaseTreeNode> queue = new MyQueue<>();
         queue.insert(root);
 
-        Map<DiseaseTreeNode, TreeItem<String>> map = new HashMap<>();
+        MyHashMap<DiseaseTreeNode, TreeItem<String>> map = new MyHashMap<>();
         map.put(root, temp);
 
         while(!queue.isEmpty()){
@@ -68,7 +68,7 @@ public class Algorithms {
         MyQueue<DiseaseTreeNode> queue = new MyQueue<>();
         queue.insert(root);
 
-        Map<DiseaseTreeNode, CheckBoxTreeItem<String>> map = new HashMap<>();
+        MyHashMap<DiseaseTreeNode, CheckBoxTreeItem<String>> map = new MyHashMap<>();
         map.put(root, temp);
 
         while(!queue.isEmpty()){

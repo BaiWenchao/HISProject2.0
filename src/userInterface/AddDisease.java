@@ -63,11 +63,13 @@ public class AddDisease {
         try{
             if(!hospital.getDiseaseTree().addNode(diseaseName.getText(), fatherName.getText(), diseaseCode.getText())){
                 util.errorInformationAlert("无此父结点！");
+                return;
             }
         }catch (NullPointerException npe){
 
         }
         diseaseTreeView.setRoot(algorithms.diseaseBFT(hospital.getDiseaseTree().getNodeMap().get("疾病")));
+        util.completeInformationAlert("添加成功！");
     }
 
     @FXML
