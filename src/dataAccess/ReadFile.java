@@ -1,15 +1,9 @@
 package dataAccess;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.TypeReference;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import entity.*;
-import javafx.scene.control.TreeItem;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ReadFile {
@@ -223,23 +217,17 @@ public class ReadFile {
                     hospital.setBqNum(Integer.parseInt(str[2]));
                     hospital.setSsmNum(Integer.parseInt(str[3]));
                     hospital.setLszNum(Integer.parseInt(str[4]));
-                    hospital.setXbNum(Integer.parseInt(str[5]));
-                    hospital.setGlNum(Integer.parseInt(str[6]));
                     hospital.getNumMap().clear();
                     hospital.getNumMap().put("华佗",Integer.parseInt(str[1]));
                     hospital.getNumMap().put("扁鹊",Integer.parseInt(str[2]));
                     hospital.getNumMap().put("孙思邈",Integer.parseInt(str[3]));
                     hospital.getNumMap().put("李时珍",Integer.parseInt(str[4]));
-                    hospital.getNumMap().put("希波克拉底",Integer.parseInt(str[5]));
-                    hospital.getNumMap().put("盖伦",Integer.parseInt(str[6]));
                 }else{
                     hospital.setRecordNum(0);
                     hospital.setHtNum(0);
                     hospital.setBqNum(0);
                     hospital.setSsmNum(0);
                     hospital.setLszNum(0);
-                    hospital.setXbNum(0);
-                    hospital.setGlNum(0);
                 }
                 reader.close();
             }catch (FileNotFoundException e){
